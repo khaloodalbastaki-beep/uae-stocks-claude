@@ -84,8 +84,8 @@ _SEED: list[Security] = [
              ["uae_equity", "construction", "rates"]),
     Security("2POINTZERO", "Two Point Zero Group", "مجموعة تو بوينت زيرو", ADX, "Holding / Diversified", "holding",
              ["uae_equity", "consumer"], aliases=["MULTIPLY"]),  # ex-Multiply (verified rename, grounding §2.3)
-    Security("Q", "Q Holding", "كيو القابضة", ADX, "Holding / Diversified", "holding",
-             ["uae_equity"]),
+    # NOTE: "Q" (Q Holding) was rebranded to Modon Holding after the Feb-2024 merger and now
+    # trades as MODON (below) — removed to avoid a defunct duplicate ticker. (verified 2026-06-19)
     # ---- ADX: real estate ----
     Security("ALDAR", "Aldar Properties", "الدار العقارية", ADX, "Real Estate", "developer",
              ["rates", "construction_metals", "tourism", "population"]),
