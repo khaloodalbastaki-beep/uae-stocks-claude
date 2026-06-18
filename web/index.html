@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0f17" />
+  <title>UAE Stocks Intelligence</title>
+  <meta name="description" content="Investor intelligence for ADX & DFM listed equities — disclosures, dividends, governance, global factors, and explainable AI analysis." />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232f81f7'/%3E%3Ctext x='16' y='22' font-size='16' font-family='sans-serif' font-weight='800' fill='white' text-anchor='middle'%3EUٱE%3C/text%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#/">
+        <span class="logo">U</span>
+        <span>UAE Stocks Intelligence<small data-i18n="tagline">ADX · DFM · explainable, source-first</small></span>
+      </a>
+      <nav class="nav" id="nav"></nav>
+      <div class="top-actions">
+        <div class="search-box">
+          <input id="search" type="search" placeholder="Search symbol or company…" autocomplete="off" />
+          <div id="search-results" class="search-results" hidden></div>
+        </div>
+        <button class="icon-btn" id="lang-btn" title="Language">ع / EN</button>
+        <button class="icon-btn" id="theme-btn" title="Theme">◐</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="app" class="wrap"><div class="grid cards">
+    <div class="skel skel-card"></div><div class="skel skel-card"></div>
+    <div class="skel skel-card"></div><div class="skel skel-card"></div>
+  </div></main>
+
+  <footer class="footer" id="footer"></footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(()=>{}));
+    }
+  </script>
+</body>
+</html>

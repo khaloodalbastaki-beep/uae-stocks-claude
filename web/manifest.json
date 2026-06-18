@@ -1,0 +1,17 @@
+{
+  "name": "UAE Stocks Intelligence",
+  "short_name": "UAE Stocks",
+  "description": "Investor intelligence for ADX & DFM listed equities — disclosures, dividends, governance, global factors, and explainable AI analysis.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b0f17",
+  "theme_color": "#0b0f17",
+  "lang": "en",
+  "dir": "auto",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

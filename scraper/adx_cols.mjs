@@ -1,0 +1,13 @@
+import { chromium } from 'playwright';
+const UA='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
+const browser=await chromium.launch({headless:true});
+const ctx=await browser.newContext({userAgent:UA,locale:'en-US',viewport:{width:1600,height:1200}});
+const page=await ctx.newPage();
+await page.goto('https://www.adx.ae/all-equities',{waitUntil:'domcontentloaded',timeout:40000});
+await page.waitForTimeout(8000);
+const hdr=await page.$$eval('.rdt_TableCol', els=>els.map(e=>e.innerText.trim()));
+console.log('HEADERS:', JSON.stringify(hdr));
+const rows=await page.$$eval('.rdt_TableRow', trs=>trs.slice(0,4).map(tr=>Array.from(tr.querySelectorAll('.rdt_TableCell')).map(c=>c.innerText.trim().replace(/\s+/g,' '))));
+rows.forEach((r,i)=>console.log(`row${i}:`, JSON.stringify(r)));
+console.log('total rdt rows:', await page.$$eval('.rdt_TableRow', e=>e.length));
+await browser.close();

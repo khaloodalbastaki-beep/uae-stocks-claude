@@ -1,0 +1,580 @@
+[
+  {
+    "symbol": "FAB",
+    "name_en": "First Abu Dhabi Bank",
+    "name_ar": "بنك أبوظبي الأول",
+    "exchange": "ADX",
+    "sector": "Banks",
+    "exposure_factors": [
+      "us_uae_policy_rate_short_positive",
+      "oil_fiscal_liquidity_positive",
+      "real_estate_cycle_positive",
+      "em_risk_appetite_dxy"
+    ]
+  },
+  {
+    "symbol": "ADCB",
+    "name_en": "Abu Dhabi Commercial Bank",
+    "name_ar": "بنك أبوظبي التجاري",
+    "exchange": "ADX",
+    "sector": "Banks",
+    "exposure_factors": [
+      "us_uae_policy_rate_short_positive",
+      "oil_fiscal_liquidity_positive",
+      "real_estate_cycle_positive"
+    ]
+  },
+  {
+    "symbol": "ADIB",
+    "name_en": "Abu Dhabi Islamic Bank",
+    "name_ar": "مصرف أبوظبي الإسلامي",
+    "exchange": "ADX",
+    "sector": "Banks",
+    "exposure_factors": [
+      "us_uae_policy_rate_short_positive",
+      "oil_fiscal_liquidity_positive",
+      "real_estate_cycle_positive"
+    ]
+  },
+  {
+    "symbol": "RAKBANK",
+    "name_en": "National Bank of Ras Al Khaimah",
+    "name_ar": "بنك رأس الخيمة الوطني",
+    "exchange": "ADX",
+    "sector": "Banks",
+    "exposure_factors": [
+      "us_uae_policy_rate_short_positive",
+      "oil_fiscal_liquidity_positive",
+      "real_estate_cycle_positive"
+    ]
+  },
+  {
+    "symbol": "CBI",
+    "name_en": "Commercial Bank International",
+    "name_ar": "البنك التجاري الدولي",
+    "exchange": "ADX",
+    "sector": "Banks",
+    "exposure_factors": [
+      "us_uae_policy_rate_short_positive",
+      "oil_fiscal_liquidity_positive"
+    ]
+  },
+  {
+    "symbol": "SIB",
+    "name_en": "Sharjah Islamic Bank",
+    "name_ar": "مصرف الشارقة الإسلامي",
+    "exchange": "ADX",
+    "sector": "Banks",
+    "exposure_factors": [
+      "us_uae_policy_rate_short_positive",
+      "oil_fiscal_liquidity_positive",
+      "real_estate_cycle_positive"
+    ]
+  },
+  {
+    "symbol": "UAB",
+    "name_en": "United Arab Bank",
+    "name_ar": "البنك العربي المتحد",
+    "exchange": "ADX",
+    "sector": "Banks",
+    "exposure_factors": [
+      "us_uae_policy_rate_short_positive",
+      "oil_fiscal_liquidity_positive"
+    ]
+  },
+  {
+    "symbol": "NBQ",
+    "name_en": "National Bank of Umm Al Qaiwain",
+    "name_ar": "بنك أم القيوين الوطني",
+    "exchange": "ADX",
+    "sector": "Banks",
+    "exposure_factors": [
+      "us_uae_policy_rate_short_positive",
+      "oil_fiscal_liquidity_positive"
+    ]
+  },
+  {
+    "symbol": "ALDAR",
+    "name_en": "Aldar Properties",
+    "name_ar": "الدار العقارية",
+    "exchange": "ADX",
+    "sector": "Real Estate",
+    "exposure_factors": [
+      "us_uae_policy_rate_negative",
+      "oil_fiscal_population_positive",
+      "steel_aluminium_input_cost_negative",
+      "tourism_inflows_positive"
+    ]
+  },
+  {
+    "symbol": "RAKPROP",
+    "name_en": "RAK Properties",
+    "name_ar": "عقارات رأس الخيمة",
+    "exchange": "ADX",
+    "sector": "Real Estate",
+    "exposure_factors": [
+      "us_uae_policy_rate_negative",
+      "oil_fiscal_population_positive",
+      "steel_aluminium_input_cost_negative"
+    ]
+  },
+  {
+    "symbol": "MODON",
+    "name_en": "Modon Holding",
+    "name_ar": "مدن القابضة",
+    "exchange": "ADX",
+    "sector": "Real Estate",
+    "exposure_factors": [
+      "us_uae_policy_rate_negative",
+      "oil_fiscal_population_positive",
+      "tourism_inflows_positive",
+      "construction_input_cost_negative"
+    ]
+  },
+  {
+    "symbol": "EMAAR",
+    "name_en": "Emaar Properties",
+    "name_ar": "إعمار العقارية",
+    "exchange": "DFM",
+    "sector": "Real Estate",
+    "exposure_factors": [
+      "us_uae_policy_rate_negative",
+      "oil_fiscal_population_positive",
+      "steel_aluminium_input_cost_negative",
+      "tourism_inflows_positive"
+    ]
+  },
+  {
+    "symbol": "EMAARDEV",
+    "name_en": "Emaar Development",
+    "name_ar": "إعمار للتطوير",
+    "exchange": "DFM",
+    "sector": "Real Estate",
+    "exposure_factors": [
+      "us_uae_policy_rate_negative",
+      "oil_fiscal_population_positive",
+      "steel_aluminium_input_cost_negative"
+    ]
+  },
+  {
+    "symbol": "DEYAAR",
+    "name_en": "Deyaar Development",
+    "name_ar": "ديار للتطوير",
+    "exchange": "DFM",
+    "sector": "Real Estate",
+    "exposure_factors": [
+      "us_uae_policy_rate_negative",
+      "oil_fiscal_population_positive",
+      "construction_input_cost_negative"
+    ]
+  },
+  {
+    "symbol": "TAQA",
+    "name_en": "Abu Dhabi National Energy Company (TAQA)",
+    "name_ar": "شركة أبوظبي الوطنية للطاقة (طاقة)",
+    "exchange": "ADX",
+    "sector": "Utilities",
+    "exposure_factors": [
+      "us_uae_policy_rate_negative_bond_proxy",
+      "natural_gas_fuel_cost",
+      "oil_gas_upstream_positive",
+      "em_dividend_yield"
+    ]
+  },
+  {
+    "symbol": "DEWA",
+    "name_en": "Dubai Electricity and Water Authority",
+    "name_ar": "هيئة كهرباء ومياه دبي",
+    "exchange": "DFM",
+    "sector": "Utilities",
+    "exposure_factors": [
+      "us_uae_policy_rate_negative_bond_proxy",
+      "natural_gas_fuel_cost",
+      "population_demand_positive",
+      "em_dividend_yield"
+    ]
+  },
+  {
+    "symbol": "EMPOWER",
+    "name_en": "Emirates Central Cooling Systems (Empower)",
+    "name_ar": "الإمارات للتبريد المركزي (أمباور)",
+    "exchange": "DFM",
+    "sector": "Utilities",
+    "exposure_factors": [
+      "us_uae_policy_rate_negative_bond_proxy",
+      "cooling_degree_days_positive",
+      "population_demand_positive"
+    ]
+  },
+  {
+    "symbol": "ADNOCGAS",
+    "name_en": "ADNOC Gas",
+    "name_ar": "أدنوك للغاز",
+    "exchange": "ADX",
+    "sector": "Energy",
+    "exposure_factors": [
+      "natural_gas_lng_price_positive",
+      "crude_oil_price_positive",
+      "asia_industrial_demand"
+    ]
+  },
+  {
+    "symbol": "ADNOCDRILL",
+    "name_en": "ADNOC Drilling",
+    "name_ar": "أدنوك للحفر",
+    "exchange": "ADX",
+    "sector": "Energy",
+    "exposure_factors": [
+      "crude_oil_price_positive",
+      "global_ep_capex_drilling_demand_positive"
+    ]
+  },
+  {
+    "symbol": "ADNOCDIST",
+    "name_en": "ADNOC Distribution",
+    "name_ar": "أدنوك للتوزيع",
+    "exchange": "ADX",
+    "sector": "Energy",
+    "exposure_factors": [
+      "refining_retail_fuel_margin",
+      "uae_driving_volumes_positive",
+      "population_demand_positive"
+    ]
+  },
+  {
+    "symbol": "ADNOCLS",
+    "name_en": "ADNOC Logistics & Services",
+    "name_ar": "أدنوك للخدمات اللوجستية",
+    "exchange": "ADX",
+    "sector": "Logistics",
+    "exposure_factors": [
+      "global_trade_freight_rates_positive",
+      "tanker_charter_rates_positive",
+      "crude_oil_price"
+    ]
+  },
+  {
+    "symbol": "DANA",
+    "name_en": "Dana Gas",
+    "name_ar": "دانة غاز",
+    "exchange": "ADX",
+    "sector": "Energy",
+    "exposure_factors": [
+      "crude_oil_price_positive",
+      "natural_gas_price_positive"
+    ]
+  },
+  {
+    "symbol": "BOROUGE",
+    "name_en": "Borouge",
+    "name_ar": "بروج",
+    "exchange": "ADX",
+    "sector": "Petrochemicals",
+    "exposure_factors": [
+      "natural_gas_feedstock_cost_negative",
+      "polyolefin_oil_price_positive",
+      "asia_industrial_demand_positive",
+      "global_pmi"
+    ]
+  },
+  {
+    "symbol": "FERTIGLB",
+    "name_en": "Fertiglobe",
+    "name_ar": "فيرتي جلوب",
+    "exchange": "ADX",
+    "sector": "Fertilizers",
+    "exposure_factors": [
+      "natural_gas_feedstock_cost_negative",
+      "urea_ammonia_dap_price_positive",
+      "crop_prices_agri_cycle_positive",
+      "gas_spread"
+    ]
+  },
+  {
+    "symbol": "EMSTEEL",
+    "name_en": "Emirates Steel Arkan (EMSTEEL)",
+    "name_ar": "الإمارات للحديد والصلب أركان",
+    "exchange": "ADX",
+    "sector": "Materials",
+    "exposure_factors": [
+      "iron_ore_input_cost_negative",
+      "steel_rebar_price_positive",
+      "construction_real_estate_cycle_positive",
+      "natural_gas_energy_cost_negative"
+    ]
+  },
+  {
+    "symbol": "NMDC",
+    "name_en": "NMDC Group",
+    "name_ar": "مجموعة الشركة الوطنية للحفر",
+    "exchange": "ADX",
+    "sector": "Construction",
+    "exposure_factors": [
+      "oil_fiscal_project_spend_positive",
+      "construction_input_cost_negative",
+      "global_trade_marine_works"
+    ]
+  },
+  {
+    "symbol": "NMDCENR",
+    "name_en": "NMDC Energy",
+    "name_ar": "إن إم دي سي للطاقة",
+    "exchange": "ADX",
+    "sector": "Energy",
+    "exposure_factors": [
+      "crude_oil_price_positive",
+      "global_ep_capex_positive",
+      "oil_fiscal_project_spend_positive"
+    ]
+  },
+  {
+    "symbol": "ADPORTS",
+    "name_en": "AD Ports Group",
+    "name_ar": "مجموعة موانئ أبوظبي",
+    "exchange": "ADX",
+    "sector": "Logistics",
+    "exposure_factors": [
+      "global_trade_freight_rates_positive",
+      "tourism_inflows_positive",
+      "oil_fiscal_project_spend_positive",
+      "global_pmi"
+    ]
+  },
+  {
+    "symbol": "ARMX",
+    "name_en": "Aramex",
+    "name_ar": "أرامكس",
+    "exchange": "DFM",
+    "sector": "Logistics",
+    "exposure_factors": [
+      "global_trade_ecommerce_volumes_positive",
+      "oil_jet_fuel_cost_negative",
+      "global_pmi"
+    ]
+  },
+  {
+    "symbol": "AIRARABIA",
+    "name_en": "Air Arabia",
+    "name_ar": "العربية للطيران",
+    "exchange": "DFM",
+    "sector": "Aviation",
+    "exposure_factors": [
+      "oil_jet_fuel_cost_negative",
+      "tourism_passenger_demand_positive",
+      "global_growth_pmi"
+    ]
+  },
+  {
+    "symbol": "SALIK",
+    "name_en": "Salik Company",
+    "name_ar": "شركة سالك",
+    "exchange": "DFM",
+    "sector": "Toll Roads",
+    "exposure_factors": [
+      "population_tourism_traffic_positive",
+      "us_uae_policy_rate_mild_negative_bond_proxy",
+      "tariff_gate_policy_positive"
+    ]
+  },
+  {
+    "symbol": "PARKIN",
+    "name_en": "Parkin Company",
+    "name_ar": "شركة باركين",
+    "exchange": "DFM",
+    "sector": "Toll Roads",
+    "exposure_factors": [
+      "population_tourism_traffic_positive",
+      "us_uae_policy_rate_mild_negative_bond_proxy",
+      "tariff_policy_positive"
+    ]
+  },
+  {
+    "symbol": "AGTHIA",
+    "name_en": "Agthia Group",
+    "name_ar": "مجموعة أغذية",
+    "exchange": "ADX",
+    "sector": "Food & Agri",
+    "exposure_factors": [
+      "wheat_grain_dairy_input_cost_negative",
+      "palm_oil_sugar_cost_negative",
+      "aluminium_pet_packaging_cost_negative",
+      "population_demand_positive"
+    ]
+  },
+  {
+    "symbol": "AMR",
+    "name_en": "Americana Restaurants",
+    "name_ar": "أمريكانا للمطاعم",
+    "exchange": "ADX",
+    "sector": "Food & Agri",
+    "exposure_factors": [
+      "wheat_oil_input_cost_negative",
+      "oil_fiscal_consumer_spending_positive",
+      "tourism_footfall_positive"
+    ]
+  },
+  {
+    "symbol": "AGTHIA_GHITHA",
+    "name_en": "Ghitha Holding",
+    "name_ar": "غذاء القابضة",
+    "exchange": "ADX",
+    "sector": "Food & Agri",
+    "exposure_factors": [
+      "wheat_grain_input_cost_negative",
+      "population_demand_positive",
+      "import_freight_fx_cost_negative"
+    ]
+  },
+  {
+    "symbol": "EAND",
+    "name_en": "e& (Emirates Telecom Group)",
+    "name_ar": "اتصالات من إي آند",
+    "exchange": "ADX",
+    "sector": "Telecom",
+    "exposure_factors": [
+      "us_uae_policy_rate_negative_bond_proxy",
+      "population_tourism_subscribers_positive",
+      "em_currency_subsidiary_risk",
+      "5g_capex_cost"
+    ]
+  },
+  {
+    "symbol": "DU",
+    "name_en": "Emirates Integrated Telecommunications (du)",
+    "name_ar": "دو (الإمارات للاتصالات المتكاملة)",
+    "exchange": "DFM",
+    "sector": "Telecom",
+    "exposure_factors": [
+      "us_uae_policy_rate_negative_bond_proxy",
+      "population_tourism_subscribers_positive",
+      "5g_capex_cost"
+    ]
+  },
+  {
+    "symbol": "BURJEEL",
+    "name_en": "Burjeel Holdings",
+    "name_ar": "برجيل القابضة",
+    "exchange": "ADX",
+    "sector": "Healthcare",
+    "exposure_factors": [
+      "us_uae_policy_rate_negative",
+      "population_medical_tourism_insurance_positive",
+      "imported_equipment_pharma_cost_negative",
+      "oil_fiscal_health_spend_positive"
+    ]
+  },
+  {
+    "symbol": "PUREHEALTH",
+    "name_en": "Pure Health Holding",
+    "name_ar": "بيور هيلث القابضة",
+    "exchange": "ADX",
+    "sector": "Healthcare",
+    "exposure_factors": [
+      "us_uae_policy_rate_negative",
+      "population_insurance_penetration_positive",
+      "oil_fiscal_health_spend_positive",
+      "imported_equipment_cost_negative"
+    ]
+  },
+  {
+    "symbol": "JULPHAR",
+    "name_en": "Gulf Pharmaceutical Industries (Julphar)",
+    "name_ar": "الخليج للصناعات الدوائية (جلفار)",
+    "exchange": "ADX",
+    "sector": "Healthcare",
+    "exposure_factors": [
+      "us_uae_policy_rate_negative",
+      "imported_api_input_cost_negative",
+      "population_demand_positive"
+    ]
+  },
+  {
+    "symbol": "IHC",
+    "name_en": "International Holding Company",
+    "name_ar": "القابضة (آي إتش سي)",
+    "exchange": "ADX",
+    "sector": "Holding",
+    "exposure_factors": [
+      "oil_fiscal_liquidity_sentiment_positive",
+      "us_uae_policy_rate_net_negative",
+      "em_index_flow_msci_positive",
+      "blended_nav_mix"
+    ]
+  },
+  {
+    "symbol": "ALPHADHABI",
+    "name_en": "Alpha Dhabi Holding",
+    "name_ar": "ألفا ظبي القابضة",
+    "exchange": "ADX",
+    "sector": "Holding",
+    "exposure_factors": [
+      "oil_fiscal_liquidity_sentiment_positive",
+      "us_uae_policy_rate_net_negative",
+      "em_index_flow_positive",
+      "blended_nav_mix"
+    ]
+  },
+  {
+    "symbol": "2POINTZERO",
+    "name_en": "Two Point Zero Group (ex-Multiply)",
+    "name_ar": "مجموعة تو بوينت زيرو",
+    "exchange": "ADX",
+    "sector": "Holding",
+    "exposure_factors": [
+      "oil_fiscal_liquidity_sentiment_positive",
+      "us_uae_policy_rate_net_negative",
+      "em_index_flow_positive",
+      "blended_nav_mix"
+    ]
+  },
+  {
+    "symbol": "GFH",
+    "name_en": "GFH Financial Group",
+    "name_ar": "مجموعة جي إف إتش المالية",
+    "exchange": "ADX",
+    "sector": "Financials",
+    "exposure_factors": [
+      "us_uae_policy_rate",
+      "real_estate_cycle_positive",
+      "em_risk_appetite",
+      "dual_listed_bahrain"
+    ]
+  },
+  {
+    "symbol": "ADNH",
+    "name_en": "Abu Dhabi National Hotels",
+    "name_ar": "الوطنية للفنادق",
+    "exchange": "ADX",
+    "sector": "Consumer",
+    "exposure_factors": [
+      "tourism_inflows_positive",
+      "oil_fiscal_consumer_spending_positive",
+      "us_uae_policy_rate_mild_negative"
+    ]
+  },
+  {
+    "symbol": "DIB",
+    "name_en": "Dubai Islamic Bank",
+    "name_ar": "بنك دبي الإسلامي",
+    "exchange": "DFM",
+    "sector": "Banks",
+    "exposure_factors": [
+      "us_uae_policy_rate_short_positive",
+      "oil_fiscal_liquidity_positive",
+      "real_estate_cycle_positive"
+    ]
+  },
+  {
+    "symbol": "EMIRATESNBD",
+    "name_en": "Emirates NBD",
+    "name_ar": "بنك الإمارات دبي الوطني",
+    "exchange": "DFM",
+    "sector": "Banks",
+    "exposure_factors": [
+      "us_uae_policy_rate_short_positive",
+      "oil_fiscal_liquidity_positive",
+      "real_estate_cycle_positive",
+      "em_risk_appetite"
+    ]
+  }
+]

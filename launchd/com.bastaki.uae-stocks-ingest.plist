@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The recurring brain. Mirrors com.bastaki.agentec-sync / dashboard-publish.
+     Every 15 min it runs tools/refresh.sh, but live exchange scraping/deploy is disabled
+     unless UAE_ALLOW_LIVE_EXCHANGE=1 is set after Khalid's explicit approval/licensing
+     decision. With the default 0, refresh.sh exits safely. "Boring is good": silent on
+     success, logs only.
+     Install:
+       cp launchd/com.bastaki.uae-stocks-ingest.plist ~/Library/LaunchAgents/
+       launchctl load ~/Library/LaunchAgents/com.bastaki.uae-stocks-ingest.plist
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.bastaki.uae-stocks-ingest</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/khalidalbastaki/Projects/uae-stocks/tools/refresh.sh</string>
+  </array>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/Users/khalidalbastaki/.local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    <key>PAGES_REPO</key><string>khaloodalbastaki-beep/uae-stocks-pages</string>
+    <key>UAE_ALLOW_LIVE_EXCHANGE</key><string>0</string>
+    <key>UAE_AI_PROVIDER</key><string>stub</string>
+  </dict>
+  <key>StartInterval</key>
+  <integer>900</integer>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/Users/khalidalbastaki/Projects/uae-stocks/data/ingest.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/khalidalbastaki/Projects/uae-stocks/data/ingest.err.log</string>
+</dict>
+</plist>
