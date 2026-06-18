@@ -1,0 +1,26 @@
+{
+  "symbol": "BOROUGE",
+  "as_of": "FY2024-12-31",
+  "currency": "USD",
+  "source": "Borouge PLC Investor Relations, ADX Filings, EnergyConnects, Zawya, Company Announcements",
+  "source_url": "https://www.borouge.com/en/investor-relations/Pages/reports-results.aspx",
+  "extractor": "research-grounded/Explore (seed)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T10:59:58+00:00",
+  "reported": {
+    "revenue": 6000,
+    "net_income": 1239,
+    "revenue_prior": 5790,
+    "net_income_prior": 1000,
+    "ebitda": 2480,
+    "operating_cash_flow": 1570,
+    "fcf": 2310,
+    "total_debt": 2730,
+    "dividend_per_share": 0.1588,
+    "payout_ratio": 104.8,
+    "years_paid": 1,
+    "net_margin": 20.65,
+    "net_margin_prior": 17.27,
+    "current_ratio": null
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "symbol": "EMPOWER",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "Emirates Central Cooling Systems Corporation PJSC (Official Media Office, DFM Filings, Zawya, stockanalysis.com)",
+  "source_url": "https://www.mediaoffice.ae/en/news/2025/february/14-02/empower-continues-its-growth-with-record-financial-and-operational-results",
+  "extractor": "research-grounded/Explore (seed)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T10:59:58+00:00",
+  "reported": {
+    "revenue": 3300,
+    "revenue_prior": 3035,
+    "net_income": 908,
+    "net_income_prior": 960,
+    "net_margin": 27.5,
+    "net_margin_prior": 31.6,
+    "ebitda": 1551,
+    "operating_cash_flow": 1890,
+    "fcf": 1427.5,
+    "dividend_per_share": 0.08625,
+    "payout_ratio": 0.95,
+    "dividend_frequency": "semi-annual",
+    "years_paid": 2,
+    "current_ratio": 1.03,
+    "total_debt": 5500,
+    "cut_history_5y": null
+  }
+}

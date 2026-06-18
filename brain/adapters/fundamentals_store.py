@@ -80,7 +80,12 @@ class FundamentalsStore:
         if ni and ni0 and ni0 != 0:
             f.profit_growth = round((ni - ni0) / abs(ni0), 4)
 
+        # percent-vs-decimal normalization (sources are inconsistent): >1.5 ⇒ given as %
         nm = _fnum(r, "net_margin"); nm0 = _fnum(r, "net_margin_prior")
+        if nm is not None and nm > 1.5:
+            nm /= 100.0
+        if nm0 is not None and nm0 > 1.5:
+            nm0 /= 100.0
         if nm is None and rev and ni:
             nm = ni / rev
         if nm is not None and nm0 is not None:
@@ -97,11 +102,23 @@ class FundamentalsStore:
         if ocf is not None and ni:
             f.ocf_consistency = round(max(0.3, min(1.0, ocf / abs(ni))) if ni else 0.7, 2)
 
+        cur = (rec.get("currency") or "AED").upper()
         dps = _fnum(r, "dividend_per_share")
+        if dps is not None and cur.startswith("USD"):
+            dps *= 3.6725   # source reported per-share in USD → AED (price is AED)
         if dps is not None and price:
-            f.dividend_yield = round(max(0.0, dps / price), 4)
+            y = max(0.0, dps / price)
+            # sanity clamp: real UAE yields top out ~8-9%; a >13% yield almost always means a
+            # unit/scale error in the source (annual-vs-interim, fils-vs-AED). Drop rather than
+            # ship a wrong figure (honest-degraded; dividend then scores on payout/coverage only).
+            if y <= 0.13:
+                f.dividend_yield = round(y, 4)
+            else:
+                print(f"[fundamentals] {symbol}: implausible yield {y:.2f} from dps={dps}; dropped")
         pr = _fnum(r, "payout_ratio")
         if pr is not None:
+            if pr > 1.5:
+                pr /= 100.0   # given as percent
             f.payout_ratio = round(pr, 2)
         fcf = _fnum(r, "fcf", "free_cash_flow")
         div_total = _fnum(r, "dividends_total")

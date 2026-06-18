@@ -1,0 +1,26 @@
+{
+  "symbol": "PUREHEALTH",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "Pure Health Holding PJSC official press releases, ADX filings, PR Newswire",
+  "source_url": "https://purehealth.ae/purehealth-reports-record-revenue-of-aed-25-8-billion-and-78-net-profit-growth-to-aed-1-7-billion/",
+  "extractor": "research-grounded/Explore (seed)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T10:59:58+00:00",
+  "reported": {
+    "revenue": 25800000000,
+    "revenue_prior": 16400000000,
+    "net_income": 1700000000,
+    "net_income_prior": 965000000,
+    "ebitda": 4100000000,
+    "net_margin": 6.59,
+    "net_margin_prior": 5.89,
+    "operating_cash_flow": 5020000000,
+    "fcf": 4240000000,
+    "total_debt": 1900000000,
+    "current_ratio": null,
+    "dividend_per_share": 0.0309,
+    "payout_ratio": 0.2,
+    "years_paid": 1
+  }
+}

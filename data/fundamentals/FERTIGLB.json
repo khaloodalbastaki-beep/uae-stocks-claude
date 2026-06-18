@@ -1,0 +1,27 @@
+{
+  "symbol": "FERTIGLB",
+  "as_of": "2024-12-31",
+  "currency": "USD",
+  "source": "Fertiglobe official press releases, annual reports, SEC Form 20-F filings, and Zawya financial news",
+  "source_url": "https://fertiglobe.com/fertiglobe-publishes-2024-annual-report/",
+  "extractor": "research-grounded/Explore (seed)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T10:59:58+00:00",
+  "reported": {
+    "revenue": 2009,
+    "net_income": 23.5,
+    "net_income_prior": 363,
+    "revenue_prior": 2416,
+    "ebitda": 648,
+    "operating_cash_flow": null,
+    "fcf": 84,
+    "dividend_per_share": 0.122,
+    "dividend_frequency": "annual",
+    "payout_ratio": null,
+    "net_margin": 1.17,
+    "net_margin_prior": 15.03,
+    "total_debt": 1700,
+    "current_ratio": null,
+    "years_paid": 2
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "symbol": "SALIK",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "Salik Company PJSC Official Annual Report 2024, DFM Filings, Mediaoffice.ae",
+  "source_url": "https://ar2024.salik.ae/en/financial-statements/statement-financial-position",
+  "extractor": "research-grounded/Explore (seed)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T10:59:58+00:00",
+  "reported": {
+    "revenue": 2291.9,
+    "revenue_prior": 2108.59,
+    "net_income": 1164.5,
+    "net_income_prior": 1090.07,
+    "ebitda": 1579.1,
+    "operating_cash_flow": 1463.13,
+    "fcf": 1457.3,
+    "total_debt": 3991.985,
+    "current_ratio": 1.42,
+    "dividend_per_share": 0.24,
+    "payout_ratio": 100,
+    "years_paid": 1,
+    "net_margin": 50.8,
+    "net_margin_prior": 51.7
+  }
+}

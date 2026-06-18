@@ -1,0 +1,27 @@
+{
+  "symbol": "TAQA",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "Abu Dhabi National Energy Company PJSC official press release, ADX filings, Arabian Business, Emirates247, WAM",
+  "source_url": "https://www.taqa.com/press-releases/taqa-group-reports-full-year-2023-net-income-of-aed-16-7-billion/",
+  "extractor": "research-grounded/Explore (seed)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T10:59:58+00:00",
+  "reported": {
+    "revenue": 55200000000,
+    "revenue_prior": 51700000000,
+    "net_income": 7100000000,
+    "net_income_prior": 5900000000,
+    "net_margin": 0.129,
+    "net_margin_prior": 0.114,
+    "ebitda": 21400000000,
+    "operating_cash_flow": 11800000000,
+    "fcf": 2600000000,
+    "total_debt": 64100000000,
+    "current_ratio": 1.04,
+    "dividend_per_share": 4.2,
+    "dividend_frequency": "annual",
+    "payout_ratio": 0.6555,
+    "years_paid": 7
+  }
+}

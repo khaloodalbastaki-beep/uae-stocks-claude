@@ -1,0 +1,27 @@
+{
+  "symbol": "AGTHIA",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "Agthia Group official investor relations, ADX filings, press releases",
+  "source_url": "https://www.agthia.com/en/investor-relations/results-and-reports",
+  "extractor": "research-grounded/Explore (seed)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T10:59:58+00:00",
+  "reported": {
+    "revenue": 4900,
+    "revenue_prior": 4560,
+    "net_income": 321.8,
+    "net_income_prior": 299.6,
+    "net_margin": 6.5,
+    "net_margin_prior": 6.6,
+    "ebitda": 678.8,
+    "operating_cash_flow": 656,
+    "fcf": 496,
+    "dividend_per_share": 21.03,
+    "payout_ratio": 54.3,
+    "total_debt": null,
+    "current_ratio": null,
+    "years_paid": 1,
+    "dividend_frequency": "annual"
+  }
+}

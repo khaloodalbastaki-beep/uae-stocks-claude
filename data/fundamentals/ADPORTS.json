@@ -1,0 +1,27 @@
+{
+  "symbol": "ADPORTS",
+  "as_of": "FY2024 (31 December 2024)",
+  "currency": "AED",
+  "source": "AD Ports Group Official Announcements & Investor Relations; Zawya Financial Reporting",
+  "source_url": "https://www.adportsgroup.com/en/news-and-media/2025/02/14/ad-ports-group-reports-another-year-of-record-results-in-2024",
+  "extractor": "research-grounded/Explore (seed)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T10:59:58+00:00",
+  "reported": {
+    "revenue": 17290000000,
+    "revenue_prior": 11680000000,
+    "net_income": 1780000000,
+    "net_income_prior": 1360000000,
+    "ebitda": 4510000000,
+    "operating_cash_flow": 3910000000,
+    "fcf": null,
+    "net_margin": 0.103,
+    "net_margin_prior": 0.116,
+    "dividend_per_share": null,
+    "payout_ratio": null,
+    "current_ratio": null,
+    "total_debt": null,
+    "years_paid": null,
+    "cut_history_5y": null
+  }
+}

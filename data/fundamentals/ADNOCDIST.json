@@ -1,0 +1,27 @@
+{
+  "symbol": "ADNOCDIST",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "ADNOC Distribution Company official investor relations; ADX filings",
+  "source_url": "https://www.adnocdistribution.ae/en/investor-relations/results-and-presentation",
+  "extractor": "research-grounded/Explore (seed)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T10:59:58+00:00",
+  "reported": {
+    "revenue": 35454,
+    "revenue_prior": 34629,
+    "net_income": 2420,
+    "net_income_prior": 2600,
+    "net_margin": 6.83,
+    "net_margin_prior": 7.51,
+    "ebitda": 3860,
+    "operating_cash_flow": 2775,
+    "fcf": 2775,
+    "dividend_per_share": 0.2057,
+    "dividend_frequency": "semi-annual",
+    "years_paid": 7,
+    "payout_ratio": 0.95,
+    "current_ratio": null,
+    "total_debt": null
+  }
+}

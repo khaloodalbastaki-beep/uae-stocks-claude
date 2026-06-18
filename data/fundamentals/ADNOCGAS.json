@@ -1,0 +1,27 @@
+{
+  "symbol": "ADNOCGAS",
+  "as_of": "FY2024-12-31",
+  "currency": "USD",
+  "source": "ADNOC Gas official investor relations, press releases, stockanalysis.com balance sheet, dividend history; company reports revenue in USD",
+  "source_url": "https://adnocgas.ae/en/news-and-media/press-releases/2025/q4-2024",
+  "extractor": "research-grounded/Explore (seed)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T10:59:58+00:00",
+  "reported": {
+    "revenue": 24430,
+    "revenue_prior": 22800,
+    "net_income": 5001,
+    "net_income_prior": 4357,
+    "ebitda": 8650,
+    "operating_cash_flow": null,
+    "fcf": 4580,
+    "total_debt": 537,
+    "current_ratio": 1.71,
+    "dividend_per_share": 0.016328,
+    "payout_ratio": 0.682,
+    "dividend_frequency": "semi-annual",
+    "years_paid": 1,
+    "net_margin": 0.2048,
+    "net_margin_prior": 0.191
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "symbol": "DIB",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "Dubai Islamic Bank official investor relations and DFM disclosures",
+  "source_url": "https://www.dib.ae/about-us/news/2025/02/11/dubai-islamic-bank-full-year-2024-group-financial-results",
+  "extractor": "research-grounded/Explore (seed)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T10:59:58+00:00",
+  "reported": {
+    "revenue": 23341,
+    "revenue_prior": 20142,
+    "net_income": 8165,
+    "net_income_prior": 7010,
+    "net_margin": 35,
+    "net_margin_prior": 34.8,
+    "dividend_per_share": 0.45,
+    "dividend_frequency": "Annual",
+    "payout_ratio": 40,
+    "years_paid": 10,
+    "ebitda": null,
+    "operating_cash_flow": null,
+    "fcf": null,
+    "total_debt": null,
+    "current_ratio": null,
+    "cut_history_5y": null
+  }
+}

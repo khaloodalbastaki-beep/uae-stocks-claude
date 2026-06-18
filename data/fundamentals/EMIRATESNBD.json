@@ -1,0 +1,27 @@
+{
+  "symbol": "EMIRATESNBD",
+  "as_of": "FY2024",
+  "currency": "AED",
+  "source": "Emirates NBD official investor relations, annual report FY2024, and press releases",
+  "source_url": "https://www.emiratesnbd.com/en/media-center/emirates-nbd-announces-fy-2024-financial-results",
+  "extractor": "research-grounded/Explore (seed)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T10:59:58+00:00",
+  "reported": {
+    "revenue": 44100000000,
+    "revenue_prior": 43000000000,
+    "net_income": 23000000000,
+    "net_income_prior": 21500000000,
+    "dividend_per_share": 0.1,
+    "years_paid": null,
+    "dividend_frequency": "annual",
+    "payout_ratio": 0.28,
+    "ebitda": null,
+    "fcf": null,
+    "operating_cash_flow": null,
+    "total_debt": null,
+    "current_ratio": null,
+    "net_margin": 0.522,
+    "net_margin_prior": 0.5
+  }
+}

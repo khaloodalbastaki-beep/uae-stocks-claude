@@ -1,0 +1,28 @@
+{
+  "symbol": "AIRARABIA",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "Air Arabia official press releases, DFM filings, Yahoo Finance, Zawya",
+  "source_url": "https://press.airarabia.com/air-arabia-reports-record-aed-1-6-billion-profit-before-tax-in-2024/",
+  "extractor": "research-grounded/Explore (seed)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T10:59:58+00:00",
+  "reported": {
+    "revenue": 6630,
+    "net_income": 1467,
+    "revenue_prior": 6000,
+    "net_income_prior": 1500,
+    "dividend_per_share": 0.25,
+    "payout_ratio": 0.68,
+    "years_paid": 5,
+    "net_margin": 0.221,
+    "net_margin_prior": 0.25,
+    "operating_cash_flow": null,
+    "ebitda": null,
+    "fcf": null,
+    "total_debt": 2781,
+    "current_ratio": null,
+    "cut_history_5y": null,
+    "dividend_frequency": "annual"
+  }
+}

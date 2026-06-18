@@ -334,7 +334,8 @@ class Pipeline:
             "data_version": DATA_VERSION,
             "provider": "live" if self.live else "mock",
             "ai_provider": __import__("os").environ.get("UAE_AI_PROVIDER", "stub"),
-            "counts": {"securities": len(universe), "events": len(all_events)},
+            "counts": {"securities": len(universe), "events": len(all_events),
+                       "fundamentals_real": sum(1 for c in cards if c.get("fundamentals_real"))},
             "market_status": _market_status(_now()),
             "disclaimers": DISCLAIMERS,
             "sources": [

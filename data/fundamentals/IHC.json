@@ -1,0 +1,27 @@
+{
+  "symbol": "IHC",
+  "as_of": "FY2024",
+  "currency": "AED",
+  "source": "International Holding Company PJSC Official Press Release & ADX Financial Disclosures",
+  "source_url": "https://www.ihcuae.com/media-centre/press-releases/ihc-posts-robust-preliminary-full-year-2024-performance-with-544-revenue-growth",
+  "extractor": "research-grounded/Explore (seed)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T10:59:58+00:00",
+  "reported": {
+    "revenue": 92800000000,
+    "revenue_prior": 60100000000,
+    "net_income": 25500000000,
+    "net_income_prior": 33000000000,
+    "ebitda": null,
+    "operating_cash_flow": 19440000000,
+    "fcf": 13830000000,
+    "total_debt": 90090000000,
+    "dividend_per_share": 0,
+    "payout_ratio": 0,
+    "years_paid": 0,
+    "current_ratio": null,
+    "net_margin": 0.2747,
+    "net_margin_prior": 0.5487,
+    "cut_history_5y": null
+  }
+}

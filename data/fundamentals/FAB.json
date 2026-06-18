@@ -1,0 +1,27 @@
+{
+  "symbol": "FAB",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "First Abu Dhabi Bank (FAB) Official Press Release via Zawya",
+  "source_url": "https://www.zawya.com/en/press-release/companies-news/fab-delivers-strong-results-in-2024-with-profit-before-tax-of-aed-199-billion-up-13-year-on-year-fueled-by-15-revenue-growth-xw3sdx81",
+  "extractor": "research-grounded/Explore (seed)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T10:59:58+00:00",
+  "reported": {
+    "revenue": 31600000000,
+    "revenue_prior": 27800000000,
+    "net_income": 17100000000,
+    "net_income_prior": 16400000000,
+    "net_margin": 0.541,
+    "net_margin_prior": 0.59,
+    "dividend_per_share": 0.75,
+    "payout_ratio": 0.51,
+    "years_paid": null,
+    "current_ratio": null,
+    "total_debt": null,
+    "ebitda": null,
+    "operating_cash_flow": null,
+    "fcf": null,
+    "cut_history_5y": null
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "symbol": "AMERICANA",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "Americana Restaurants International PLC - Official FY2024 Earnings Release & Financial Statements",
+  "source_url": "https://www.americanarestaurants.com/wp-content/uploads/2025/02/Americana-Restaurants-Press-Release-FY-2024-Results_EN.pdf",
+  "extractor": "research-grounded/Explore (seed)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T10:59:58+00:00",
+  "reported": {
+    "revenue": 8069100000,
+    "revenue_prior": 8862500000,
+    "net_income": 582900000,
+    "net_income_prior": 952800000,
+    "ebitda": 1777300000,
+    "fcf": 347800000,
+    "operating_cash_flow": null,
+    "net_margin": 7.23,
+    "net_margin_prior": 10.75,
+    "current_ratio": null,
+    "total_debt": 0,
+    "dividend_per_share": 0.0785,
+    "dividend_frequency": "Annual",
+    "years_paid": 3,
+    "payout_ratio": 80.37
+  }
+}

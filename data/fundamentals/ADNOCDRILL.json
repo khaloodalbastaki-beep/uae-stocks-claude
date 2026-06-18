@@ -1,0 +1,28 @@
+{
+  "symbol": "ADNOCDRILL",
+  "as_of": "FY2024",
+  "currency": "AED",
+  "source": "ADNOC Drilling official press release, Zawya, WAM, company investor relations",
+  "source_url": "https://www.zawya.com/en/press-release/companies-news/adnoc-drilling-delivers-record-growth-approves-788mln-2024-dividend-and-accelerates-ai-enabled-expansion-p0jwc905",
+  "extractor": "research-grounded/Explore (seed)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T10:59:58+00:00",
+  "reported": {
+    "revenue": 14700000000,
+    "revenue_prior": 11230000000,
+    "net_income": 4770000000,
+    "net_income_prior": 3795000000,
+    "ebitda": 7387500000,
+    "dividend_per_share": 0.0181,
+    "payout_ratio": 0.606,
+    "dividend_frequency": "annual",
+    "years_paid": 4,
+    "current_ratio": null,
+    "operating_cash_flow": null,
+    "fcf": null,
+    "total_debt": null,
+    "net_margin": 0.325,
+    "net_margin_prior": 0.338,
+    "cut_history_5y": null
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "symbol": "ARMX",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "Aramex official investor relations, press releases, and DFM filings",
+  "source_url": "https://www.aramex.com/ae/en/investor-relations-details/aramex-annual-integrated-report/aramex-2024-financial-report",
+  "extractor": "research-grounded/Explore (seed)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T10:59:58+00:00",
+  "reported": {
+    "revenue": 6324444,
+    "revenue_prior": 5694022,
+    "net_income": 141811,
+    "net_income_prior": 129297,
+    "ebitda": 650304,
+    "operating_cash_flow": 609280,
+    "total_debt": 1945623,
+    "current_ratio": null,
+    "fcf": 453650,
+    "net_margin": 2.2,
+    "net_margin_prior": 2.3,
+    "dividend_per_share": 0,
+    "dividend_frequency": "irregular",
+    "payout_ratio": 0,
+    "years_paid": 0,
+    "cut_history_5y": null
+  }
+}

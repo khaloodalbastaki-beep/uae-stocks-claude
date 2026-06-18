@@ -1,0 +1,26 @@
+{
+  "symbol": "DU",
+  "as_of": "FY2024 (December 31, 2024)",
+  "currency": "AED",
+  "source": "Emirates Integrated Telecommunications Company PJSC (du) official press releases, investor relations disclosures, Zawya, Khaleej Times, Investing.com",
+  "source_url": "https://www.zawya.com/en/press-release/companies-news/du-reports-its-q4-and-fy-2024-results-l36wt3ox",
+  "extractor": "research-grounded/Explore (seed)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T10:59:58+00:00",
+  "reported": {
+    "revenue": 15905.42,
+    "revenue_prior": 14635.92,
+    "net_income": 2905.09,
+    "net_income_prior": 2487.55,
+    "net_margin": 18.26,
+    "net_margin_prior": 17.01,
+    "ebitda": 6500,
+    "operating_cash_flow": 4400,
+    "dividend_per_share": 0.54,
+    "payout_ratio": 0.98,
+    "years_paid": null,
+    "dividend_frequency": "annual",
+    "total_debt": null,
+    "current_ratio": null
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "symbol": "DEWA",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "Dubai Electricity and Water Authority PJSC official announcements, DFM filings, BusinessWire press release, Finance Middle East reporting",
+  "source_url": "https://www.businesswire.com/news/home/20250210262973/en/Dubai-Electricity-and-Water-Authority-PJSC-Announces-Record-Annual-Revenue-of-AED-30.98-Billion-and-an-Unprecedented-EBITDA-of-AED-15.70-Billion-for-the-Year-2024",
+  "extractor": "research-grounded/Explore (seed)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T10:59:58+00:00",
+  "reported": {
+    "revenue": 30980000000,
+    "revenue_prior": 29200000000,
+    "net_income": 7240000000,
+    "net_income_prior": 7900000000,
+    "net_margin": 0.234,
+    "net_margin_prior": 0.271,
+    "ebitda": 15700000000,
+    "operating_cash_flow": null,
+    "fcf": null,
+    "total_debt": null,
+    "current_ratio": null,
+    "dividend_per_share": 0.124,
+    "payout_ratio": 0.3869,
+    "dividend_frequency": "semi-annual",
+    "years_paid": 5,
+    "cut_history_5y": null
+  }
+}

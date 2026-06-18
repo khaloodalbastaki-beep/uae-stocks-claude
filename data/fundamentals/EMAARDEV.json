@@ -1,0 +1,26 @@
+{
+  "symbol": "EMAARDEV",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "Emaar Development PJSC official press releases, Integrated Annual Report 2024, tracenable.com income statement data, Zawya, DFM filings",
+  "source_url": "https://properties.emaar.com/en/press-release-listing/emaar-development-reports-2024-financial-results-at-annual-general-meeting/",
+  "extractor": "research-grounded/Explore (seed)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T10:59:58+00:00",
+  "reported": {
+    "revenue": 19100000000,
+    "revenue_prior": 11900000000,
+    "net_income": 9690000000,
+    "net_income_prior": 8480000000,
+    "ebitda": 9400000000,
+    "operating_cash_flow": 10951000000,
+    "total_debt": 3700000000,
+    "dividend_per_share": 0.68,
+    "payout_ratio": 35.63,
+    "years_paid": 1,
+    "dividend_frequency": "Annual",
+    "net_margin": 50.7,
+    "net_margin_prior": 71.3,
+    "current_ratio": null
+  }
+}

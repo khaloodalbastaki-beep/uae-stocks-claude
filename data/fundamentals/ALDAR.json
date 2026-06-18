@@ -1,0 +1,26 @@
+{
+  "symbol": "ALDAR",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "Aldar Properties PJSC Official FY2024 Financial Results Announcement; ADX Filing; Company Investor Relations",
+  "source_url": "https://www.aldar.com/en/news-and-media/aldar-fy-2024-financial-results",
+  "extractor": "research-grounded/Explore (seed)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T10:59:58+00:00",
+  "reported": {
+    "revenue": 23000,
+    "revenue_prior": 14200,
+    "net_income": 6500,
+    "net_income_prior": 4400,
+    "net_margin": 28.26,
+    "net_margin_prior": 31,
+    "ebitda": 7700,
+    "dividend_per_share": 0.185,
+    "payout_ratio": 26,
+    "years_paid": 15,
+    "total_debt": 19400,
+    "current_ratio": null,
+    "operating_cash_flow": null,
+    "fcf": null
+  }
+}

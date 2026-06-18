@@ -1,0 +1,27 @@
+{
+  "symbol": "MASHREQ",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "Mashreq Bank official press releases, DFM filings, annual reports, and investor relations",
+  "source_url": "https://www.mashreq.com/en/uae/news/2025/january/mashreq-financial-results-fy2024/",
+  "extractor": "research-grounded/Explore (seed)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T10:59:58+00:00",
+  "reported": {
+    "revenue": 13400000000,
+    "revenue_prior": 10800000000,
+    "net_income": 9000000000,
+    "net_income_prior": 8600000000,
+    "ebitda": null,
+    "operating_cash_flow": null,
+    "fcf": null,
+    "total_debt": null,
+    "current_ratio": null,
+    "dividend_per_share": 18.5,
+    "payout_ratio": 43,
+    "dividend_frequency": "annual",
+    "years_paid": 5,
+    "net_margin": 67.16,
+    "net_margin_prior": 79.63
+  }
+}
