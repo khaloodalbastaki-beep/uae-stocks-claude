@@ -20,10 +20,11 @@ narrate; free by default.
   Chromium scraper (`scraper/scrape.mjs`, Playwright) reading the ADX all-equities board +
   DFM marketwatch search; keyed to the registry. Yahoo/ADX-API are blocked, so the browser
   scrape is the working free path. Tagged `delayed`; per-symbol demo fallback.
-- **Fundamentals:** REAL reported FY2024 for **52/54** names (only ADNH + Q modeled). Stored
+- **Fundamentals:** REAL reported FY2024 for **53/53** names (FULL coverage). Stored
   in `data/fundamentals/<SYM>.json` (reported figures + source URL + as_of). The brain derives
   Growth/Stability/Dividend deterministically from them (LLM only transcribes). UI shows a
-  "real fundamentals" badge + source per stock.
+  "real fundamentals" badge + source per stock. (Universe is 53: the defunct ticker `Q`/Q Holding
+  was dropped 2026-06-19 — it rebranded to Modon Holding, already listed as `MODON`.)
 - **News:** LIVE media per company from GDELT (`brain/news.py` → `data/news/<SYM>.json`),
   relevance-filtered (UAE/Gulf/finance whitelist) so it's on-topic. News & Disclosures tab
   renders it with a "live" badge; demo fallback if a name isn't fetched yet.
@@ -81,7 +82,10 @@ Preview: launch.json config `uae-stocks-claude` (port 8814, serves `web/`).
   SCA counsel sign-off + a licensed feed are the gates before any real public launch.
 
 ## Open / next
-1. (Optional) a Gemini key with free quota → flip Mizan to `hybrid` for grounded+strong extraction.
-2. ADNH + Q fundamentals (sparse public sources) — fill when available.
+1. (Optional, NOT required) a Gemini free-quota key → Mizan `hybrid`. The keyless `web` lane
+   (gpt-oss:120b-cloud via signed-in Ollama, no key) is the default and covers refresh, so the
+   whole system runs with ZERO manual input. Hybrid is only a quality upgrade, not a dependency.
+2. ~~ADNH + Q fundamentals~~ DONE 2026-06-19 — ADNH FY2024 added (grounded research); Q dropped
+   (rebranded → Modon). Universe is full at 53/53 real fundamentals.
 3. SCA/legal sign-off before marketing as more than a demo.
 4. Phase-2: alerts → Telegram/Hermes; official exchange-filing feed (vs media news); semantic search.
