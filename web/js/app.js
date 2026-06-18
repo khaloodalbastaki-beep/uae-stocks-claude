@@ -264,7 +264,7 @@
       ? `<div class="disclaimer" style="border-color:var(--ai);color:#56e0bd">📊 <strong>Real fundamentals</strong> — reported figures ${fs.as_of ? "(" + esc(fs.as_of) + ")" : ""} from ${fs.source_url ? `<a href="${esc(fs.source_url)}" target="_blank" rel="noopener">${esc(fs.source || "source")}</a>` : esc(fs.source || "filing")}. House scores are computed from these; ${esc(fs.confidence || "")} confidence.</div>`
       : `<div class="disclaimer">📊 Fundamentals are a <strong>modeled estimate</strong> for this name (real prices, modeled financials) — the Mizan agent fills real filings as they're sourced.</div>`;
     return `<div class="panel"><h3>${t("business_summary")}</h3>
-      <p>${esc(I18N.isAr() ? o.business_summary_ar : o.business_summary_en)}</p>${fundLine}</div>`
+      <p>${esc(I18N.isAr() ? o.business_summary_ar : o.business_summary_en)}</p>${fundLine}</div>
       <div class="panel"><h3>${t("quick_stats")}</h3>
         <div class="kv">
           <div><div class="k">${t("market_cap")}</div><div class="v mono">${fmtBig(qs.market_cap)}</div></div>
