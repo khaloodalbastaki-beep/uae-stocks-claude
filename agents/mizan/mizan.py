@@ -68,6 +68,18 @@ def _iso() -> str:
     return datetime.now(UTC).replace(microsecond=0).isoformat()
 
 
+def _existing_source_url(symbol: str) -> str | None:
+    """The source_url from a prior fundamentals record, so `web` mode re-grounds from the
+    company's known filing/IR page when refreshing."""
+    f = DATA / f"{symbol}.json"
+    if f.exists():
+        try:
+            return (json.loads(f.read_text()) or {}).get("source_url")
+        except Exception:
+            return None
+    return None
+
+
 def extract(symbol: str) -> dict | None:
     sec = by_symbol(symbol)
     if not sec:
@@ -80,12 +92,28 @@ def extract(symbol: str) -> dict | None:
         f"Include the PRIOR year's revenue and net income (for growth). For banks, use total "
         f"operating income as 'revenue' and leave total_debt/ebitda null."
     )
-    # HYBRID: a grounded provider (gemini) fetches the real sourced facts as text, then the
-    # main provider (e.g. ollama's stronger brain) structures them. Best of both — live
-    # grounding + a strong extractor. Enabled when MIZAN_FETCH_PROVIDER is set & differs.
+    # HYBRID grounding modes (MIZAN_FETCH_PROVIDER):
+    #   web    — Gemini-free: fetch the real filing/IR page + Wikipedia ourselves (headless
+    #            Chromium + urllib), then the main provider (gpt-oss:120b) extracts from it.
+    #   gemini — grounded via Google Search, then the main provider extracts.
+    # Either way the strong extractor only transcribes what's in the fetched text.
     fetch_prov = os.environ.get("MIZAN_FETCH_PROVIDER", "").lower()
     main_prov = os.environ.get("MIZAN_PROVIDER", "gemini").lower()
-    if fetch_prov and fetch_prov != main_prov:
+    if fetch_prov == "web":
+        from agents.mizan import fetch
+        prior = _existing_source_url(symbol)
+        src = fetch.gather_text(sec.name_en, prior)
+        if not src:
+            print(f"[mizan] {symbol}: web fetch returned nothing; kept modeled")
+            return None
+        out = llm.complete_with(main_prov, SYSTEM,
+                                f"From this SOURCE TEXT (a real filing/IR page + Wikipedia), extract the figures. "
+                                f"Use ONLY numbers present in the text; AED (convert USD ~3.6725); for banks use "
+                                f"total operating income as revenue.\n\nSOURCE TEXT:\n{src}\n\n"
+                                f"Return ONLY this JSON (null for anything not in the text; found=false if no "
+                                f"revenue+net_income in the text):\n{SCHEMA_HINT}",
+                                grounded=False)
+    elif fetch_prov and fetch_prov != main_prov:
         src = llm.text(fetch_prov,
                        "You are a financial-data researcher. Find real, sourced figures only; cite the source URL and fiscal period.",
                        base_q + "\nList every reported figure you can verify, with the source URL and the fiscal period. Plain text.",

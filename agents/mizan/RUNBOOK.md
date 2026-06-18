@@ -30,7 +30,8 @@ python3 agents/mizan/mizan.py --all
 python3 agents/mizan/mizan.py --bus
 ```
 Key lives in `agents/mizan/.env` (copy `.env.example`). **LLM lanes (all free, no card):**
-- `gemini` (recommended) — grounded via Google Search → truest sourced figures. https://aistudio.google.com/apikey
+- `web` (Gemini-free, no key) — Mizan fetches the company's real filing/IR page (headless Chromium) + Wikipedia itself, then gpt-oss:120b extracts. Set `MIZAN_PROVIDER=ollama` + `MIZAN_FETCH_PROVIDER=web`. **This is the current default** — grounded, no key, no quota.
+- `gemini` — grounded via Google Search → truest sourced figures. https://aistudio.google.com/apikey (needs a key with free quota)
 - `ollama` cloud — stronger reasoning models (gpt-oss:120b, kimi-k2:1t, deepseek-v3.1:671b). `OLLAMA_HOST=https://ollama.com` + key https://ollama.com/settings/keys. Best fed fetched text (no auto web-search in chat).
 - `ollama` local — `OLLAMA_HOST=http://localhost:11434`, your own qwen3 etc., fully offline, no key.
 - `groq` — fastest; `openrouter` — many big :free models. Both ungrounded → pass fetched filing text.
