@@ -167,6 +167,9 @@ button { font-family: inherit; cursor: pointer; }
   border: 1px solid var(--border); display: inline-flex; gap: 5px; align-items: center;
 }
 .chip.g { color: #6fb1ff; } .chip.s { color: #7fe0c0; } .chip.d { color: var(--gold); }
+.chip.val.pos { color: var(--pos); border-color: color-mix(in srgb, var(--pos) 45%, var(--border)); }
+.chip.val.neg { color: var(--neg); border-color: color-mix(in srgb, var(--neg) 45%, var(--border)); }
+.chip.val.flat { color: var(--text-faint); }
 .impact { font-size: 11px; font-weight: 800; padding: 2px 9px; border-radius: 999px; }
 .impact.Positive { background: #2ecc8f1f; color: var(--pos); }
 .impact.Neutral { background: #8a96b31f; color: var(--neutral); }
@@ -304,6 +307,17 @@ button { font-family: inherit; cursor: pointer; }
 .val-methods { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
 .val-method { font-size: 12px; padding: 4px 9px; border-radius: 8px; background: var(--surface-2); }
 .val-method b { color: var(--text); }
+
+/* peer comparison table */
+.peer-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.peer-table th, .peer-table td { text-align: end; padding: 6px 8px; border-bottom: 1px solid var(--border); }
+.peer-table th:first-child, .peer-table td:first-child { text-align: start; }
+.peer-table th { color: var(--text-faint); font-weight: 600; font-size: 11px; text-transform: uppercase; }
+.peer-table .peer-self { background: color-mix(in srgb, var(--accent) 12%, transparent); font-weight: 700; }
+.peer-table .peer-self td { border-bottom-color: var(--accent); }
+.peer-table .peer-median { color: var(--text-faint); font-style: italic; }
+.peer-table .pos { color: var(--pos); } .peer-table .neg { color: var(--neg); }
+.peer-table a { color: var(--accent); text-decoration: none; }
 
 /* disclaimer / footer */
 .disclaimer { font-size: 11px; color: var(--text-faint); border: 1px dashed var(--border); border-radius: var(--radius-sm); padding: 10px 12px; margin-top: 10px; }

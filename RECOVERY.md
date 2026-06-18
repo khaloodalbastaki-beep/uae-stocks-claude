@@ -25,9 +25,11 @@ narrate; free by default.
   Growth/Stability/Dividend deterministically from them (LLM only transcribes). UI shows a
   "real fundamentals" badge + source per stock. (Universe is 53: the defunct ticker `Q`/Q Holding
   was dropped 2026-06-19 — it rebranded to Modon Holding, already listed as `MODON`.)
-- **News:** LIVE media per company from GDELT (`brain/news.py` → `data/news/<SYM>.json`),
-  relevance-filtered (UAE/Gulf/finance whitelist) so it's on-topic. News & Disclosures tab
-  renders it with a "live" badge; demo fallback if a name isn't fetched yet.
+- **News:** LIVE media per company. PRIMARY source is now **Google News RSS** (`brain/news.py`
+  `_fetch_google`) — reliable, free, per-company, dated; GDELT (`_fetch_gdelt`) is the fallback
+  (it was hard 429-rate-limiting, which left ~40/53 on mock — that's why coverage was poor). Now
+  ~50/53 have real items; title-relevance filter drops tangential results. News tab "live" badge;
+  demo fallback only if a name truly has none.
 - **AI Analysis:** stance + confidence + scores are DETERMINISTIC; the prose (reasons/risks/
   what-would-change) is written by the **nemotron** fleet agent → `data/ai/<SYM>.json`, shown
   as "narrated by nemotron".
@@ -44,7 +46,16 @@ narrate; free by default.
   outlier methods dropped; ≥2 methods required else None). Payload `valuation{fair_value, upside_pct,
   rating, confidence, methods, assumptions}`. UI: a **Fair value card** on the Financials tab
   (fair vs live price, upside, method breakdown, assumptions, "not advice") + a fair-value line on
-  Overview. Valuation inputs (shares_outstanding/total_equity/eps) live in `reported`.
+  Overview. Valuation inputs (shares_outstanding/total_equity/eps) live in `reported`. Each valuation
+  also carries a deterministic plain-language `summary`, a bull/base/bear `fair_low`/`fair_high`
+  range (r ±1pt & g ±1.5pt sensitivity), and an optional AI `note`/`note_by` (the Analyst's one-line
+  take on why the market prices it away from fair value — written by nemotron/freeagent). Guardrails:
+  DDM skipped when implied yield >13%; confidence tempered to medium/low for extreme (≥80%/≥150%) upside.
+- **Valuation surfaces (2026-06-19):** (a) **Screeners** has a Fair-value BOARD — undervalued/overvalued
+  ranked by upside (low-confidence excluded) + an "undervalued · high-confidence" preset; cards show an
+  `FV ±%` chip. (b) Stock **Financials tab** has a **Peer comparison** table (P/E, P/B, ROE, yield, FV
+  upside vs same-archetype names + sector median; computed in `pipeline._attach_peers`, a 2nd pass).
+  (c) **Alerts** page leads with **fair-value signals** (price ≥25% from fair value, app-only — no push).
 - **UX:** stock page has a ← Back button; navigation closes the search dropdown + scrolls top.
 
 ## The agent fleet (manager = Claude Code) — `agents/FLEET.md`

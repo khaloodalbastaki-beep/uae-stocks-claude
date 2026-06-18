@@ -141,67 +141,63 @@ def fair_value(record: dict, price: float | None, archetype: str = "holding") ->
     # growth near the discount rate makes Gordon/RI explode, so cap it low and keep a >=3.5pt
     # spread below r — the standard guardrail for perpetuity valuation.
     g_near = _clamp(median(proxies), 0.0, 0.10) if proxies else 0.03
-    g_perp = _clamp(min(g_near, disc - 0.035), 0.0, 0.05)
-    spread = disc - g_perp   # >= 0.035 by construction
-
-    methods: dict[str, float] = {}
-
-    # ---- 1) Dividend Discount (Gordon) ----
-    if dps is not None and dps > 0 and spread > 0.01:
-        v = dps * (1.0 + g_perp) / spread
-        methods["ddm"] = _clamp(v, 0.1 * price, 8 * price)
-
-    # ---- 2) Justified P/B from ROE (residual income) ----
-    if bvps is not None and bvps > 0 and roe is not None and spread > 0.01:
-        jpb = _clamp((roe - g_perp) / spread, 0.3, 5.0)
-        methods["pb"] = _clamp(jpb * bvps, 0.1 * price, 8 * price)
-
-    # ---- 3) Earnings multiple (growth-tilted target P/E, on NORMALISED earnings) ----
-    if eps is not None and eps > 0:
-        # Normalise a one-off earnings spike: a fair multiple should sit on sustainable
-        # earnings, not a year inflated by disposal / fair-value gains. If the latest year
-        # is a clear spike vs the recent trend, haircut it toward the trend for this method.
-        eps_pe = eps
-        sni = [x for x in (series.get("net_income") or []) if isinstance(x, (int, float))]
-        if ni is not None and ni > 0 and len(sni) >= 3:
-            prior = [x for x in sni if x != ni] or sni
-            med_prior = median(prior)
-            if med_prior and med_prior > 0 and ni > 1.8 * med_prior:
-                eps_pe = eps * (min(ni, 1.5 * med_prior) / ni)
-        base_pe = BASE_PE.get(archetype, DEFAULT_PE)
-        tilt = _clamp((g_near - 0.04) * 5.0, -0.4, 0.9)   # +growth -> higher PE, capped
-        target_pe = _clamp(base_pe * (1.0 + tilt), 5.0, 35.0)
-        methods["pe"] = _clamp(eps_pe * target_pe, 0.1 * price, 8 * price)
-
-    # ---- 4) FCF perpetuity (only when FCF is actually reported) ----
-    if fcf is not None and fcf > 0 and shares and spread > 0.01:
-        v = (fcf / shares) * (1.0 + g_perp) / spread
-        methods["fcf"] = _clamp(v, 0.1 * price, 8 * price)
-
-    # Require at least TWO independent methods — a lone DDM (from a dividend + guessed growth)
-    # or a lone multiple is too weak to publish as a fair value. Honest-degraded: no number.
-    if len(methods) < 2:
-        return None
-
-    # ---- robust blend: drop any method that's an outlier vs the median (>2.5x or <0.4x),
-    # so one bad input can't drag the fair value; keep >=2 methods when we have them ----
-    kept = dict(methods)
-    if len(methods) >= 3:
-        med = median(methods.values())
-        kept = {m: v for m, v in methods.items() if 0.4 * med <= v <= 2.5 * med} or methods
-        if len(kept) < 2:
-            kept = methods
 
     w = _FAMILY_WEIGHTS[_family(archetype)]
-    tot = sum(w.get(m, 0.0) for m in kept) or 1.0
-    fair = sum(kept[m] * (w.get(m, 0.0) / tot) for m in kept)
-    if fair <= 0:
-        fair = sum(kept.values()) / len(kept)
+
+    def _blend(disc_: float, g_near_: float):
+        """Compute the available methods + robust blended fair value at a given discount rate
+        and near-term growth. Returns (fair|None, methods, kept)."""
+        g_perp_ = _clamp(min(g_near_, disc_ - 0.035), 0.0, 0.05)
+        spread_ = disc_ - g_perp_   # >= 0.035 by construction
+        m: dict[str, float] = {}
+        # DDM only when the implied dividend yield is plausible (≤13%); an implausibly high
+        # dps/price almost always means a bad/special dividend figure (same clamp as fundamentals).
+        if dps is not None and dps > 0 and dps / price <= 0.13 and spread_ > 0.01:
+            m["ddm"] = _clamp(dps * (1.0 + g_perp_) / spread_, 0.1 * price, 8 * price)
+        if bvps is not None and bvps > 0 and roe is not None and spread_ > 0.01:
+            jpb = _clamp((roe - g_perp_) / spread_, 0.3, 5.0)
+            m["pb"] = _clamp(jpb * bvps, 0.1 * price, 8 * price)
+        if eps is not None and eps > 0:
+            # normalise a one-off earnings spike so the multiple sits on sustainable earnings
+            eps_pe = eps
+            sni = [x for x in (series.get("net_income") or []) if isinstance(x, (int, float))]
+            if ni is not None and ni > 0 and len(sni) >= 3:
+                prior = [x for x in sni if x != ni] or sni
+                med_prior = median(prior)
+                if med_prior and med_prior > 0 and ni > 1.8 * med_prior:
+                    eps_pe = eps * (min(ni, 1.5 * med_prior) / ni)
+            base_pe = BASE_PE.get(archetype, DEFAULT_PE)
+            tilt = _clamp((g_near_ - 0.04) * 5.0, -0.4, 0.9)
+            m["pe"] = _clamp(eps_pe * _clamp(base_pe * (1.0 + tilt), 5.0, 35.0), 0.1 * price, 8 * price)
+        if fcf is not None and fcf > 0 and shares and spread_ > 0.01:
+            m["fcf"] = _clamp((fcf / shares) * (1.0 + g_perp_) / spread_, 0.1 * price, 8 * price)
+        if len(m) < 2:   # need >=2 independent methods to publish
+            return None, m, m
+        kept_ = dict(m)
+        if len(m) >= 3:   # drop outliers (>2.5x / <0.4x the median) so one bad input can't drag it
+            med = median(m.values())
+            kept_ = {k: v for k, v in m.items() if 0.4 * med <= v <= 2.5 * med} or m
+            if len(kept_) < 2:
+                kept_ = m
+        tot = sum(w.get(k, 0.0) for k in kept_) or 1.0
+        f_ = sum(kept_[k] * (w.get(k, 0.0) / tot) for k in kept_)
+        if f_ <= 0:
+            f_ = sum(kept_.values()) / len(kept_)
+        return f_, m, kept_
+
+    fair, methods, kept = _blend(disc, g_near)
+    if fair is None:
+        return None
+
+    # bull / base / bear range via discount-rate (+/-1pt) & growth (+/-1.5pt) sensitivity
+    bear, _, _ = _blend(disc + 0.01, max(0.0, g_near - 0.015))
+    bull, _, _ = _blend(max(0.04, disc - 0.01), g_near + 0.015)
+    band = [x for x in (bear, fair, bull) if x is not None]
+    lo, hi = (min(band), max(band)) if band else (fair, fair)
 
     upside = fair / price - 1.0
-    g = g_near   # reported as the headline growth assumption
+    g = g_near
 
-    # ---- confidence: completeness + method agreement ----
     vals = list(kept.values())
     dispersion = (max(vals) / min(vals)) if min(vals) > 0 else 9.9
     completeness = sum(x is not None for x in (eps, equity, dps, shares)) + (1 if series.get("years") else 0)
@@ -212,19 +208,35 @@ def fair_value(record: dict, price: float | None, archetype: str = "holding") ->
     else:
         conf = "low"
 
-    if upside >= 0.20:
-        rating = "undervalued"
-    elif upside <= -0.20:
-        rating = "overvalued"
-    else:
-        rating = "fairly valued"
+    # extreme upside is usually a data quirk / special situation (low float, one-off earnings),
+    # not a clean signal — temper confidence so it drops out of the board & alert filters.
+    au = abs(upside)
+    if au >= 1.50:
+        conf = "low"
+    elif au >= 0.80 and conf == "high":
+        conf = "medium"
+
+    rating = "undervalued" if upside >= 0.20 else "overvalued" if upside <= -0.20 else "fairly valued"
+
+    # plain-language explanation — deterministic (numbers from code, no LLM)
+    driver = max(kept, key=lambda k: w.get(k, 0.0))
+    drv = {"ddm": "the dividend-discount model", "pb": "book value vs ROE",
+           "pe": "a normalised earnings multiple", "fcf": "discounted cash flow"}[driver]
+    summary = (f"Model fair value AED {fair:.2f} is {abs(upside) * 100:.0f}% "
+               f"{'above' if upside >= 0 else 'below'} the AED {price:.2f} price — {rating}. "
+               f"Driven mainly by {drv}; assumes ~{g * 100:.0f}% growth and a {disc * 100:.1f}% "
+               f"discount rate" + (f", {roe * 100:.0f}% ROE" if roe is not None else "") +
+               f". {conf.capitalize()} confidence (range AED {lo:.2f}–{hi:.2f}).")
 
     return {
         "fair_value": round(fair, 3),
+        "fair_low": round(lo, 3),
+        "fair_high": round(hi, 3),
         "price": round(price, 3),
         "upside_pct": round(upside, 4),
         "rating": rating,
         "confidence": conf,
+        "summary": summary,
         "methods": {m: round(v, 3) for m, v in methods.items()},
         "assumptions": {
             "discount_rate": round(disc, 4),

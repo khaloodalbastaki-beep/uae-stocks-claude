@@ -49,6 +49,8 @@ SCHEMA = {
                       "properties": {"reasons": {"type": "array", "items": {"type": "string"}},
                                      "risks": {"type": "array", "items": {"type": "string"}},
                                      "what_would_change_view": {"type": "string"}}},
+        # optional: a one-sentence plain-language take on the (code-computed) fair value
+        "valuation_take": {"type": "string"},
     },
 }
 
@@ -76,14 +78,24 @@ def narrate(symbol: str, providers: list[CliAgentProvider]) -> dict | None:
              "risks and a 'what would change the view' line for a retail investor. Do NOT state "
              "specific figures, percentages, prices or dates you were not given — reason from the "
              "house scores and the signal notes. This is research support, NOT advice.")
+    val = s.get("valuation") or {}
+    val_line, val_ask = "", ""
+    if val.get("fair_value") is not None:
+        val_line = (f"FIXED model fair value: AED {val['fair_value']} ({val.get('rating')}, "
+                    f"{val.get('confidence')} confidence) vs price AED {val.get('price')}, methods "
+                    f"{val.get('methods')}. Never change these numbers.\n")
+        val_ask = (" Also give 'valuation_take': ONE plain-language sentence on why the market may "
+                   "price it away from the model fair value and what could close the gap — "
+                   "qualitative, no new numbers.")
     user = (f"Company: {s.get('name_en')} ({symbol}, {s.get('exchange')}, {s.get('sector')}).\n"
             f"FIXED short-term stance: {sig['short']['stance']} ({sig['short']['confidence']}).\n"
             f"FIXED long-term stance: {sig['long']['stance']} ({sig['long']['confidence']}).\n"
             f"House scores (0-100): Growth {scores.get('growth',{}).get('score')}, "
             f"Stability {scores.get('stability',{}).get('score')}, Dividend {scores.get('dividend',{}).get('score')}.\n"
+            f"{val_line}"
             f"Short-signal notes: {sig['short'].get('reasons')} | risks: {sig['short'].get('risks')}\n"
             f"Long-signal notes: {sig['long'].get('reasons')} | risks: {sig['long'].get('risks')}\n"
-            f"Return up to 4 reasons and 4 risks per horizon.")
+            f"Return up to 4 reasons and 4 risks per horizon." + val_ask)
     # Try primary, then fall back to the next provider on timeout/invalid output.
     for prov in providers:
         out = prov.complete_json(sys_p, user, SCHEMA)
@@ -91,6 +103,8 @@ def narrate(symbol: str, providers: list[CliAgentProvider]) -> dict | None:
             used = prov.agent
             rec = {"symbol": symbol, "narrator": used, "generated_at": _iso(),
                    "short_term": out["short_term"], "long_term": out["long_term"]}
+            if out.get("valuation_take"):
+                rec["valuation_note"] = out["valuation_take"]
             AIDIR.mkdir(parents=True, exist_ok=True)
             (AIDIR / f"{symbol}.json").write_text(json.dumps(rec, ensure_ascii=False, indent=2))
             print(f"[analyst] {symbol}: narrated by {used}")

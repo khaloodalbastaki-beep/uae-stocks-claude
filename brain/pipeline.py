@@ -16,6 +16,8 @@ from __future__ import annotations
 
 import json
 import os
+from collections import defaultdict
+from statistics import median
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
@@ -250,6 +252,41 @@ def _financial_trends(quote, fundamentals, frec: dict | None = None) -> dict:
     }
 
 
+def _stock_metrics(sec: Security, payload: dict) -> dict:
+    """Per-share valuation metrics for the peer table, from the already-computed valuation."""
+    v = payload.get("valuation") or {}
+    a = v.get("assumptions") or {}
+    price = (payload.get("quote") or {}).get("price")
+    eps, bvps = a.get("eps"), a.get("bvps")
+    return {
+        "symbol": sec.symbol, "name_en": sec.name_en, "archetype": sec.archetype,
+        "pe": round(price / eps, 1) if price and isinstance(eps, (int, float)) and eps > 0 else None,
+        "pb": round(price / bvps, 2) if price and isinstance(bvps, (int, float)) and bvps > 0 else None,
+        "roe": a.get("roe"),
+        "dy": payload.get("overview", {}).get("quick_stats", {}).get("dividend_yield"),
+        "upside": v.get("upside_pct"),
+    }
+
+
+def _attach_peers(built: list) -> None:
+    """Attach a peer-comparison block (same archetype) + sector medians to each payload."""
+    metrics = {sec.symbol: _stock_metrics(sec, payload) for sec, payload, _c in built}
+    groups: dict[str, list] = defaultdict(list)
+    for m in metrics.values():
+        groups[m["archetype"]].append(m)
+
+    def _med(vals):
+        xs = [x for x in vals if isinstance(x, (int, float))]
+        return round(median(xs), 3) if xs else None
+
+    for sec, payload, _c in built:
+        grp = groups.get(sec.archetype, [])
+        medians = {k: _med([m[k] for m in grp]) for k in ("pe", "pb", "roe", "dy", "upside")}
+        peers = [m for m in grp if m["symbol"] != sec.symbol][:6]
+        payload["peers"] = {"archetype": sec.archetype, "self": metrics[sec.symbol],
+                            "medians": medians, "peers": peers, "n": len(grp)}
+
+
 def _exposure_block(sec: Security, commodities: list, events: list) -> dict:
     exps = []
     for key in sec.exposure_factors:
@@ -314,13 +351,19 @@ class Pipeline:
         all_events = []
         sectors: dict[str, list[int]] = {}
 
+        built = []
         for sec in universe:
             payload, card, events = self._process(sec, commodities)
-            (self.data_dir / "stocks" / f"{sec.symbol}.json").write_text(
-                json.dumps(payload, ensure_ascii=False, indent=2))
+            built.append((sec, payload, card))
             cards.append(card)
             all_events.extend(events)
             sectors.setdefault(sec.sector, []).append(card["scores"]["headline"])
+
+        # second pass: peer comparison needs every stock's metrics, so attach after the loop
+        _attach_peers(built)
+        for sec, payload, _card in built:
+            (self.data_dir / "stocks" / f"{sec.symbol}.json").write_text(
+                json.dumps(payload, ensure_ascii=False, indent=2))
 
         # indices (demo aggregate); a real feed would replace these two headline numbers
         cards.sort(key=lambda c: (c["exchange"], -(c["scores"]["headline"])))
@@ -408,6 +451,7 @@ class Pipeline:
         signals = analysis["_signal"]
         # overlay fleet-agent (nemotron) prose if the Analyst has narrated this name — keeps
         # the deterministic stance/confidence, swaps in the agent's reasons/risks prose
+        ai_val_note = ai_val_by = None
         aifile = self.data_dir / "ai" / f"{sec.symbol}.json"
         if aifile.exists():
             try:
@@ -422,6 +466,7 @@ class Pipeline:
                         analysis[hz]["what_would_change_view"] = p["what_would_change_view"]
                 analysis["narrator"] = ai_prose.get("narrator")
                 analysis["narrated_at"] = ai_prose.get("generated_at")
+                ai_val_note, ai_val_by = ai_prose.get("valuation_note"), ai_prose.get("narrator")
             except Exception:
                 pass
 
@@ -431,6 +476,12 @@ class Pipeline:
         # demo events are tagged demo so the provenance stays honest.
         ev_query = factor_meta(sec.exposure_factors[0])["gdelt"] if sec.exposure_factors else f"{sec.name_en}"
         sec_events = [e.to_dict() for e in self.mock.global_events(f"{ev_query} UAE", 6)]
+
+        valuation = (fair_value(frec, quote.price if quote else None, sec.archetype)
+                     if (fundamentals_real and quote) else None)
+        if valuation and ai_val_note:
+            valuation["note"] = ai_val_note
+            valuation["note_by"] = ai_val_by
 
         payload = {
             "symbol": sec.symbol, "name_en": sec.name_en, "name_ar": sec.name_ar,
@@ -466,8 +517,7 @@ class Pipeline:
             "dividends": [d.to_dict() for d in dividends],
             "ownership": ownership.to_dict() if ownership else None,
             "financials": _financial_trends(quote, fundamentals, frec),
-            "valuation": (fair_value(frec, quote.price if quote else None, sec.archetype)
-                          if (fundamentals_real and quote) else None),
+            "valuation": valuation,
             "global_factors": _exposure_block(sec, commodities, sec_events),
             "ai_analysis": analysis,
             "generated_at": _iso(),
@@ -482,6 +532,9 @@ class Pipeline:
             "change_pct": quote.change_pct if quote else None,
             "currency": sec.currency,
             "dividend_yield": fundamentals.dividend_yield,
+            "valuation": ({"fair_value": valuation["fair_value"], "upside_pct": valuation["upside_pct"],
+                           "rating": valuation["rating"], "confidence": valuation["confidence"]}
+                          if valuation else None),
             "scores": {
                 "growth": scores["growth"]["score"],
                 "stability": scores["stability"]["score"],

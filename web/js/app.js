@@ -38,6 +38,11 @@
     <span class="chip g" title="${t("growth")}">G ${s.growth}</span>
     <span class="chip s" title="${t("stability")}">S ${s.stability}</span>
     <span class="chip d" title="${t("dividend")}">D ${s.dividend}</span>`;
+  const valChip = (v) => {
+    if (!v || v.upside_pct == null) return "";
+    const up = v.upside_pct, cls = up > 0.02 ? "pos" : up < -0.02 ? "neg" : "flat";
+    return `<span class="chip val ${cls}" title="${t("fair_value")} ${fmtPrice(v.fair_value)} · ${esc(v.confidence)} ${t("confidence").toLowerCase()}">FV ${up > 0 ? "+" : ""}${(up * 100).toFixed(0)}%</span>`;
+  };
 
   function stockCard(c) {
     const cls = c.change_pct >= 0 ? "pos" : "neg";
@@ -53,7 +58,7 @@
         <span class="chg mono ${cls}">${fmtPctSigned(c.change_pct)}</span>
         <span class="impact ${c.impact} pull-end">${c.impact}</span>
       </div>
-      <div class="chips">${scoreChips(c.scores)}</div>
+      <div class="chips">${scoreChips(c.scores)}${valChip(c.valuation)}</div>
       <div class="footer">
         <span class="tag">${esc(c.catalyst)}</span>
         <span>${t("yield_")}: ${fmtPct(c.dividend_yield)}</span>
@@ -286,7 +291,7 @@
     // LIVE media news (GDELT) when present — real, clickable, dated
     const news = s.news || [];
     if (news.length) {
-      const head = `<div class="disclaimer" style="border-color:var(--ai);color:#56e0bd">📰 <strong>Live news</strong> — real media coverage from GDELT (${news.length} recent items). Official exchange filings are a separate phase-2 feed; these are media, labelled as such.</div>`;
+      const head = `<div class="disclaimer" style="border-color:var(--ai);color:#56e0bd">📰 <strong>Live news</strong> — real media coverage from Google News &amp; wire services (${news.length} recent items). Official exchange filings are a separate phase-2 feed; these are media, labelled as such.</div>`;
       const rows = news.map((n) => `<div class="disc">
         <div class="head">
           ${srcBadge("media")}<span class="badge ai">live</span>
@@ -355,6 +360,9 @@
       a.eps != null ? `EPS ${fmtAED(a.eps)}` : null,
       a.bvps != null ? `BV/sh ${fmtAED(a.bvps)}` : null,
     ].filter(Boolean).join(" · ");
+    const range = (v.fair_low != null && v.fair_high != null)
+      ? `<span class="muted" style="font-size:12px">${t("range")} ${fmtPrice(v.fair_low)}–${fmtPrice(v.fair_high)}</span>` : "";
+    const aiNote = v.note ? `<div class="why" style="margin-top:10px">🤖 <strong>${esc(v.note_by || "Analyst")}:</strong> ${esc(v.note)}</div>` : "";
     return `<div class="panel">
       <h3>${t("fair_value")}</h3>
       <div class="val-head">
@@ -362,11 +370,35 @@
         <span class="muted">${t("vs_price")} <span class="mono">${fmtPrice(v.price)}</span></span>
         <span class="val-up ${cls}">${sign}${(up * 100).toFixed(1)}%</span>
         <span class="val-rating ${ratingCls}">${t(ratingKey)}</span>
+        ${range}
       </div>
+      ${v.summary ? `<p class="muted" style="margin:6px 0 2px">${esc(v.summary)}</p>` : ""}
+      ${aiNote}
       <div class="val-methods">${methods}</div>
       <div class="muted" style="margin-top:10px;font-size:12px">${t("assumptions")}: ${assum} · ${esc(v.confidence)} ${t("confidence").toLowerCase()}</div>
       <div class="disclaimer" style="margin-top:10px">⚖️ ${t("val_disclaimer")}</div>
     </div>`;
+  }
+
+  function peersPanel(s) {
+    const p = s.peers;
+    if (!p || !p.peers || !p.peers.length) return "";
+    const xX = (x) => (x == null ? "—" : x + "×");
+    const xP = (x) => (x == null ? "—" : (x * 100).toFixed(0) + "%");
+    const xU = (x) => (x == null ? "—" : `<span class="${x > 0.02 ? "pos" : x < -0.02 ? "neg" : ""}">${x > 0 ? "+" : ""}${(x * 100).toFixed(0)}%</span>`);
+    const row = (m, cls = "") => `<tr class="${cls}">
+      <td>${cls ? esc(m.symbol || "") : `<a href="#/stock/${m.symbol}">${esc(m.symbol)}</a>`}</td>
+      <td class="mono">${xX(m.pe)}</td><td class="mono">${xX(m.pb)}</td>
+      <td class="mono">${xP(m.roe)}</td><td class="mono">${xP(m.dy)}</td><td class="mono">${xU(m.upside)}</td></tr>`;
+    const med = p.medians || {};
+    return `<div class="panel"><h3>${t("peers")} · ${esc(p.archetype)} (${p.n})</h3>
+      <div class="muted" style="margin:-4px 0 8px;font-size:12px">${t("peer_note")}</div>
+      <table class="peer-table"><thead><tr><th>·</th><th>P/E</th><th>P/B</th><th>ROE</th><th>${t("yield_")}</th><th>FV Δ</th></tr></thead>
+      <tbody>
+        ${row(s.peers.self, "peer-self")}
+        <tr class="peer-median"><td>${t("median")}</td><td class="mono">${xX(med.pe)}</td><td class="mono">${xX(med.pb)}</td><td class="mono">${xP(med.roe)}</td><td class="mono">${xP(med.dy)}</td><td class="mono">${xU(med.upside)}</td></tr>
+        ${p.peers.map((m) => row(m)).join("")}
+      </tbody></table></div>`;
   }
 
   function financialsTab(s) {
@@ -389,7 +421,7 @@
         <div><div class="k">Current ratio</div><div class="v mono">${f.ratios.current_ratio}</div></div>
         <div><div class="k">Payout ratio</div><div class="v mono">${fmtPct(f.ratios.payout_ratio)}</div></div>
         <div><div class="k">Revenue CAGR 3y</div><div class="v mono">${fmtPct(f.revenue_cagr_3y)}</div></div>
-      </div></div>`;
+      </div></div>` + peersPanel(s);
   }
 
   function dividendsTab(s) {
@@ -483,7 +515,20 @@
     const moved = uni.filter((c) => Math.abs(c.change_pct || 0) >= 0.02)
       .sort((a, b) => Math.abs(b.change_pct) - Math.abs(a.change_pct)).slice(0, 8);
     const myEvents = events.filter((e) => watch.includes(e.symbol)).slice(0, 12);
+    const valSignals = uni.filter((c) => c.valuation && c.valuation.confidence !== "low" && Math.abs(c.valuation.upside_pct || 0) >= 0.25)
+      .sort((a, b) => Math.abs(b.valuation.upside_pct) - Math.abs(a.valuation.upside_pct)).slice(0, 10);
+    const valRow = (c) => {
+      const v = c.valuation, up = v.upside_pct;
+      return `<a class="row-item" href="#/stock/${c.symbol}">
+        <strong style="min-width:84px">${esc(c.symbol)}</strong>
+        <span class="val-rating ${v.rating.replace(/ /g, "")}">${t("rating_" + v.rating.replace(/ /g, "_"))}</span>
+        <span class="${up > 0 ? "pos" : "neg"} mono">${up > 0 ? "+" : ""}${(up * 100).toFixed(0)}%</span>
+        <span class="muted pull-end">${t("fair_value")} ${fmtPrice(v.fair_value)}</span></a>`;
+    };
     app.innerHTML = `${demoNotice(meta)}
+      <section class="section"><h2>${t("alerts")} — ${t("value_signals")}</h2>
+        <div class="muted" style="margin:-4px 0 10px">${t("value_signals_note")}</div>
+        <div class="panel">${valSignals.length ? valSignals.map(valRow).join("") : `<div class="empty">${t("no_data")}</div>`}</div></section>
       <section class="section"><h2>${t("alerts")} — price moves</h2>
         <div class="panel">${moved.map((c) => `<a class="row-item" href="#/stock/${c.symbol}">
           <strong style="min-width:90px">${esc(c.symbol)}</strong>
@@ -498,16 +543,28 @@
   async function viewScreeners() {
     app.innerHTML = skel();
     const [meta, uni] = await Promise.all([DATA.meta(), DATA.universe()]);
+    const empty = `<div class="empty">${t("no_data")}</div>`;
+    // ---- Fair-value board: rank by upside to the model fair value (exclude low-confidence) ----
+    const trust = uni.filter((c) => c.valuation && c.valuation.upside_pct != null && c.valuation.confidence !== "low");
+    const under = trust.filter((c) => c.valuation.upside_pct > 0.05).sort((a, b) => b.valuation.upside_pct - a.valuation.upside_pct);
+    const over = trust.filter((c) => c.valuation.upside_pct < -0.05).sort((a, b) => a.valuation.upside_pct - b.valuation.upside_pct);
+    const board = `<section class="section">
+        <h2>${t("fair_value")} — ${t("rating_undervalued")} (${under.length})</h2>
+        <div class="muted" style="margin:-4px 0 10px">${t("val_board_note")}</div>
+        <div class="grid cards">${under.slice(0, 8).map(stockCard).join("") || empty}</div></section>
+      <section class="section"><h2>${t("fair_value")} — ${t("rating_overvalued")} (${over.length})</h2>
+        <div class="grid cards">${over.slice(0, 8).map(stockCard).join("") || empty}</div></section>`;
     const presets = [
+      ["Undervalued · high confidence (upside≥15%)", (c) => c.valuation && c.valuation.confidence === "high" && c.valuation.upside_pct >= 0.15, (a, b) => b.valuation.upside_pct - a.valuation.upside_pct],
       ["Dividend income (D≥70, yield≥4%)", (c) => c.scores.dividend >= 70 && c.dividend_yield >= 0.04],
       ["Growth leaders (G≥70)", (c) => c.scores.growth >= 70],
       ["Sleep-well / stable (S≥66)", (c) => c.scores.stability >= 66],
       ["All-rounders (overall≥62)", (c) => c.scores.headline >= 62],
     ];
-    app.innerHTML = `${demoNotice(meta)}${presets.map(([label, fn]) => {
-      const hits = uni.filter(fn).sort((a, b) => b.scores.headline - a.scores.headline);
+    app.innerHTML = `${demoNotice(meta)}${board}${presets.map(([label, fn, sortFn]) => {
+      const hits = uni.filter(fn).sort(sortFn || ((a, b) => b.scores.headline - a.scores.headline));
       return `<section class="section"><h2>${esc(label)} — ${hits.length}</h2>
-        <div class="grid cards">${hits.slice(0, 8).map(stockCard).join("") || `<div class="empty">${t("no_data")}</div>`}</div></section>`;
+        <div class="grid cards">${hits.slice(0, 8).map(stockCard).join("") || empty}</div></section>`;
     }).join("")}`;
     bindStars(app);
   }

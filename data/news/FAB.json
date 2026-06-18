@@ -1,22 +1,70 @@
 {
   "symbol": "FAB",
-  "retrieved_at": "2026-06-18T13:36:09+00:00",
+  "retrieved_at": "2026-06-18T22:02:43+00:00",
   "query": "\"First Abu Dhabi Bank\" (shares OR profit OR results OR dividend OR earnings OR stock OR revenue OR PJSC)",
-  "source": "GDELT (live media)",
+  "source": "Google News (live media)",
   "items": [
     {
-      "title": "Bahrain raises $1bln in 10 - year USD bond ; demand exceeds $3bln",
-      "url": "https://www.zawya.com/capital-markets/bonds/bahrain-raises-1bln-in-10-year-usd-bond-demand-exceeds-3bln-i8z6oxcz",
+      "title": "Abu Dhabi’s FAB mandates 3-year Euro green benchmark; IPTs out",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPUUtQLW4tZHZaSlF5ZEFRX2MtbFdwNnB0LUp2c2QtbjFfN1lSS1Q2V0o4emZiRFNEd0pUa1lneXVNQlV4clllMmNwUTk4VHhPVm9ZVTJuWVQzNVk2U0x5bHJiLXhqcEstS05KQzZ4MWo5SDRIZlpqSk43RnlZeFNSMXlacGdkREtHYlU2SlJSRUgyZHRtUXo1RlZlSGZMMTdreVpxUWdpdjlUcUhBdW9BcElNZGExNUk?oc=5",
       "domain": "zawya.com",
-      "published_at": "2026-06-05T00:00:00+00:00",
+      "published_at": "2026-06-18T08:29:26+00:00",
       "lang": "English",
       "source_type": "media"
     },
     {
-      "title": "First Abu Dhabi Bank inks strategic deal with Water . org , WaterEquity",
-      "url": "https://tradearabia.com:443/News/463335/-First-Abu-Dhabi-Bank-inks-strategic-deal-with-Water.org,-WaterEquity",
-      "domain": "tradearabia.com",
-      "published_at": "2026-06-04T13:45:00+00:00",
+      "title": "UAE stock market opens higher: ADX gains over 1 percent as DFM rises 1.76 percent",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNU2JvZUk4NG0zMkRNV0FidWhrLU0wSUc5anNpOHBSallhNFM0dDRjSmZqYzNWeGRib3R3MHZpamRaR09CRGpWd1ZLTUpJeUhpc0o0QXYwZkYwUVNyUjZrN1RHMW03M0NVQkUzVEx6X19YMnNVelZPMGFCNHVlOTBpRzhvbG0tOXloZWZFTVBnTmJJMW9zT0M5X05pNjhuR1B1OHhETWduR2xWTXcwZW8xdl9BZXlEemc?oc=5",
+      "domain": "economymiddleeast.com",
+      "published_at": "2026-06-16T08:44:08+00:00",
+      "lang": "English",
+      "source_type": "media"
+    },
+    {
+      "title": "ZAWYA: UAE’s biggest bank FAB sees Q1 profit fall 2% as impairments rise",
+      "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNZFhRbFl6WFBVeDBwcENPVzdlTzZtNHRvSHZwakRvekpRQjcxLWlMX214MVZqR1A4QXNDNU1vUHQwbmlfSUttRGJvR2ptbTZITzAwWFRORk1oRFh0MEUzOGJjRXNiTnVjUEk5VklmQlhOaGp1NlRycXNHQ2xlYUVOekZybnNlQlRmc1RKeTFyLW91OEprUTdYX0Z4Sy1UYlNYWkVxWVJMbXBRekZjTWdTaWVDVHZHdFM2WVlrTVdOWHdnTUN4c2ZXNmxDeDZmWng3ekpKbVlXbmdPbXgwSVE?oc=5",
+      "domain": "tradingview.com",
+      "published_at": "2026-04-22T07:00:00+00:00",
+      "lang": "English",
+      "source_type": "media"
+    },
+    {
+      "title": "Earnings call transcript: First Abu Dhabi Bank Q1 2026 shows resilience amid volatility",
+      "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQRW9Wa1c0MVZBckZBamFGSFN2Z1ROUXRvYUhzU0E1MHYzUFFaNU5ZVVB3eVJmSndnV0Uxb1RXSTNDcTI2ZHpxT1V4WWFMYmVNQ05YbENqb0dYVzRxbUlIQjZGbWt0MWtZWGxXRUhZVHBWZHN6NWg0UE1KX01XYTRUMW1EY1hldFVrQ3FsV09vSnNURGJ0ODVhMVdOYzVxelJOb0xFYS1oTGkwaU1QT09DYVJseWxoYkJqdVBrLWtBekt4aTExalJVSng0Yy1GWE1pS3VybmZlaXJ3dw?oc=5",
+      "domain": "investing.com",
+      "published_at": "2026-04-23T07:00:00+00:00",
+      "lang": "English",
+      "source_type": "media"
+    },
+    {
+      "title": "First Abu Dhabi Bank and Emirates NBD report strong first-quarter earnings despite war uncertainty",
+      "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxNZ3h3ZHpId09TTFg2eFRMR0FyQUdzcDl5XzZIX0tnZk54WFh5bHAzLWxzdXNMQ2hpd3lwTHpJVU9ydXNRYnNtUG5KQW1XVzVVNVZtbTU4eTZMN0U2OXNZVVBMT3pzVlhSQjBXRVR5WVpHckpHY0VxYnZGdFphdkJQVE8yNEwzT19kX3A1eVQ1TGFCY1JDLUhPeGh1a2RKbGRBbEhWemEtQzJUSFZIbnhILUkzcG10R0JwcDVUSEFxN0ZORHVZY2ttM1BzQnByczFaTjI4LTZiYjYxRlBJQU5lNmhNWFotWHVYUWdZdFZfR0I?oc=5",
+      "domain": "thenationalnews.com",
+      "published_at": "2026-04-23T07:00:00+00:00",
+      "lang": "English",
+      "source_type": "media"
+    },
+    {
+      "title": "FAB delivers strong Q1’26 results with a 6% rise in operating income to AED 9.34bln and a net profit of AED 5.01bln",
+      "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxNM2RMdHhNUDV6UEZaOUM0Tkd1RXVUaFRqeHBSUmU1bGVmN2lCbENpN0lsb09LTC1RbVB0WVlZclBFTFBRQW8zWEItMEtRLTZxU1hNZTBaM2gwSWtXcjBmSlpONTVHVjU0T2MyX3Q3Wkx0Y1ZEUlY2TnZ3VURDSWpZZkxKbEZzWHFFajNVdERDV05pUTIwbG9ySUFUMU1NdFN3T3pwdGJWRDB0dTJ2WFlaQTlBVUdxNU9yMGQ0dlF6cGhmTWJ1RW1BQi00WUI1azkwZVNHM0lacHRyY3dwR3RzZTlhcDJWOVU3bVQwLUlVcW5fY25mZlVGYVBKU0NVNG9TdG1SWQ?oc=5",
+      "domain": "zawya.com",
+      "published_at": "2026-04-22T07:00:00+00:00",
+      "lang": "English",
+      "source_type": "media"
+    },
+    {
+      "title": "First Abu Dhabi Bank profit tops Dh5b as assets cross $400b milestone",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPVnpxRlE4VnhpMHJxUjUza2hTeE44ckJJeVdjQ0JKel80Vklkbk5VV2FIblJiMVc1Y0NhWS1ZbTdEWGZZTlVOMUlEZ1dHc2l1bnQzX0prN2FmaVNJdlJWS0tPVVBWd3hwOUc4a0VacGdKeGJWaGd6OHNiRlB6bWlQYzhYOUFaMVlhRnBxTmpzb2FEUS1Fc214TF9HeXA1dFRpNmxQZWdwUTdOU2hyZFJVaGR6NHbSAbwBQVVfeXFMTm80M1hNOG9Bc3NzamhFWVk5XzlDSTBjTGV5eXR6cHZ6bld5aXBHUEdjMEhmTXp5cEhpN1Ixa1plR2l3ZFc5MHB6MnRoV0labjVtM05hM043WFJGV1k2UEZMSTVBdlRFeTB2QnRydHlZR3BhSFlMdHRLaENQZGNscW9oR1ZSSEkxTC1NbDg4NDZoNlhRbTR0aWxnMVFudUZ5MXdhNl8wV3FldmpGRlE1UGJjSjk4VHd5N1ZBUTI?oc=5",
+      "domain": "khaleejtimes.com",
+      "published_at": "2026-04-23T07:00:00+00:00",
+      "lang": "English",
+      "source_type": "media"
+    },
+    {
+      "title": "UAE biggest lender's profit beats expectations despite Iran war",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQSGhtLUJkQ3lJUHdaWVJLdzBEV1Y4YWZwSjdMOVgxV3l0N1hVZDVhYTNrY0s0ZGMtS0J0Q1d4a3FwV196VGdTN0k4WTF0N1RQanRQcFpnaWNaTFJkVFdKRzJ3VTRld09FbVpPdkNSTDM1MDZBenpUMFhKbFBubnNXNU1pSkVzVjJYNUdpXzhzVElyUmdFVUtFODBhWUc?oc=5",
+      "domain": "middle-east-online.com",
+      "published_at": "2026-04-23T07:00:00+00:00",
       "lang": "English",
       "source_type": "media"
     }
