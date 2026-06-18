@@ -55,6 +55,32 @@ def _post(url: str, body: dict, headers: dict, timeout: float = 60) -> dict:
         return json.loads(r.read().decode("utf-8", "replace"))
 
 
+def text(provider: str, system: str, user: str, *, grounded: bool = True) -> str | None:
+    """Return raw TEXT from a named provider (used by the hybrid fetch step). Only gemini
+    supports live grounding; others answer from training."""
+    provider = (provider or "gemini").lower()
+    if provider == "gemini":
+        return _gemini_text(system, user, grounded)
+    # non-gemini: reuse the JSON lanes but ask for prose (wrap as a 'text' field)
+    out = complete_with(provider, system, user + "\n\nReturn JSON {\"text\": \"<your findings>\"}.", grounded=False)
+    return (out or {}).get("text") if isinstance(out, dict) else None
+
+
+def complete_with(provider: str, system: str, user: str, *, grounded: bool = True) -> dict | None:
+    """complete() but with an explicit provider (used by hybrid mode)."""
+    provider = (provider or "gemini").lower()
+    if provider == "gemini":
+        return _gemini(system, user, grounded)
+    if provider == "groq":
+        return _groq(system, user)
+    if provider == "openrouter":
+        return _openrouter(system, user)
+    if provider == "ollama":
+        return _ollama(system, user)
+    print(f"[mizan.llm] unknown provider {provider}")
+    return None
+
+
 def complete(system: str, user: str, *, grounded: bool = True) -> dict | None:
     """Return a parsed JSON object from the active provider, or None on failure."""
     provider = os.environ.get("MIZAN_PROVIDER", "gemini").lower()
@@ -91,6 +117,30 @@ def _gemini(system: str, user: str, grounded: bool) -> dict | None:
         return _extract_json(text)
     except Exception as e:  # noqa: BLE001
         print(f"[mizan.llm] gemini error: {e}")
+        return None
+
+
+def _gemini_text(system: str, user: str, grounded: bool) -> str | None:
+    """Grounded gemini call returning raw TEXT (for the hybrid fetch step)."""
+    key = os.environ.get("GEMINI_API_KEY", "").strip() or os.environ.get("MIZAN_FETCH_KEY", "").strip()
+    if not key:
+        print("[mizan.llm] GEMINI_API_KEY (fetch) missing")
+        return None
+    model = os.environ.get("MIZAN_FETCH_MODEL", "gemini-2.0-flash")
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={key}"
+    body = {
+        "system_instruction": {"parts": [{"text": system}]},
+        "contents": [{"role": "user", "parts": [{"text": user}]}],
+        "generationConfig": {"temperature": 0.1, "maxOutputTokens": 2048},
+    }
+    if grounded:
+        body["tools"] = [{"google_search": {}}]
+    try:
+        resp = _post(url, body, {})
+        parts = resp["candidates"][0]["content"]["parts"]
+        return "".join(p.get("text", "") for p in parts) or None
+    except Exception as e:  # noqa: BLE001
+        print(f"[mizan.llm] gemini(text) error: {e}")
         return None
 
 

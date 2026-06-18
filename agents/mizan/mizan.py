@@ -74,15 +74,34 @@ def extract(symbol: str) -> dict | None:
         print(f"[mizan] unknown symbol {symbol}")
         return None
     exch = "Abu Dhabi (ADX)" if sec.exchange == "ADX" else "Dubai (DFM)"
-    user = (
+    base_q = (
         f"Company: {sec.name_en} (ticker {symbol}, listed on {exch}).\n"
         f"Find its MOST RECENT full-year reported financials (FY2024 preferred, else latest). "
         f"Include the PRIOR year's revenue and net income (for growth). For banks, use total "
-        f"operating income as 'revenue' and leave total_debt/ebitda null.\n"
-        f"Return ONLY this JSON shape (null for anything unverifiable; found=false if you cannot "
-        f"source revenue AND net_income):\n{SCHEMA_HINT}"
+        f"operating income as 'revenue' and leave total_debt/ebitda null."
     )
-    out = llm.complete(SYSTEM, user, grounded=True)
+    # HYBRID: a grounded provider (gemini) fetches the real sourced facts as text, then the
+    # main provider (e.g. ollama's stronger brain) structures them. Best of both — live
+    # grounding + a strong extractor. Enabled when MIZAN_FETCH_PROVIDER is set & differs.
+    fetch_prov = os.environ.get("MIZAN_FETCH_PROVIDER", "").lower()
+    main_prov = os.environ.get("MIZAN_PROVIDER", "gemini").lower()
+    if fetch_prov and fetch_prov != main_prov:
+        src = llm.text(fetch_prov,
+                       "You are a financial-data researcher. Find real, sourced figures only; cite the source URL and fiscal period.",
+                       base_q + "\nList every reported figure you can verify, with the source URL and the fiscal period. Plain text.",
+                       grounded=True)
+        if not src:
+            print(f"[mizan] {symbol}: hybrid fetch returned nothing; falling back to single-call")
+            out = llm.complete(SYSTEM, base_q + f"\nReturn ONLY:\n{SCHEMA_HINT}", grounded=True)
+        else:
+            out = llm.complete_with(main_prov, SYSTEM,
+                                    f"From these SOURCED findings, extract the figures.\n\nFINDINGS:\n{src}\n\n"
+                                    f"Return ONLY this JSON (null for anything not in the findings; found=false if no revenue+net_income):\n{SCHEMA_HINT}",
+                                    grounded=False)
+    else:
+        out = llm.complete(SYSTEM, base_q + f"\nReturn ONLY this JSON shape (null for anything "
+                           f"unverifiable; found=false if you cannot source revenue AND net_income):\n{SCHEMA_HINT}",
+                           grounded=True)
     if not out or not isinstance(out, dict):
         print(f"[mizan] {symbol}: no/invalid LLM output")
         return None
