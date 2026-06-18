@@ -56,6 +56,18 @@ narrate; free by default.
   `FV ±%` chip. (b) Stock **Financials tab** has a **Peer comparison** table (P/E, P/B, ROE, yield, FV
   upside vs same-archetype names + sector median; computed in `pipeline._attach_peers`, a 2nd pass).
   (c) **Alerts** page leads with **fair-value signals** (price ≥25% from fair value, app-only — no push).
+- **Portfolio (2026-06-19):** a personal **Portfolio** tab (nav `#/portfolio`) — a client-side
+  buy/sell ledger (localStorage `uae_portfolio` via the `Portfolio` store in `web/js/data.js`).
+  Add each transaction (symbol, action, date, shares, price); `web/js/app.js:_computePosition`
+  derives per-position + portfolio-wide **price ROI / dividend ROI / total ROI**, dividends
+  received (matched from each stock's ex-dates, weighted by shares held on each date; upcoming
+  shown separately), current value, realized vs unrealized, avg cost, and the full transaction
+  log (deletable). Weighted-average cost model. Personal-use only — does NOT touch the
+  data-redistribution / SCA launch gates (Admin "Personal holdings connection" is already Pass).
+- **Service worker (FIXED 2026-06-19):** `web/sw.js` was cache-first with a FIXED cache name
+  (`uae-shell-v1`), so users were stuck on stale JS after every deploy. Now **stale-while-
+  revalidate** + a per-build cache id (`VERSION="__BUILD_ID__"`, stamped by `tools/refresh.sh`
+  into `dist/sw.js`). This is why old UI kept reappearing; deploys now self-update.
 - **UX:** stock page has a ← Back button; navigation closes the search dropdown + scrolls top.
 
 ## The agent fleet (manager = Claude Code) — `agents/FLEET.md`
