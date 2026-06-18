@@ -1,0 +1,158 @@
+"""
+Mizan (ميزان, "balance/scales") — the UAE fundamentals agent.
+
+Job: for each UAE-listed company, transcribe the latest REPORTED financials from
+authoritative sources into data/fundamentals/<SYMBOL>.json. The deterministic brain
+(FundamentalsStore + scoring) turns those reported numbers into the house scores — Mizan
+never computes a score, it only extracts what the company reported, with a source URL +
+date + confidence. Honest-degraded: if it can't source revenue + net income, it writes
+nothing for that symbol (the brain keeps the modeled estimate, clearly labelled).
+
+Free cloud LLM lane (no Claude-Max quota burn): MIZAN_PROVIDER=gemini (grounded via Google
+Search, recommended) | groq | openrouter. Key in agents/mizan/.env.
+
+Usage:
+    python3 agents/mizan/mizan.py --symbols FAB,EMAAR     # specific names
+    python3 agents/mizan/mizan.py --all                   # whole registry
+    python3 agents/mizan/mizan.py --bus                   # process _Bus/inbox/mizan/ requests
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(ROOT))
+
+# load agents/mizan/.env if present (simple KEY=VALUE)
+_envf = Path(__file__).resolve().parent / ".env"
+if _envf.exists():
+    for line in _envf.read_text().splitlines():
+        line = line.strip()
+        if line and not line.startswith("#") and "=" in line:
+            k, v = line.split("=", 1)
+            os.environ.setdefault(k.strip(), v.strip())
+
+from agents.mizan import llm  # noqa: E402
+from brain.registry import load_universe, by_symbol  # noqa: E402
+
+DATA = ROOT / "data" / "fundamentals"
+UTC = timezone.utc
+
+SYSTEM = (
+    "You are Mizan, a meticulous financial-data extraction analyst for UAE-listed equities. "
+    "You transcribe REPORTED figures from authoritative sources (company annual report / IR "
+    "page, ADX/DFM filing, or reputable financial press like Reuters/Bloomberg/Zawya/Argaam). "
+    "You NEVER invent or estimate a number — if you cannot verify a figure from a real source, "
+    "you return null for it. Report all monetary figures in AED (convert USD at ~3.6725). "
+    "Respond with a SINGLE JSON object and nothing else."
+)
+
+SCHEMA_HINT = (
+    '{"symbol":"<SYM>","found":<bool>,"as_of":"<FY2024|2024-12-31|null>","currency":"AED",'
+    '"source":"<short source name>","source_url":"<url|null>","confidence":"high|medium|low",'
+    '"reported":{"revenue":<n|null>,"revenue_prior":<n|null>,"net_income":<n|null>,'
+    '"net_income_prior":<n|null>,"net_margin":<0..1|null>,"net_margin_prior":<0..1|null>,'
+    '"total_debt":<n|null>,"ebitda":<n|null>,"operating_cash_flow":<n|null>,'
+    '"current_ratio":<n|null>,"dividend_per_share":<n|null>,"payout_ratio":<0..1|null>,'
+    '"fcf":<n|null>,"cut_history_5y":<int|null>,"dividend_frequency":"annual|semi|quarterly|none|null",'
+    '"years_paid":<int|null>}}'
+)
+
+
+def _iso() -> str:
+    return datetime.now(UTC).replace(microsecond=0).isoformat()
+
+
+def extract(symbol: str) -> dict | None:
+    sec = by_symbol(symbol)
+    if not sec:
+        print(f"[mizan] unknown symbol {symbol}")
+        return None
+    exch = "Abu Dhabi (ADX)" if sec.exchange == "ADX" else "Dubai (DFM)"
+    user = (
+        f"Company: {sec.name_en} (ticker {symbol}, listed on {exch}).\n"
+        f"Find its MOST RECENT full-year reported financials (FY2024 preferred, else latest). "
+        f"Include the PRIOR year's revenue and net income (for growth). For banks, use total "
+        f"operating income as 'revenue' and leave total_debt/ebitda null.\n"
+        f"Return ONLY this JSON shape (null for anything unverifiable; found=false if you cannot "
+        f"source revenue AND net_income):\n{SCHEMA_HINT}"
+    )
+    out = llm.complete(SYSTEM, user, grounded=True)
+    if not out or not isinstance(out, dict):
+        print(f"[mizan] {symbol}: no/invalid LLM output")
+        return None
+    rep = out.get("reported") or {}
+    if not out.get("found") or rep.get("revenue") is None or rep.get("net_income") is None:
+        print(f"[mizan] {symbol}: not found / insufficient (kept modeled)")
+        return None
+    rec = {
+        "symbol": symbol,
+        "as_of": out.get("as_of"),
+        "currency": out.get("currency", "AED"),
+        "source": out.get("source", "Mizan extraction"),
+        "source_url": out.get("source_url"),
+        "extractor": f"mizan/{os.environ.get('MIZAN_PROVIDER', 'gemini')}",
+        "confidence": out.get("confidence", "medium"),
+        "retrieved_at": _iso(),
+        "reported": rep,
+    }
+    DATA.mkdir(parents=True, exist_ok=True)
+    (DATA / f"{symbol}.json").write_text(json.dumps(rec, ensure_ascii=False, indent=2))
+    print(f"[mizan] {symbol}: wrote fundamentals ({out.get('confidence')}, {out.get('as_of')})")
+    return rec
+
+
+def run_symbols(symbols: list[str]) -> int:
+    n = 0
+    for s in symbols:
+        if extract(s.strip().upper()):
+            n += 1
+    print(f"[mizan] done: {n}/{len(symbols)} real fundamentals written -> {DATA}")
+    return n
+
+
+def run_bus() -> None:
+    """Process Hermes requests dropped in _Bus/inbox/mizan/ (vault). Each open request may
+    name symbols in its Task; Mizan extracts them and fills the Response."""
+    inbox = Path("/Volumes/Samsung_SSD_970_EVO_Plus_Media/Khalid OS/_Bus/inbox/mizan")
+    if not inbox.exists():
+        print("[mizan] no bus inbox found"); return
+    import re
+    for msg in sorted(inbox.glob("*.md")):
+        txt = msg.read_text()
+        if "status: open" not in txt and "status: claimed" not in txt:
+            continue
+        syms = re.findall(r"\b([A-Z0-9]{2,12})\b", txt.split("## Task", 1)[-1])
+        known = {s.symbol for s in load_universe()}
+        targets = [s for s in dict.fromkeys(syms) if s in known] or list(known)
+        n = run_symbols(targets[:60])
+        resp = txt.replace("status: open", "status: done").replace("status: claimed", "status: done")
+        if "## Response" in resp:
+            resp = resp.split("## Response")[0] + f"## Response\nMizan wrote real fundamentals for {n} symbol(s) at {_iso()}.\n"
+        msg.write_text(resp)
+        print(f"[mizan] bus message handled: {msg.name}")
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser(description="Mizan — UAE fundamentals extraction agent")
+    ap.add_argument("--symbols", type=str, help="comma-separated symbols")
+    ap.add_argument("--all", action="store_true", help="whole registry")
+    ap.add_argument("--bus", action="store_true", help="process _Bus/inbox/mizan/ requests")
+    args = ap.parse_args()
+    if args.bus:
+        run_bus()
+    elif args.all:
+        run_symbols([s.symbol for s in load_universe()])
+    elif args.symbols:
+        run_symbols(args.symbols.split(","))
+    else:
+        ap.print_help()
+
+
+if __name__ == "__main__":
+    main()

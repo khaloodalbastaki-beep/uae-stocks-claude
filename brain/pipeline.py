@@ -26,6 +26,7 @@ from .ai.narrate import enrich_disclosure, analyze_stock, compute_signals
 from .adapters.mock import MockProvider
 from .adapters.exchanges import ExchangeProvider
 from .adapters.livescrape import LiveScrapeProvider
+from .adapters.fundamentals_store import FundamentalsStore
 from .adapters.gdelt import GdeltProvider
 from .adapters.worldbank import WorldBankProvider
 
@@ -268,6 +269,8 @@ class Pipeline:
         self.quotes = LiveScrapeProvider() if live else self.exchange
         self.gdelt = GdeltProvider() if live else self.mock
         self.worldbank = WorldBankProvider() if live else self.mock
+        # real reported fundamentals (Mizan agent / verified filings) override the modeled ones
+        self.fundamentals_store = FundamentalsStore(data_dir)
 
     def run(self) -> dict:
         (self.data_dir / "stocks").mkdir(parents=True, exist_ok=True)
@@ -358,7 +361,10 @@ class Pipeline:
 
     def _process(self, sec: Security, commodities: list):
         quote = self.quotes.get_quote(sec.symbol)
-        fundamentals = self.mock.get_fundamentals(sec.symbol)
+        real_f = self.fundamentals_store.to_fundamentals(sec.symbol, quote.price if quote else None)
+        fundamentals = real_f or self.mock.get_fundamentals(sec.symbol)
+        fundamentals_real = real_f is not None
+        frec = self.fundamentals_store.record(sec.symbol) if fundamentals_real else None
         scores = score_all(fundamentals, sec.archetype)
         disclosures = self.exchange.list_disclosures(sec.symbol, 12)
         disclosures = [enrich_disclosure(d) for d in disclosures]
@@ -383,6 +389,14 @@ class Pipeline:
             "quote": quote.to_dict() if quote else None,
             "scores": scores,
             "fundamentals": fundamentals.to_dict(),
+            "fundamentals_source": {
+                "real": fundamentals_real,
+                "as_of": frec.get("as_of") if frec else None,
+                "source": frec.get("source") if frec else "modeled estimate",
+                "source_url": frec.get("source_url") if frec else None,
+                "extractor": frec.get("extractor") if frec else None,
+                "confidence": frec.get("confidence") if frec else None,
+            },
             "overview": {
                 "business_summary_en": en_sum, "business_summary_ar": ar_sum,
                 "index_membership": [sec.exchange],
@@ -425,6 +439,7 @@ class Pipeline:
             "impact": _impact_chip(signals["short"]),
             "updated_at": _iso(),
             "data_quality": quote.prov.data_quality if quote and quote.prov else "demo",
+            "fundamentals_real": fundamentals_real,
         }
 
         # events for the home strip

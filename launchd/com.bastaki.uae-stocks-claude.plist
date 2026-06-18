@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.bastaki.uae-stocks-claude</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/khalidalbastaki/Projects/uae-stocks-claude/tools/refresh.sh</string>
+  </array>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key><string>/Users/khalidalbastaki/.local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    <key>PAGES_REPO</key><string>khaloodalbastaki-beep/uae-stocks-live</string>
+    <key>UAE_AI_PROVIDER</key><string>stub</string>
+  </dict>
+  <key>StartInterval</key><integer>900</integer>
+  <key>RunAtLoad</key><true/>
+  <key>StandardOutPath</key><string>/Users/khalidalbastaki/Projects/uae-stocks-claude/data/ingest.log</string>
+  <key>StandardErrorPath</key><string>/Users/khalidalbastaki/Projects/uae-stocks-claude/data/ingest.err.log</string>
+</dict>
+</plist>
