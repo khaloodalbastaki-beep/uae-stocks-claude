@@ -36,7 +36,11 @@ narrate; free by default.
 Free local Nous CLI agents (`<agent> chat -Q -q "<prompt>"`), wrapped by
 `brain/ai/provider.py:CliAgentProvider` (`UAE_AI_PROVIDER=cli:<agent>`):
 - **nemotron** (nvidia/nemotron-3-ultra:free) — **Analyst**: AI-tab prose. `python3 -m brain.analyst --stale N`.
-- **freeagent** (stepfun/step-3.7-flash:free) — news-editor / backup analyst (`ANALYST_AGENT=freeagent`).
+  Note: nemotron needs ~210s on the narration prompt, so the analyst CLI timeout is **300s**
+  (`ANALYST_TIMEOUT`, or `UAE_AI_CLI_TIMEOUT` for all CLI agents) — the old 90s default made the
+  hourly run fail 0/N. If the primary times out / returns nothing it **auto-falls back to freeagent**
+  (`ANALYST_BACKUP_AGENT`, flash ~13s) so the AI tab always gets prose; the JSON records the real narrator.
+- **freeagent** (stepfun/step-3.7-flash:free) — news-editor / backup analyst (`ANALYST_AGENT=freeagent`; also the auto-fallback).
 - **robin** — watcher/QA.
 - **Mizan** (ميزان, `agents/mizan/`) — fundamentals extractor on **gpt-oss:120b-cloud** (Ollama
   Cloud, already signed in via `ollama signin`, no key). Default lane `web` (self-fetch IR

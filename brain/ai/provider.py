@@ -176,7 +176,9 @@ class CliAgentProvider(AIProvider):
     def __init__(self, agent: str, timeout: float = 90.0):
         self.agent = agent
         self.name = f"cli:{agent}"
-        self.timeout = timeout
+        # Free Nous reasoning models (e.g. nemotron) can need >90s on heavy prompts;
+        # allow tuning without code edits via UAE_AI_CLI_TIMEOUT.
+        self.timeout = float(os.environ.get("UAE_AI_CLI_TIMEOUT", timeout))
 
     def _run(self, prompt: str) -> str | None:
         try:

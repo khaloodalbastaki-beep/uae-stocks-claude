@@ -1,35 +1,35 @@
 {
   "symbol": "EMAAR",
   "narrator": "nemotron",
-  "generated_at": "2026-06-18T16:41:59+00:00",
+  "generated_at": "2026-06-18T20:41:25+00:00",
   "short_term": {
     "reasons": [
-      "Positive price momentum on the session suggests near-term buyer interest",
-      "A high-materiality disclosure (94/100) has entered the recent flow, drawing market attention",
-      "Dividend score of 72/100 provides some income support in the near term",
-      "Stability score of 59/100 indicates moderate resilience"
+      "Recent session showed positive price momentum, suggesting near-term buyer interest",
+      "A high-materiality disclosure has entered the information flow, which typically precedes meaningful price reaction",
+      "Dividend profile remains a supportive feature for income-oriented holders in the near term",
+      "Stability score above the mid-point indicates the business is not in a distressed state"
     ],
     "risks": [
-      "The high-materiality disclosure carries a cautious/negative tone",
-      "Growth score of 56/100 signals only moderate expansion prospects",
-      "Real estate sector cyclicality could amplify near-term sentiment swings",
-      "Limited catalysts beyond the disclosure to sustain momentum"
+      "The tone of the recent high-materiality disclosure leans cautious or negative, which could weigh on sentiment",
+      "Neutral stance with high confidence implies the analyst sees balanced forces but is not convinced of a clear directional move",
+      "Growth score in the mid-50s suggests earnings momentum is not strongly positive",
+      "Short-term price action can be driven by flows and news flow rather than fundamentals"
     ],
-    "what_would_change_view": "A shift in disclosure tone to positive or confirmation of new project launches/sales momentum"
+    "what_would_change_view": "A shift in disclosure tone to positive, or a sustained break in price momentum accompanied by improving growth signals, would tilt the short-term view."
   },
   "long_term": {
     "reasons": [
-      "Dependable dividend characteristics (72/100) offer long-term income appeal",
-      "Stability score of 59/100 suggests reasonable foundation for multi-year hold",
-      "Emaar's market position in Dubai provides structural demand tailwinds",
-      "Asset base and land bank support long-term value creation"
+      "Dividend characteristics are rated dependable, providing a long-term anchor for total return",
+      "Stability score near 60 reflects a business model with recurring revenue visibility from development and leasing",
+      "Emaar's brand and land bank in Dubai offer a structural moat in a growing regional hub",
+      "Dividend score of 72 is the highest of the three pillars, suggesting capital return discipline"
     ],
     "risks": [
-      "Execution risk on project delivery and sales pace",
-      "Macro conditions (interest rates, oil prices, global sentiment) remain key swing factors",
-      "Growth score of 56/100 indicates modest long-term expansion trajectory",
-      "Real estate cycle exposure could pressure valuations over longer horizons"
+      "Execution risk on large-scale projects remains a key swing factor for long-term value creation",
+      "Macro conditions — interest rates, oil prices, global risk sentiment — directly affect Dubai real estate cycles",
+      "Growth score in the mid-50s indicates the market does not price in strong structural earnings acceleration",
+      "Low confidence in the Neutral stance signals high uncertainty around the long-term trajectory"
     ],
-    "what_would_change_view": "Sustained improvement in project execution visibility combined with favorable macro backdrop (lower rates, stronger oil) or a step-change in dividend policy"
+    "what_would_change_view": "Visible improvement in project execution track record, or a macro shift that sustainably lowers financing costs and boosts demand, would move the long-term view away from Neutral."
   }
 }

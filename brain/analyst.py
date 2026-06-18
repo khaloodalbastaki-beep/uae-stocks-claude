@@ -28,6 +28,12 @@ ROOT = Path(__file__).resolve().parent.parent
 STOCKS = ROOT / "data" / "stocks"
 AIDIR = ROOT / "data" / "ai"
 AGENT = os.environ.get("ANALYST_AGENT", "nemotron")
+# Big free reasoning models (nemotron ~210s on the narration prompt) blow past the
+# 90s CLI default — give the Analyst a generous cap, env-overridable.
+TIMEOUT = float(os.environ.get("ANALYST_TIMEOUT", "300"))
+# If the primary narrator times out / returns nothing, fall back once to a fast flash
+# model so the AI tab still gets prose. "" disables the fallback.
+BACKUP = os.environ.get("ANALYST_BACKUP_AGENT", "freeagent")
 
 SCHEMA = {
     "type": "object", "additionalProperties": False,
@@ -51,7 +57,7 @@ def _iso() -> str:
     return datetime.now(UTC).replace(microsecond=0).isoformat()
 
 
-def narrate(symbol: str, provider: CliAgentProvider) -> dict | None:
+def narrate(symbol: str, providers: list[CliAgentProvider]) -> dict | None:
     sf = STOCKS / f"{symbol}.json"
     if not sf.exists():
         print(f"[analyst] {symbol}: no built stock file yet — skip")
@@ -78,22 +84,33 @@ def narrate(symbol: str, provider: CliAgentProvider) -> dict | None:
             f"Short-signal notes: {sig['short'].get('reasons')} | risks: {sig['short'].get('risks')}\n"
             f"Long-signal notes: {sig['long'].get('reasons')} | risks: {sig['long'].get('risks')}\n"
             f"Return up to 4 reasons and 4 risks per horizon.")
-    out = provider.complete_json(sys_p, user, SCHEMA)
-    if not out or "short_term" not in out or "long_term" not in out:
-        print(f"[analyst] {symbol}: no/invalid output from {AGENT}")
-        return None
-    rec = {"symbol": symbol, "narrator": AGENT, "generated_at": _iso(),
-           "short_term": out["short_term"], "long_term": out["long_term"]}
-    AIDIR.mkdir(parents=True, exist_ok=True)
-    (AIDIR / f"{symbol}.json").write_text(json.dumps(rec, ensure_ascii=False, indent=2))
-    print(f"[analyst] {symbol}: narrated by {AGENT}")
-    return rec
+    # Try primary, then fall back to the next provider on timeout/invalid output.
+    for prov in providers:
+        out = prov.complete_json(sys_p, user, SCHEMA)
+        if out and "short_term" in out and "long_term" in out:
+            used = prov.agent
+            rec = {"symbol": symbol, "narrator": used, "generated_at": _iso(),
+                   "short_term": out["short_term"], "long_term": out["long_term"]}
+            AIDIR.mkdir(parents=True, exist_ok=True)
+            (AIDIR / f"{symbol}.json").write_text(json.dumps(rec, ensure_ascii=False, indent=2))
+            print(f"[analyst] {symbol}: narrated by {used}")
+            return rec
+        print(f"[analyst] {symbol}: no/invalid output from {prov.agent} — trying next" if prov is not providers[-1]
+              else f"[analyst] {symbol}: no/invalid output from {prov.agent}")
+    return None
+
+
+def _providers() -> list[CliAgentProvider]:
+    provs = [CliAgentProvider(AGENT, timeout=TIMEOUT)]
+    if BACKUP and BACKUP != AGENT:
+        provs.append(CliAgentProvider(BACKUP, timeout=TIMEOUT))
+    return provs
 
 
 def run_symbols(symbols: list[str]) -> int:
-    p = CliAgentProvider(AGENT)
-    n = sum(1 for s in symbols if narrate(s.strip().upper(), p))
-    print(f"[analyst] done: {n}/{len(symbols)} narrated by {AGENT} -> {AIDIR}")
+    provs = _providers()
+    n = sum(1 for s in symbols if narrate(s.strip().upper(), provs))
+    print(f"[analyst] done: {n}/{len(symbols)} narrated ({' -> '.join(p.agent for p in provs)}) -> {AIDIR}")
     return n
 
 
