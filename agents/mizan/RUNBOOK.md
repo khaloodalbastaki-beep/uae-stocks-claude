@@ -29,8 +29,14 @@ python3 agents/mizan/mizan.py --all
 # Hermes dispatch: drop a request in _Bus/inbox/mizan/ naming symbols, then:
 python3 agents/mizan/mizan.py --bus
 ```
-Key lives in `agents/mizan/.env` (copy `.env.example`). Gemini (grounded via Google Search)
-is the recommended free lane; Groq/OpenRouter are fallbacks (pass already-fetched text).
+Key lives in `agents/mizan/.env` (copy `.env.example`). **LLM lanes (all free, no card):**
+- `gemini` (recommended) — grounded via Google Search → truest sourced figures. https://aistudio.google.com/apikey
+- `ollama` cloud — stronger reasoning models (gpt-oss:120b, kimi-k2:1t, deepseek-v3.1:671b). `OLLAMA_HOST=https://ollama.com` + key https://ollama.com/settings/keys. Best fed fetched text (no auto web-search in chat).
+- `ollama` local — `OLLAMA_HOST=http://localhost:11434`, your own qwen3 etc., fully offline, no key.
+- `groq` — fastest; `openrouter` — many big :free models. Both ungrounded → pass fetched filing text.
+
+Pick the lane in `.env` via `MIZAN_PROVIDER`. For discovery (find + read the filing) prefer a
+grounded lane (gemini); for re-extraction from text you already have, any lane works.
 
 ## Cadence (what good performance looks like)
 - **Weekly** full sweep (`--all`) to catch new annual/interim results.

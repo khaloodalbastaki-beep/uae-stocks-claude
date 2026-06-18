@@ -64,6 +64,8 @@ def complete(system: str, user: str, *, grounded: bool = True) -> dict | None:
         return _groq(system, user)
     if provider == "openrouter":
         return _openrouter(system, user)
+    if provider == "ollama":
+        return _ollama(system, user)
     print(f"[mizan.llm] unknown provider {provider}")
     return None
 
@@ -109,6 +111,34 @@ def _groq(system: str, user: str) -> dict | None:
         return _extract_json(resp["choices"][0]["message"]["content"])
     except Exception as e:  # noqa: BLE001
         print(f"[mizan.llm] groq error: {e}")
+        return None
+
+
+def _ollama(system: str, user: str) -> dict | None:
+    """Ollama lane — OpenAI-compatible. Two modes via OLLAMA_HOST:
+      * Ollama Cloud (default, stronger models): OLLAMA_HOST=https://ollama.com + OLLAMA_API_KEY
+        (free tier; models like gpt-oss:120b, qwen3-coder:480b, deepseek-v3.1:671b).
+      * Local Ollama: OLLAMA_HOST=http://localhost:11434 (no key) — uses your local qwen3 etc.
+    Both expose <host>/v1/chat/completions."""
+    host = os.environ.get("OLLAMA_HOST", "https://ollama.com").rstrip("/")
+    key = os.environ.get("OLLAMA_API_KEY", "").strip()
+    if "ollama.com" in host and not key:
+        print("[mizan.llm] OLLAMA_API_KEY missing for Ollama Cloud — add it to agents/mizan/.env "
+              "(get one at https://ollama.com/settings/keys)")
+        return None
+    model = os.environ.get("MIZAN_MODEL", "gpt-oss:120b" if "ollama.com" in host else "qwen3:8b")
+    body = {
+        "model": model, "temperature": 0.1, "stream": False,
+        "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
+    }
+    headers = {}
+    if key:
+        headers["Authorization"] = f"Bearer {key}"
+    try:
+        resp = _post(f"{host}/v1/chat/completions", body, headers, timeout=120)
+        return _extract_json(resp["choices"][0]["message"]["content"])
+    except Exception as e:  # noqa: BLE001
+        print(f"[mizan.llm] ollama error: {e}")
         return None
 
 
