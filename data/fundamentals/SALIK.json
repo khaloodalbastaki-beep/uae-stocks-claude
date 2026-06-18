@@ -1,55 +1,55 @@
 {
   "symbol": "SALIK",
-  "as_of": "2024-12-31",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "Salik Company PJSC Official Annual Report 2024, DFM Filings, Mediaoffice.ae",
-  "source_url": "https://ar2024.salik.ae/en/financial-statements/statement-financial-position",
-  "extractor": "research-grounded/Explore (seed)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://www.zawya.com/en/press-release/companies-news/salik-reports-fy-2025-revenue-of-aed-310bln-up-351-yoy-alongside-a-334-yoy-surge-in-net-profit-to-aed-155bln-xmccqeei",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T10:59:58+00:00",
   "reported": {
-    "revenue": 2291.9,
-    "revenue_prior": 2108.59,
-    "net_income": 1164.5,
-    "net_income_prior": 1090.07,
+    "revenue": 3096900000.0,
+    "revenue_prior": 2291900000.0,
+    "net_income": 1553400000.0,
+    "net_income_prior": 1164500000.0,
     "ebitda": 1579.1,
     "operating_cash_flow": 1463.13,
     "fcf": 1457.3,
     "total_debt": 3991.985,
     "current_ratio": 1.42,
-    "dividend_per_share": 0.24,
-    "payout_ratio": 100,
+    "dividend_per_share": 0.22149,
+    "payout_ratio": 1.07,
     "years_paid": 1,
-    "net_margin": 50.8,
-    "net_margin_prior": 51.7,
+    "net_margin": 0.5016,
+    "net_margin_prior": 0.5081,
     "shares_outstanding": 7500000000.0,
-    "total_equity": 1088000000.0,
-    "eps": 0.16
+    "total_equity": 1218700000.0,
+    "eps": 0.207
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      1693000000.0,
-      1892000000.0,
+      1893000000.0,
       2109000000.0,
-      2292000000.0
+      2291900000.0,
+      3096900000.0
     ],
     "net_income": [
-      1381000000.0,
-      1326000000.0,
+      1320000000.0,
       1098000000.0,
-      1165000000.0
+      1164500000.0,
+      1553400000.0
     ],
     "operating_cash_flow": [
-      1234000000.0,
-      1516000000.0,
-      1454000000.0,
-      1463000000.0
+      null,
+      1454214000.0,
+      1463132000.0,
+      2082500000.0
     ],
     "source": "workflow-research"
   },

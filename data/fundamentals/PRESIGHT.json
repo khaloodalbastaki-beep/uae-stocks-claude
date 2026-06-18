@@ -1,55 +1,55 @@
 {
   "symbol": "PRESIGHT",
-  "as_of": "2024-12-31",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "Presight AI Holding PLC official press releases, annual reports, and investor relations materials; WAM (UAE News Agency); Zawya; Gulf News; StockAnalysis",
-  "source_url": "https://www.presight.ai/news/presight-delivers-record-breaking-financial-performance-for-fy-2024/",
-  "extractor": "research-grounded/Explore (seed-2)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://www.presight.ai/news/presight-reports-36-9-annual-revenue-growth-in-2025-surpassing-aed-3-billion/",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T12:17:56+00:00",
   "reported": {
-    "revenue": 2213000000,
-    "revenue_prior": 1780600000,
-    "net_income": 612800000,
-    "net_income_prior": 570600000,
-    "net_margin": 0.277,
-    "net_margin_prior": 0.32,
+    "revenue": 3030000000.0,
+    "revenue_prior": 2213000000.0,
+    "net_income": 665500000.0,
+    "net_income_prior": 612800000.0,
+    "net_margin": 0.2196,
+    "net_margin_prior": 0.2769,
     "ebitda": 635400000,
     "operating_cash_flow": 1160000000,
     "total_debt": 0,
     "current_ratio": null,
-    "dividend_per_share": 0,
-    "payout_ratio": 0,
+    "dividend_per_share": 0.0,
+    "payout_ratio": 0.0,
     "years_paid": 0,
     "fcf": null,
-    "shares_outstanding": 5610000000.0,
-    "total_equity": 4100000000.0,
-    "eps": 0.09
+    "shares_outstanding": 5609000000.0,
+    "total_equity": 4474000000.0,
+    "eps": 0.12
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      1334000000.0,
       1552000000.0,
-      1781000000.0,
-      2213000000.0
+      1780600000.0,
+      2213000000.0,
+      3030000000.0
     ],
     "net_income": [
-      350810000.0,
-      425470000.0,
-      570110000.0,
-      524070000.0
+      543000000.0,
+      570600000.0,
+      612800000.0,
+      665500000.0
     ],
     "operating_cash_flow": [
-      null,
-      null,
-      null,
-      null
+      749230000.0,
+      336630000.0,
+      1153000000.0,
+      218220000.0
     ],
     "source": "workflow-research"
   },

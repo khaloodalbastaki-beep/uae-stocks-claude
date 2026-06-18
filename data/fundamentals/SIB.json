@@ -1,51 +1,51 @@
 {
   "symbol": "SIB",
-  "as_of": "2024-12-31",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "Official company financial statements and investor relations announcements",
-  "source_url": "https://www.sib.ae/docs/default-source/default-document-library/sib-financial-statements-fy-2024---english.pdf",
-  "extractor": "research-grounded/Explore (seed-2)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://www.zawya.com/en/capital-markets/equities/sharjah-islamic-bank-generates-26-higher-net-profits-in-2025-pa7ge1qy",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T12:17:56+00:00",
   "reported": {
-    "revenue": 2200000000,
-    "revenue_prior": 1970000000,
-    "net_income": 1050000000,
-    "net_income_prior": 851540000,
+    "revenue": 2480000000.0,
+    "revenue_prior": 2180000000.0,
+    "net_income": 1310000000.0,
+    "net_income_prior": 1050000000.0,
     "operating_cash_flow": null,
     "fcf": null,
     "ebitda": null,
     "total_debt": null,
     "current_ratio": null,
-    "net_margin": 0.4773,
-    "net_margin_prior": 0.4324,
-    "dividend_per_share": 0.15,
+    "net_margin": 0.5282,
+    "net_margin_prior": 0.4817,
+    "dividend_per_share": 0.2,
     "dividend_frequency": "annual",
     "years_paid": null,
-    "payout_ratio": 0.4367,
+    "payout_ratio": 0.526,
     "cut_history_5y": null,
     "shares_outstanding": 3235677638.0,
     "total_equity": 8300000000.0,
-    "eps": 0.3
+    "eps": 0.38
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      1183000000.0,
-      1295000000.0,
-      1754000000.0,
-      1971000000.0
+      null,
+      2000000000.0,
+      2180000000.0,
+      2480000000.0
     ],
     "net_income": [
-      514070000.0,
-      650910000.0,
-      841540000.0,
-      1048000000.0
+      650900000.0,
+      851500000.0,
+      1050000000.0,
+      1310000000.0
     ],
     "operating_cash_flow": [
       null,

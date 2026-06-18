@@ -1,21 +1,21 @@
 {
   "symbol": "EMAAR",
-  "as_of": "2024-12-31",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "Emaar Properties official press releases, integrated annual reports, and DFM filings",
-  "source_url": "https://properties.emaar.com/en/press-release-listing/emaar-records-highest-ever-sales-revenue-and-profit-in-2024/",
-  "extractor": "research-grounded/Explore (seed)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://www.zawya.com/en/capital-markets/equities/emaar-records-highest-sales-revenue-profit-in-2025-rp58gxia",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T10:59:58+00:00",
   "reported": {
-    "revenue": 35500000000,
-    "revenue_prior": 26700000000,
-    "net_income": 13500000000,
-    "net_income_prior": 11600000000,
-    "net_margin": 0.38,
-    "net_margin_prior": 0.434,
-    "dividend_per_share": 1,
-    "payout_ratio": 0.652,
+    "revenue": 49557000000.0,
+    "revenue_prior": 35505000000.0,
+    "net_income": 17599000000.0,
+    "net_income_prior": 13514000000.0,
+    "net_margin": 0.3551,
+    "net_margin_prior": 0.3806,
+    "dividend_per_share": 1.0,
+    "payout_ratio": 0.503,
     "years_paid": null,
     "dividend_frequency": "Annual",
     "total_debt": null,
@@ -25,33 +25,33 @@
     "fcf": null,
     "cut_history_5y": null,
     "shares_outstanding": 8839000000.0,
-    "total_equity": 85428000000.0,
-    "eps": 1.53
+    "total_equity": 107676000000.0,
+    "eps": 1.99
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      27896000000.0,
       24926000000.0,
       26750000000.0,
-      35505000000.0
+      35505000000.0,
+      49557000000.0
     ],
     "net_income": [
-      3801000000.0,
       6832000000.0,
       11629000000.0,
-      13514000000.0
+      13514000000.0,
+      17599000000.0
     ],
     "operating_cash_flow": [
-      10561000000.0,
       18942000000.0,
       19831000000.0,
-      24481000000.0
+      24481000000.0,
+      33458000000.0
     ],
     "source": "workflow-research"
   },

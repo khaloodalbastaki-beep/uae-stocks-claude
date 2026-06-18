@@ -1,56 +1,56 @@
 {
   "symbol": "ADNOCDIST",
-  "as_of": "2024-12-31",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "ADNOC Distribution Company official investor relations; ADX filings",
-  "source_url": "https://www.adnocdistribution.ae/en/investor-relations/results-and-presentation",
-  "extractor": "research-grounded/Explore (seed)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://www.adnocdistribution.ae/-/media/adnoc-distribution/q4-results-2026/english/adnoc-distribution-fy-2025-fs-english.pdf",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T10:59:58+00:00",
   "reported": {
-    "revenue": 35454,
-    "revenue_prior": 34629,
-    "net_income": 2420,
-    "net_income_prior": 2600,
-    "net_margin": 6.83,
-    "net_margin_prior": 7.51,
+    "revenue": 35896617000.0,
+    "revenue_prior": 35453716000.0,
+    "net_income": 2851042000.0,
+    "net_income_prior": 2472283000.0,
+    "net_margin": 0.0794,
+    "net_margin_prior": 0.0697,
     "ebitda": 3860,
     "operating_cash_flow": 2775,
     "fcf": 2775,
     "dividend_per_share": 0.2057,
     "dividend_frequency": "semi-annual",
     "years_paid": 7,
-    "payout_ratio": 0.95,
+    "payout_ratio": 0.918,
     "current_ratio": null,
     "total_debt": null,
     "shares_outstanding": 12500000000.0,
-    "total_equity": 3181000000.0,
-    "eps": 0.19
+    "total_equity": 3460797000.0,
+    "eps": 0.224
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      20921000000.0,
-      32111000000.0,
-      34629000000.0,
-      35454000000.0
+      32111061000.0,
+      34629178000.0,
+      35453716000.0,
+      35896617000.0
     ],
     "net_income": [
-      2252000000.0,
-      2749000000.0,
-      2601000000.0,
-      2420000000.0
+      2748508000.0,
+      2630489000.0,
+      2472283000.0,
+      2851042000.0
     ],
     "operating_cash_flow": [
-      2878000000.0,
-      4507000000.0,
-      5051000000.0,
-      3931000000.0
+      4507444000.0,
+      5051268000.0,
+      3931453000.0,
+      3922041000.0
     ],
     "source": "workflow-research"
   },

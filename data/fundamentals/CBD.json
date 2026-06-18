@@ -1,21 +1,21 @@
 {
   "symbol": "CBD",
-  "as_of": "2024-12-31",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "Commercial Bank of Dubai Annual Report 2024, DFM filings, Zawya, Mubasher Info",
-  "source_url": "https://www.cbd.ae/docs/default-source/revamp-doc/investor/cbd-annual-report-2024-final.pdf?sfvrsn=24273e6b_2",
-  "extractor": "research-grounded/Explore (seed-2)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://focus.hidubai.com/commercial-bank-of-dubai-posts-record-fy2025-profit-as-net-loans-exceed-aed-100b/",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T12:17:56+00:00",
   "reported": {
-    "revenue": 5491,
-    "revenue_prior": 4930,
-    "net_income": 3020,
-    "net_income_prior": 2650,
-    "net_margin": 0.55,
-    "net_margin_prior": 0.537,
-    "dividend_per_share": 0.51,
-    "payout_ratio": 0.5193,
+    "revenue": 5919000000.0,
+    "revenue_prior": 5490000000.0,
+    "net_income": 3500000000.0,
+    "net_income_prior": 3020000000.0,
+    "net_margin": 0.5913,
+    "net_margin_prior": 0.5501,
+    "dividend_per_share": 0.5862,
+    "payout_ratio": 0.519,
     "years_paid": null,
     "dividend_frequency": "annual",
     "ebitda": null,
@@ -25,27 +25,27 @@
     "current_ratio": null,
     "cut_history_5y": null,
     "shares_outstanding": 2985000000.0,
-    "total_equity": 17425000000.0,
-    "eps": 0.97
+    "total_equity": 19422000000.0,
+    "eps": 1.13
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      3180000000.0,
       3810000000.0,
       4930000000.0,
-      5490000000.0
+      5490000000.0,
+      5919000000.0
     ],
     "net_income": [
-      1450000000.0,
-      1820000000.0,
+      1825000000.0,
       2650000000.0,
-      3020000000.0
+      3020000000.0,
+      3500000000.0
     ],
     "operating_cash_flow": [
       null,

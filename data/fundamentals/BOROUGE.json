@@ -1,55 +1,55 @@
 {
   "symbol": "BOROUGE",
-  "as_of": "FY2024-12-31",
+  "as_of": "FY2025",
   "currency": "USD",
-  "source": "Borouge PLC Investor Relations, ADX Filings, EnergyConnects, Zawya, Company Announcements",
-  "source_url": "https://www.borouge.com/en/investor-relations/Pages/reports-results.aspx",
-  "extractor": "research-grounded/Explore (seed)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://www.borouge.com/en/media/Pages/News/Borouge-FY-Q4-25-Results.aspx",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T10:59:58+00:00",
   "reported": {
-    "revenue": 6000,
-    "net_income": 1239,
-    "revenue_prior": 5790,
-    "net_income_prior": 1000,
+    "revenue": 21476780000.0,
+    "net_income": 3999352500.0,
+    "revenue_prior": 22130485000.0,
+    "net_income_prior": 4498812500.0,
     "ebitda": 2480,
     "operating_cash_flow": 1570,
     "fcf": 2310,
     "total_debt": 2730,
-    "dividend_per_share": 0.1588,
-    "payout_ratio": 104.8,
+    "dividend_per_share": 0.162,
+    "payout_ratio": 1.208,
     "years_paid": 1,
-    "net_margin": 20.65,
-    "net_margin_prior": 17.27,
+    "net_margin": 0.1862,
+    "net_margin_prior": 0.2033,
     "current_ratio": null,
-    "shares_outstanding": 30058000000.0,
-    "total_equity": 16460145000.0,
-    "eps": 0.15
+    "shares_outstanding": 29831000000.0,
+    "total_equity": 15116010000.0,
+    "eps": 0.1341
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      22828260000.0,
       22020310000.0,
-      21268497500.0,
-      22130485000.0
+      21267447500.0,
+      22130485000.0,
+      21476780000.0
     ],
     "net_income": [
-      5574855000.0,
       3992007500.0,
-      3640375925.0,
-      4498812500.0
+      3639447500.0,
+      4498812500.0,
+      3999352500.0
     ],
     "operating_cash_flow": [
-      null,
       7238497500.0,
       6496652500.0,
-      7025492500.0
+      7025492500.0,
+      7054872500.0
     ],
     "source": "workflow-research"
   },

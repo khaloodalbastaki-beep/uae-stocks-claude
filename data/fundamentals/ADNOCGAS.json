@@ -1,52 +1,56 @@
 {
   "symbol": "ADNOCGAS",
-  "as_of": "FY2024-12-31",
+  "as_of": "FY2025",
   "currency": "USD",
-  "source": "ADNOC Gas official investor relations, press releases, stockanalysis.com balance sheet, dividend history; company reports revenue in USD",
-  "source_url": "https://adnocgas.ae/en/news-and-media/press-releases/2025/q4-2024",
-  "extractor": "research-grounded/Explore (seed)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://adnocgas.ae/-/media/gas/investor-relation/2025/mda-report-q4-2025--english.ashx",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T10:59:58+00:00",
   "reported": {
-    "revenue": 24430,
-    "revenue_prior": 22800,
-    "net_income": 5001,
-    "net_income_prior": 4357,
+    "revenue": 86204592500.0,
+    "revenue_prior": 89711830000.0,
+    "net_income": 18971835000.0,
+    "net_income_prior": 18366172500.0,
     "ebitda": 8650,
     "operating_cash_flow": null,
     "fcf": 4580,
     "total_debt": 537,
     "current_ratio": 1.71,
-    "dividend_per_share": 0.016328,
-    "payout_ratio": 0.682,
+    "dividend_per_share": 0.172,
+    "payout_ratio": 0.696,
     "dividend_frequency": "semi-annual",
     "years_paid": 1,
-    "net_margin": 0.2048,
-    "net_margin_prior": 0.191,
-    "shares_outstanding": 76751000000.0,
-    "total_equity": 88011462500.0,
-    "eps": 0.2393
+    "net_margin": 0.2201,
+    "net_margin_prior": 0.2047,
+    "shares_outstanding": 76710000000.0,
+    "total_equity": 90725440000.0,
+    "eps": 0.247
   },
   "series": {
     "years": [
-      2021,
+      2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      62612452500.0,
-      60699080000.0,
-      70016212500.0
+      null,
+      83365750000.0,
+      89711830000.0,
+      86204592500.0
     ],
     "net_income": [
-      13221000000.0,
-      16001082500.0,
-      18366172500.0
+      null,
+      17334200000.0,
+      18366172500.0,
+      18971835000.0
     ],
     "operating_cash_flow": [
       null,
-      17528842500.0,
-      21998275000.0
+      null,
+      null,
+      21774252500.0
     ],
     "source": "workflow-research"
   },

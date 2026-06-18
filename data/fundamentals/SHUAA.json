@@ -1,19 +1,19 @@
 {
   "symbol": "SHUAA",
-  "as_of": "2024-12-31",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "SHUAA Capital official annual report FY2024 and DFM filings",
-  "source_url": "https://www.shuaa.com/wp-content/uploads/2025/09/Annual-Report_2024_En.pdf",
-  "extractor": "research-grounded/Explore (seed-2)",
-  "confidence": "medium",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://www.shuaa.com/shuaa-capital-reports-net-profit-of-aed-156-million-in-fy-2025",
+  "extractor": "workflow-research-fy2025",
+  "confidence": "high",
   "retrieved_at": "2026-06-18T12:17:56+00:00",
   "reported": {
-    "revenue": 89000000,
-    "revenue_prior": 121000000,
-    "net_income": -288600000,
-    "net_income_prior": -1155000000,
-    "net_margin": -3.2494,
-    "net_margin_prior": -9.5455,
+    "revenue": 79000000.0,
+    "revenue_prior": 89000000.0,
+    "net_income": 156000000.0,
+    "net_income_prior": -274000000.0,
+    "net_margin": 1.9747,
+    "net_margin_prior": -3.0787,
     "dividend_per_share": 0.0,
     "payout_ratio": null,
     "years_paid": 0,
@@ -24,28 +24,28 @@
     "fcf": null,
     "total_debt": null,
     "current_ratio": null,
-    "shares_outstanding": 2535720000.0,
-    "total_equity": 34644000.0,
-    "eps": -0.12
+    "shares_outstanding": 3659022945.0,
+    "total_equity": 554000000.0,
+    "eps": 0.0426
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      null,
-      null,
-      161418000.0,
-      88850000.0
+      265700000.0,
+      121000000.0,
+      89000000.0,
+      79000000.0
     ],
     "net_income": [
-      24240000.0,
       -135200000.0,
-      -906644000.0,
-      -299162000.0
+      -907000000.0,
+      -274000000.0,
+      156000000.0
     ],
     "operating_cash_flow": [
       null,

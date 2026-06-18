@@ -1,19 +1,19 @@
 {
   "symbol": "MODON",
-  "as_of": "2024-12-31",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "ADX Official Filings, Modon Investor Relations, Zawya, Investing.com",
-  "source_url": "https://www.zawya.com/en/special-coverage/corporate-earnings/modon-holding-reports-net-profit-of-25bln-in-2024-cjm2flk8",
-  "extractor": "research-grounded/Explore (seed-2)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://www.modon.com/about-modon/media-centre/details/2026/02/18/modon-delivers-outstanding-growth-in-2025-with-aed-3.9-billion-in-net-profit-and-aed-46.0-billion-revenue-backlog",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T12:17:56+00:00",
   "reported": {
-    "revenue": 6511.18,
-    "revenue_prior": 882.4,
-    "net_income": 9423.19,
-    "net_income_prior": 461.27,
-    "net_margin": 0.2576,
-    "net_margin_prior": 0.5224,
+    "revenue": 13820000000.0,
+    "revenue_prior": 6511000000.0,
+    "net_income": 3920000000.0,
+    "net_income_prior": 9423000000.0,
+    "net_margin": 0.2836,
+    "net_margin_prior": 1.4472,
     "ebitda": 1130,
     "current_ratio": null,
     "total_debt": null,
@@ -24,34 +24,34 @@
     "years_paid": null,
     "dividend_frequency": null,
     "cut_history_5y": null,
-    "shares_outstanding": 16347000000.0,
-    "total_equity": 50863000000.0,
-    "eps": 0.63
+    "shares_outstanding": 16347080368.0,
+    "total_equity": 53143000000.0,
+    "eps": 0.25
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      369370000.0,
       682410000.0,
       882400000.0,
-      6511000000.0
+      6511000000.0,
+      13820000000.0
     ],
     "net_income": [
-      164780000.0,
       899670000.0,
       461270000.0,
-      9423000000.0
+      9423000000.0,
+      3920000000.0
     ],
     "operating_cash_flow": [
-      -362480000.0,
-      711480000.0,
-      -2800000.0,
-      3224000000.0
+      null,
+      null,
+      null,
+      null
     ],
     "source": "workflow-research"
   },

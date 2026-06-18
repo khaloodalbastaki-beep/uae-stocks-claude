@@ -1,55 +1,55 @@
 {
   "symbol": "ALDAR",
-  "as_of": "2024-12-31",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "Aldar Properties PJSC Official FY2024 Financial Results Announcement; ADX Filing; Company Investor Relations",
-  "source_url": "https://www.aldar.com/en/news-and-media/aldar-fy-2024-financial-results",
-  "extractor": "research-grounded/Explore (seed)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://www.aldar.com/en/news-and-media/aldar-q4-fy-2025-financial-results",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T10:59:58+00:00",
   "reported": {
-    "revenue": 23000,
-    "revenue_prior": 14200,
-    "net_income": 6500,
-    "net_income_prior": 4400,
-    "net_margin": 28.26,
-    "net_margin_prior": 31,
+    "revenue": 33818000000.0,
+    "revenue_prior": 22998000000.0,
+    "net_income": 7611000000.0,
+    "net_income_prior": 5596000000.0,
+    "net_margin": 0.2251,
+    "net_margin_prior": 0.2433,
     "ebitda": 7700,
-    "dividend_per_share": 0.185,
-    "payout_ratio": 26,
+    "dividend_per_share": 0.205,
+    "payout_ratio": 0.214,
     "years_paid": 15,
     "total_debt": 19400,
     "current_ratio": null,
     "operating_cash_flow": null,
     "fcf": null,
     "shares_outstanding": 7863000000.0,
-    "total_equity": 42796000000.0,
-    "eps": 0.7
+    "total_equity": 48752000000.0,
+    "eps": 0.96
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      8576000000.0,
       11200000000.0,
       14161000000.0,
-      22998000000.0
+      22998000000.0,
+      33818000000.0
     ],
     "net_income": [
-      2316000000.0,
       2944000000.0,
       3922000000.0,
-      5596000000.0
+      5596000000.0,
+      7611000000.0
     ],
     "operating_cash_flow": [
-      5800000000.0,
       6301000000.0,
       3590000000.0,
-      5123000000.0
+      5123000000.0,
+      8226000000.0
     ],
     "source": "workflow-research"
   },

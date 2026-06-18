@@ -1,56 +1,56 @@
 {
   "symbol": "AMERICANA",
-  "as_of": "2024-12-31",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "Americana Restaurants International PLC - Official FY2024 Earnings Release & Financial Statements",
-  "source_url": "https://www.americanarestaurants.com/wp-content/uploads/2025/02/Americana-Restaurants-Press-Release-FY-2024-Results_EN.pdf",
-  "extractor": "research-grounded/Explore (seed)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://www.americanarestaurants.com/wp-content/uploads/2026/02/4.-AMR-FY-2025-Earnings-press-release-vF.pdf",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T10:59:58+00:00",
   "reported": {
-    "revenue": 8069100000,
-    "revenue_prior": 8862500000,
-    "net_income": 582900000,
-    "net_income_prior": 952800000,
+    "revenue": 9214144123.0,
+    "revenue_prior": 8067617488.0,
+    "net_income": 804724283.0,
+    "net_income_prior": 583092328.0,
     "ebitda": 1777300000,
     "fcf": 347800000,
     "operating_cash_flow": null,
-    "net_margin": 7.23,
-    "net_margin_prior": 10.75,
+    "net_margin": 0.0873,
+    "net_margin_prior": 0.0723,
     "current_ratio": null,
     "total_debt": 0,
-    "dividend_per_share": 0.0785,
+    "dividend_per_share": 0.08814,
     "dividend_frequency": "Annual",
     "years_paid": 3,
-    "payout_ratio": 80.37,
-    "shares_outstanding": 8418000000.0,
-    "total_equity": 1462095700.0,
-    "eps": 0.06925
+    "payout_ratio": 0.92,
+    "shares_outstanding": 8423633100.0,
+    "total_equity": 1799440915.0,
+    "eps": 0.09582
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      7535970000.0,
-      8738977500.0,
-      8862109975.0,
-      8067748000.0
+      8737027500.0,
+      8862249615.0,
+      8067617488.0,
+      9214144123.0
     ],
     "net_income": [
-      748896200.0,
       951912000.0,
-      952983750.0,
-      583193000.0
+      952889850.0,
+      583092328.0,
+      804724283.0
     ],
     "operating_cash_flow": [
-      1722051125.0,
-      1667058825.0,
-      1982388975.0,
-      1589458000.0
+      null,
+      1982397308.0,
+      1589461673.0,
+      2163191983.0
     ],
     "source": "workflow-research"
   },

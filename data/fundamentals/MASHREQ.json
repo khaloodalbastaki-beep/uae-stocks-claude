@@ -1,50 +1,50 @@
 {
   "symbol": "MASHREQ",
-  "as_of": "2024-12-31",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "Mashreq Bank official press releases, DFM filings, annual reports, and investor relations",
-  "source_url": "https://www.mashreq.com/en/uae/news/2025/january/mashreq-financial-results-fy2024/",
-  "extractor": "research-grounded/Explore (seed)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://www.mashreq.com/en/uae/news/2026/january/mashreq-financial-results-fy2025/",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T10:59:58+00:00",
   "reported": {
-    "revenue": 13400000000,
-    "revenue_prior": 10800000000,
-    "net_income": 9000000000,
-    "net_income_prior": 8600000000,
+    "revenue": 12576414000.0,
+    "revenue_prior": 13415703000.0,
+    "net_income": 6839622000.0,
+    "net_income_prior": 8917202000.0,
     "ebitda": null,
     "operating_cash_flow": null,
     "fcf": null,
     "total_debt": null,
     "current_ratio": null,
-    "dividend_per_share": 18.5,
-    "payout_ratio": 43,
+    "dividend_per_share": 10.2,
+    "payout_ratio": 0.309,
     "dividend_frequency": "annual",
     "years_paid": 5,
-    "net_margin": 67.16,
-    "net_margin_prior": 79.63,
-    "shares_outstanding": 200610000.0,
-    "total_equity": 37780000000.0,
-    "eps": 43.66
+    "net_margin": 0.5438,
+    "net_margin_prior": 0.6647,
+    "shares_outstanding": 200609830.0,
+    "total_equity": 40576555000.0,
+    "eps": 32.98
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      3734000000.0,
-      6837000000.0,
-      12159000000.0,
-      13571000000.0
+      7300000000.0,
+      10800000000.0,
+      13415703000.0,
+      12576414000.0
     ],
     "net_income": [
-      1002000000.0,
-      3729000000.0,
-      8589000000.0,
-      8917000000.0
+      3720000000.0,
+      8580000000.0,
+      8917202000.0,
+      6839622000.0
     ],
     "operating_cash_flow": [
       null,

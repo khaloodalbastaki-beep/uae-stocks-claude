@@ -1,53 +1,57 @@
 {
   "symbol": "TALABAT",
-  "as_of": "2024-12-31",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "Talabat Investor Relations - Preliminary Results FY2024 and Integrated Annual Report 2024",
-  "source_url": "https://ir.talabat.com/wp-content/uploads/2025/02/20250213_talabat-Q4-FY-preliminary-financials-En.pdf",
-  "extractor": "research-grounded/Explore (seed-2)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://ir.talabat.com/wp-content/uploads/2026/02/20260213_talabat-Q425-Results-Press-Release-En.pdf",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T12:17:56+00:00",
   "reported": {
-    "revenue": 11017500000,
-    "revenue_prior": 8235195000,
-    "net_income": 1270885000,
-    "net_income_prior": 778170000,
-    "net_margin": 0.047,
-    "net_margin_prior": 0.035,
+    "revenue": 13793910000.0,
+    "revenue_prior": 8814000000.0,
+    "net_income": 1704040000.0,
+    "net_income_prior": 1270685000.0,
+    "net_margin": 0.1235,
+    "net_margin_prior": 0.1442,
     "ebitda": 1825252500,
     "fcf": 1695115000,
     "operating_cash_flow": null,
     "current_ratio": null,
     "total_debt": null,
-    "payout_ratio": 0.289,
-    "dividend_per_share": 0.79,
+    "payout_ratio": 0.861,
+    "dividend_per_share": 0.0661,
     "dividend_frequency": "Semi-annual",
     "years_paid": 1,
     "cut_history_5y": null,
-    "shares_outstanding": 23290000000.0,
-    "total_equity": 1977283000.0,
-    "eps": 0.065
+    "shares_outstanding": 23288240625.0,
+    "total_equity": 2570485624.0,
+    "eps": 0.0768
   },
   "series": {
     "years": [
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      5071720000.0,
-      6162460000.0,
-      8828690000.0
+      5068050000.0,
+      6169800000.0,
+      8814000000.0,
+      13793910000.0
     ],
     "net_income": [
-      766965000.0,
-      1084196000.0,
-      1519544000.0
+      null,
+      774897500.0,
+      1270685000.0,
+      1704040000.0
     ],
     "operating_cash_flow": [
-      1107810000.0,
-      1259778000.0,
-      1323936000.0
+      null,
+      null,
+      null,
+      null
     ],
     "source": "workflow-research"
   },

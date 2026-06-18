@@ -1,21 +1,21 @@
 {
   "symbol": "BURJEEL",
-  "as_of": "2024-12-31",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "Zawya, Burjeel Holdings IR, ADX Filings, StockAnalysis",
-  "source_url": "https://www.zawya.com/en/capital-markets/equities/burjeel-holdings-records-105-higher-revenues-in-2024-dividends-unveiled-f8vazqze",
-  "extractor": "research-grounded/Explore (seed-2)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://burjeelholdings.com/wp-content/uploads/2026/03/ENG-BH-FY-2025-Press-Release.pdf",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T12:17:56+00:00",
   "reported": {
-    "revenue": 5010000000,
-    "revenue_prior": 4540000000,
-    "net_income": 347450000,
-    "net_income_prior": 540000000,
-    "net_margin": 0.0694,
-    "net_margin_prior": 0.119,
-    "dividend_per_share": 0.03,
-    "payout_ratio": 0.3263,
+    "revenue": 5486000000.0,
+    "revenue_prior": 5010000000.0,
+    "net_income": 503000000.0,
+    "net_income_prior": 360000000.0,
+    "net_margin": 0.0917,
+    "net_margin_prior": 0.0719,
+    "dividend_per_share": 0.02,
+    "payout_ratio": 0.222,
     "current_ratio": 1.77,
     "total_debt": 3110000000,
     "ebitda": 941990000,
@@ -25,33 +25,33 @@
     "cut_history_5y": null,
     "dividend_frequency": "annual",
     "shares_outstanding": 5205000000.0,
-    "total_equity": 2200000000.0,
-    "eps": 0.07
+    "total_equity": 2165000000.0,
+    "eps": 0.09
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      3351000000.0,
       3924000000.0,
       4535000000.0,
-      5010000000.0
+      5010000000.0,
+      5486000000.0
     ],
     "net_income": [
-      220920000.0,
       338140000.0,
       516190000.0,
-      347460000.0
+      360000000.0,
+      503000000.0
     ],
     "operating_cash_flow": [
-      null,
-      null,
-      null,
-      null
+      358230000.0,
+      565750000.0,
+      499520000.0,
+      402110000.0
     ],
     "source": "workflow-research"
   },

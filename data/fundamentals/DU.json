@@ -1,55 +1,55 @@
 {
   "symbol": "DU",
-  "as_of": "FY2024 (December 31, 2024)",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "Emirates Integrated Telecommunications Company PJSC (du) official press releases, investor relations disclosures, Zawya, Khaleej Times, Investing.com",
-  "source_url": "https://www.zawya.com/en/press-release/companies-news/du-reports-its-q4-and-fy-2024-results-l36wt3ox",
-  "extractor": "research-grounded/Explore (seed)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://gulfnews.com/business/markets/du-posts-record-profit-and-revenue-growth-in-2025-lifts-dividend-to-64-fils-1.500437356",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T10:59:58+00:00",
   "reported": {
-    "revenue": 15905.42,
-    "revenue_prior": 14635.92,
-    "net_income": 2905.09,
-    "net_income_prior": 2487.55,
-    "net_margin": 18.26,
-    "net_margin_prior": 17.01,
+    "revenue": 15905420000.0,
+    "revenue_prior": 14635920000.0,
+    "net_income": 2905090000.0,
+    "net_income_prior": 2487550000.0,
+    "net_margin": 0.1826,
+    "net_margin_prior": 0.17,
     "ebitda": 6500,
     "operating_cash_flow": 4400,
-    "dividend_per_share": 0.54,
-    "payout_ratio": 0.98,
+    "dividend_per_share": 0.64,
+    "payout_ratio": 1.0,
     "years_paid": null,
     "dividend_frequency": "annual",
     "total_debt": null,
     "current_ratio": null,
-    "shares_outstanding": 4533000000.0,
-    "total_equity": 9878000000.0,
-    "eps": 0.55
+    "shares_outstanding": 4528856860.0,
+    "total_equity": 10148000000.0,
+    "eps": 0.64
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      11682000000.0,
-      12754000000.0,
-      13636000000.0,
-      14636000000.0
+      12754490000.0,
+      13636340000.0,
+      14635920000.0,
+      15905420000.0
     ],
     "net_income": [
-      1101000000.0,
-      1220000000.0,
-      1668000000.0,
-      2488000000.0
+      1219560000.0,
+      1667850000.0,
+      2487550000.0,
+      2905090000.0
     ],
     "operating_cash_flow": [
-      3031000000.0,
       3623000000.0,
       4425000000.0,
-      4637000000.0
+      4637000000.0,
+      5230000000.0
     ],
     "source": "workflow-research"
   },

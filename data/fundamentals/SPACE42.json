@@ -1,19 +1,19 @@
 {
   "symbol": "SPACE42",
-  "as_of": "2024-12-31",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "Space42 PLC Investor Relations, ADX Filings, WAM (UAE News Agency), TechAfrica News, Zawya, Gulf Business",
-  "source_url": "https://space42.ai/en/investor-relations/",
-  "extractor": "research-grounded/Explore (seed-2)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://space42.ai/en/press-release/2026/fy-2025-press-release/",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T12:17:56+00:00",
   "reported": {
-    "revenue": 2312000000,
-    "net_income": 610000000,
-    "revenue_prior": 2855000000,
-    "net_income_prior": 639000000,
-    "net_margin": 0.264,
-    "net_margin_prior": 0.224,
+    "revenue": 2117809558.0,
+    "net_income": -306315880.0,
+    "revenue_prior": 1216365052.0,
+    "net_income_prior": 228837148.0,
+    "net_margin": -0.1446,
+    "net_margin_prior": 0.1881,
     "payout_ratio": null,
     "dividend_per_share": 0.0,
     "dividend_frequency": null,
@@ -24,34 +24,34 @@
     "current_ratio": null,
     "cut_history_5y": null,
     "years_paid": null,
-    "shares_outstanding": 4762000000.0,
-    "total_equity": 6878592500.0,
-    "eps": 0.0481
+    "shares_outstanding": 4761906000.0,
+    "total_equity": 6540175298.0,
+    "eps": -0.0643
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      366625675.0,
-      788228675.0,
-      1159591875.0,
-      1216368725.0
+      788237640.0,
+      1159599220.0,
+      1216365052.0,
+      2117809558.0
     ],
     "net_income": [
-      96256225.0,
-      202281300.0,
-      232395800.0,
-      228833475.0
+      202264807.0,
+      232377438.0,
+      228837148.0,
+      -306315880.0
     ],
     "operating_cash_flow": [
-      -6353425.0,
-      108191850.0,
+      108182386.0,
       133899350.0,
-      1623612250.0
+      1623593888.0,
+      1679963090.0
     ],
     "source": "workflow-research"
   },

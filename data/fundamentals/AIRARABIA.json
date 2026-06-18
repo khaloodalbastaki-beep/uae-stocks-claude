@@ -1,22 +1,22 @@
 {
   "symbol": "AIRARABIA",
-  "as_of": "2024-12-31",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "Air Arabia official press releases, DFM filings, Yahoo Finance, Zawya",
-  "source_url": "https://press.airarabia.com/air-arabia-reports-record-aed-1-6-billion-profit-before-tax-in-2024/",
-  "extractor": "research-grounded/Explore (seed)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://press.airarabia.com/air-arabia-posts-record-aed-18-billion-net-profit-before-tax-in-2025/",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T10:59:58+00:00",
   "reported": {
-    "revenue": 6630,
-    "net_income": 1467,
-    "revenue_prior": 6000,
-    "net_income_prior": 1500,
-    "dividend_per_share": 0.25,
-    "payout_ratio": 0.68,
+    "revenue": 7780000000.0,
+    "net_income": 1620000000.0,
+    "revenue_prior": 6760000000.0,
+    "net_income_prior": 1460000000.0,
+    "dividend_per_share": 0.3,
+    "payout_ratio": 0.865,
     "years_paid": 5,
-    "net_margin": 0.221,
-    "net_margin_prior": 0.25,
+    "net_margin": 0.2082,
+    "net_margin_prior": 0.216,
     "operating_cash_flow": null,
     "ebitda": null,
     "fcf": null,
@@ -25,33 +25,33 @@
     "cut_history_5y": null,
     "dividend_frequency": "annual",
     "shares_outstanding": 4667000000.0,
-    "total_equity": 7952000000.0,
-    "eps": 0.31
+    "total_equity": 8410000000.0,
+    "eps": 0.347
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      3174000000.0,
-      5242000000.0,
+      5200000000.0,
       6000000000.0,
-      6766000000.0
+      6760000000.0,
+      7780000000.0
     ],
     "net_income": [
-      719930000.0,
-      1222000000.0,
-      1547000000.0,
-      1467000000.0
+      1200000000.0,
+      1540000000.0,
+      1460000000.0,
+      1620000000.0
     ],
     "operating_cash_flow": [
-      1949000000.0,
       2188000000.0,
       2304000000.0,
-      2279000000.0
+      2279000000.0,
+      2860000000.0
     ],
     "source": "workflow-research"
   },

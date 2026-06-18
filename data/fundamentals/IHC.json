@@ -1,52 +1,56 @@
 {
   "symbol": "IHC",
-  "as_of": "FY2024",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "International Holding Company PJSC Official Press Release & ADX Financial Disclosures",
-  "source_url": "https://www.ihcuae.com/media-centre/press-releases/ihc-posts-robust-preliminary-full-year-2024-performance-with-544-revenue-growth",
-  "extractor": "research-grounded/Explore (seed)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://www.zawya.com/en/press-release/companies-news/ihc-repositions-capital-for-global-scale-generating-aed-1114bln-revenue-and-aed-347bln-net-profit-in-fy-2025-alurij2f",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T10:59:58+00:00",
   "reported": {
-    "revenue": 92800000000,
-    "revenue_prior": 60100000000,
-    "net_income": 25500000000,
-    "net_income_prior": 33000000000,
+    "revenue": 111401000000.0,
+    "revenue_prior": 86315000000.0,
+    "net_income": 21715000000.0,
+    "net_income_prior": 15766000000.0,
     "ebitda": null,
     "operating_cash_flow": 19440000000,
     "fcf": 13830000000,
     "total_debt": 90090000000,
-    "dividend_per_share": 0,
-    "payout_ratio": 0,
+    "dividend_per_share": 0.0,
+    "payout_ratio": 0.0,
     "years_paid": 0,
     "current_ratio": null,
-    "net_margin": 0.2747,
-    "net_margin_prior": 0.5487,
+    "net_margin": 0.1949,
+    "net_margin_prior": 0.1827,
     "cut_history_5y": null,
-    "shares_outstanding": 2193000000.0,
-    "total_equity": 244387000000.0,
-    "eps": 7.19
+    "shares_outstanding": 2180000000.0,
+    "total_equity": 250700000000.0,
+    "eps": 9.93
   },
   "series": {
     "years": [
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
       50946000000.0,
       60089000000.0,
-      86315000000.0
+      86315000000.0,
+      111401000000.0
     ],
     "net_income": [
       12653000000.0,
       27523000000.0,
-      15766000000.0
+      15766000000.0,
+      21715000000.0
     ],
     "operating_cash_flow": [
-      16279000000.0,
-      7258000000.0,
-      12370000000.0
+      null,
+      null,
+      null,
+      null
     ],
     "source": "workflow-research"
   },

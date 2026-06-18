@@ -1,51 +1,51 @@
 {
   "symbol": "ADIB",
-  "as_of": "2024-12-31",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "Abu Dhabi Islamic Bank official financial results, Zawya press release, and company investor relations",
-  "source_url": "https://www.zawya.com/en/press-release/companies-news/adib-achieved-a-record-performance-in-2024-with-net-profit-before-tax-increasing-by-26-year-over-year-to-aed-69bln-h8n1vtlj",
-  "extractor": "research-grounded/Explore (seed)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://adib.ae/-/media/project/adib/adibsite/docs/investor-relations/quarterly-results/mda/2025/mda-q4-en.pdf",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T10:59:58+00:00",
   "reported": {
-    "revenue": 10600000000,
-    "revenue_prior": 9300000000,
-    "net_income": 6100000000,
-    "net_income_prior": 5250000000,
+    "revenue": 12300000000.0,
+    "revenue_prior": 10600000000.0,
+    "net_income": 7070000000.0,
+    "net_income_prior": 6101000000.0,
     "ebitda": null,
     "operating_cash_flow": null,
     "fcf": null,
-    "net_margin": 0.575,
-    "net_margin_prior": 0.565,
+    "net_margin": 0.5748,
+    "net_margin_prior": 0.5756,
     "total_debt": null,
     "current_ratio": null,
-    "dividend_per_share": 0.83,
-    "payout_ratio": 0.5,
+    "dividend_per_share": 0.97,
+    "payout_ratio": 0.556,
     "dividend_frequency": "Annual",
     "years_paid": null,
     "cut_history_5y": null,
-    "shares_outstanding": 3630000000.0,
-    "total_equity": 22591000000.0,
-    "eps": 1.493
+    "shares_outstanding": 3632000000.0,
+    "total_equity": 32000000000.0,
+    "eps": 1.746
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      5560000000.0,
-      6840000000.0,
-      9294000000.0,
-      10632000000.0
+      6800000000.0,
+      9300000000.0,
+      10600000000.0,
+      12300000000.0
     ],
     "net_income": [
-      2330000000.0,
-      3620000000.0,
+      3619000000.0,
       5251000000.0,
-      6101000000.0
+      6101000000.0,
+      7070000000.0
     ],
     "operating_cash_flow": [
       null,

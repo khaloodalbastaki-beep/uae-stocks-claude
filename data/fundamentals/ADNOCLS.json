@@ -1,56 +1,56 @@
 {
   "symbol": "ADNOCLS",
-  "as_of": "2024-12-31",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "ADNOC L&S Official Press Release (Feb 12, 2025), ADX Filing, Zawya, Company Investor Relations",
-  "source_url": "https://adnocls.ae/en/news-and-media/press-releases/2025/q4-and-full-year-financial-results-2024",
-  "extractor": "research-grounded/Explore (seed-2)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://adnocls.ae/-/media/ls/investor-relation/q4-2025/adnoc_ls-mda---fy-2025---eng.ashx",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T12:17:56+00:00",
   "reported": {
-    "revenue": 13035,
-    "revenue_prior": 10118,
-    "net_income": 2777,
-    "net_income_prior": 2277,
-    "net_margin": 0.213,
-    "net_margin_prior": 0.225,
+    "revenue": 18421260000.0,
+    "revenue_prior": 13034752500.0,
+    "net_income": 3169367500.0,
+    "net_income_prior": 2776410000.0,
+    "net_margin": 0.172,
+    "net_margin_prior": 0.213,
     "ebitda": 4219,
     "fcf": 679,
     "operating_cash_flow": 3950,
     "current_ratio": null,
     "total_debt": null,
-    "dividend_per_share": 0.0678,
-    "payout_ratio": 0.361,
+    "dividend_per_share": 0.1613,
+    "payout_ratio": 0.384,
     "dividend_frequency": "Annual",
     "years_paid": 1,
-    "shares_outstanding": 7398000000.0,
-    "total_equity": 17976887500.0,
-    "eps": 0.38
+    "shares_outstanding": 7398498764.0,
+    "total_equity": 26533812500.0,
+    "eps": 0.42
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      4373977500.0,
       7168720000.0,
-      10117737500.0,
-      13033222500.0
+      10117738000.0,
+      13034752500.0,
+      18421260000.0
     ],
     "net_income": [
-      201253000.0,
-      957751275.0,
-      2277537600.0,
-      2777034325.0
+      958522500.0,
+      2276950000.0,
+      2776410000.0,
+      3169367500.0
     ],
     "operating_cash_flow": [
-      null,
-      null,
+      1031972500.0,
       3022467500.0,
-      3947937500.0
+      3657810000.0,
+      5196587500.0
     ],
     "source": "workflow-research"
   },

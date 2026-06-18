@@ -1,56 +1,56 @@
 {
   "symbol": "DEYAAR",
-  "as_of": "2024-12-31",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "Deyaar Development PJSC Official Investor Relations, Integrated Annual Report 2024, DFM/ADX Filings, Consolidated Financial Statements 2024",
-  "source_url": "https://www.deyaar.ae/en/general_reports/integrated-annual-report-2024/",
-  "extractor": "research-grounded/Explore (seed-2)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://www.deyaar.ae/en/media_center/deyaar-achieves-strong-fy-2025-results-driving-transformational-growth-for-2026/",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T12:17:56+00:00",
   "reported": {
-    "revenue": 1512800000,
-    "revenue_prior": 1254300000,
-    "net_income": 474022000,
-    "net_income_prior": 412800000,
-    "net_margin": 0.3134,
-    "net_margin_prior": 0.3289,
+    "revenue": 1972100000.0,
+    "revenue_prior": 1512800000.0,
+    "net_income": 602200000.0,
+    "net_income_prior": 474020000.0,
+    "net_margin": 0.3054,
+    "net_margin_prior": 0.3133,
     "operating_cash_flow": 579500000,
     "ebitda": 471000000,
     "total_debt": 475300000,
     "current_ratio": null,
     "dividend_per_share": 0.05,
-    "payout_ratio": 0.4617,
+    "payout_ratio": 0.357,
     "years_paid": 2,
     "cut_history_5y": null,
     "dividend_frequency": "annual",
-    "shares_outstanding": 4376000000.0,
-    "total_equity": 5265000000.0,
-    "eps": 0.1083
+    "shares_outstanding": 4375838000.0,
+    "total_equity": 5800000000.0,
+    "eps": 0.14
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      496960000.0,
       803410000.0,
-      1254000000.0,
-      1513000000.0
+      1254300000.0,
+      1512800000.0,
+      1972100000.0
     ],
     "net_income": [
-      50800000.0,
       144240000.0,
       440710000.0,
-      474020000.0
+      474020000.0,
+      602200000.0
     ],
     "operating_cash_flow": [
-      94530000.0,
-      317120000.0,
-      688610000.0,
-      746460000.0
+      null,
+      null,
+      null,
+      null
     ],
     "source": "workflow-research"
   },

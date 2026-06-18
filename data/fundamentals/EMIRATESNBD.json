@@ -1,50 +1,50 @@
 {
   "symbol": "EMIRATESNBD",
-  "as_of": "FY2024",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "Emirates NBD official investor relations, annual report FY2024, and press releases",
-  "source_url": "https://www.emiratesnbd.com/en/media-center/emirates-nbd-announces-fy-2024-financial-results",
-  "extractor": "research-grounded/Explore (seed)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://www.emiratesnbd.com/en/media-center/emirates-nbd-announces-fy-2025-financial-results",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T10:59:58+00:00",
   "reported": {
-    "revenue": 44100000000,
-    "revenue_prior": 43000000000,
-    "net_income": 23000000000,
-    "net_income_prior": 21500000000,
-    "dividend_per_share": 0.1,
+    "revenue": 49300000000.0,
+    "revenue_prior": 44100000000.0,
+    "net_income": 24000000000.0,
+    "net_income_prior": 22973000000.0,
+    "dividend_per_share": 1.0,
     "years_paid": null,
     "dividend_frequency": "annual",
-    "payout_ratio": 0.28,
+    "payout_ratio": 0.27,
     "ebitda": null,
     "fcf": null,
     "operating_cash_flow": null,
     "total_debt": null,
     "current_ratio": null,
-    "net_margin": 0.522,
-    "net_margin_prior": 0.5,
-    "shares_outstanding": 6311000000.0,
-    "total_equity": 126214000000.0,
-    "eps": 3.56
+    "net_margin": 0.4868,
+    "net_margin_prior": 0.5209,
+    "shares_outstanding": 6320000000.0,
+    "total_equity": 144450000000.0,
+    "eps": 3.71
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      17923000000.0,
-      27323000000.0,
-      39676000000.0,
-      44144000000.0
+      32500000000.0,
+      43000000000.0,
+      44100000000.0,
+      49300000000.0
     ],
     "net_income": [
-      9298000000.0,
       13003000000.0,
       21480000000.0,
-      22973000000.0
+      22973000000.0,
+      24000000000.0
     ],
     "operating_cash_flow": [
       null,

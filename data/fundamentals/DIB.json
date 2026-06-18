@@ -1,22 +1,22 @@
 {
   "symbol": "DIB",
-  "as_of": "2024-12-31",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "Dubai Islamic Bank official investor relations and DFM disclosures",
-  "source_url": "https://www.dib.ae/about-us/news/2025/02/11/dubai-islamic-bank-full-year-2024-group-financial-results",
-  "extractor": "research-grounded/Explore (seed)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://www.dib.ae/about-us/news/2026/02/10/dib-delivers-strong-revenue-of-aed-13-billion-pre-tax-profit-of-aed-9-billion-total-assets-grow-21-to-aed-416-billion",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T10:59:58+00:00",
   "reported": {
-    "revenue": 23341,
-    "revenue_prior": 20142,
-    "net_income": 8165,
-    "net_income_prior": 7010,
-    "net_margin": 35,
-    "net_margin_prior": 34.8,
-    "dividend_per_share": 0.45,
+    "revenue": 13300000000.0,
+    "revenue_prior": 12837000000.0,
+    "net_income": 7500000000.0,
+    "net_income_prior": 8165000000.0,
+    "net_margin": 0.5639,
+    "net_margin_prior": 0.6361,
+    "dividend_per_share": 0.35,
     "dividend_frequency": "Annual",
-    "payout_ratio": 40,
+    "payout_ratio": 0.357,
     "years_paid": 10,
     "ebitda": null,
     "operating_cash_flow": null,
@@ -24,28 +24,28 @@
     "total_debt": null,
     "current_ratio": null,
     "cut_history_5y": null,
-    "shares_outstanding": 7230000000.0,
-    "total_equity": 49824798000.0,
-    "eps": 1.04
+    "shares_outstanding": 7227000000.0,
+    "total_equity": 53135000000.0,
+    "eps": 0.98
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      7028000000.0,
-      8364000000.0,
-      10084000000.0,
-      12414000000.0
+      10467000000.0,
+      11665000000.0,
+      12837000000.0,
+      13300000000.0
     ],
     "net_income": [
-      4391000000.0,
-      5474000000.0,
-      6798000000.0,
-      7934000000.0
+      5552000000.0,
+      7010000000.0,
+      8165000000.0,
+      7500000000.0
     ],
     "operating_cash_flow": [
       null,

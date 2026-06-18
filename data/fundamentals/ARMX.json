@@ -1,57 +1,57 @@
 {
   "symbol": "ARMX",
-  "as_of": "2024-12-31",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "Aramex official investor relations, press releases, and DFM filings",
-  "source_url": "https://www.aramex.com/ae/en/investor-relations-details/aramex-annual-integrated-report/aramex-2024-financial-report",
-  "extractor": "research-grounded/Explore (seed)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://www.zawya.com/en/press-release/companies-news/stable-revenues-and-logistics-momentum-drive-aramexs-2025-financial-performance-azekiwpm",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T10:59:58+00:00",
   "reported": {
-    "revenue": 6324444,
-    "revenue_prior": 5694022,
-    "net_income": 141811,
-    "net_income_prior": 129297,
+    "revenue": 6360000000.0,
+    "revenue_prior": 6324000000.0,
+    "net_income": 20580000.0,
+    "net_income_prior": 141810000.0,
     "ebitda": 650304,
     "operating_cash_flow": 609280,
     "total_debt": 1945623,
     "current_ratio": null,
     "fcf": 453650,
-    "net_margin": 2.2,
-    "net_margin_prior": 2.3,
-    "dividend_per_share": 0,
+    "net_margin": 0.0032,
+    "net_margin_prior": 0.0224,
+    "dividend_per_share": 0.0,
     "dividend_frequency": "irregular",
-    "payout_ratio": 0,
+    "payout_ratio": 0.0,
     "years_paid": 0,
     "cut_history_5y": null,
-    "shares_outstanding": 1464100000.0,
-    "total_equity": 2524000000.0,
-    "eps": 0.1
+    "shares_outstanding": 1464000000.0,
+    "total_equity": 2563000000.0,
+    "eps": 0.014
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      6069000000.0,
       5926000000.0,
       5694000000.0,
-      6324000000.0
+      6324000000.0,
+      6360000000.0
     ],
     "net_income": [
-      225540000.0,
       165380000.0,
       129300000.0,
-      141810000.0
+      141810000.0,
+      20580000.0
     ],
     "operating_cash_flow": [
-      314990000.0,
       566450000.0,
       520870000.0,
-      614930000.0
+      614930000.0,
+      547050000.0
     ],
     "source": "workflow-research"
   },

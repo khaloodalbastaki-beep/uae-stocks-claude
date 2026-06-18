@@ -1,50 +1,50 @@
 {
   "symbol": "GFH",
-  "as_of": "2024-12-31",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "Zawya, Arab News, Daily Tribune, MarketScreener, DFM",
-  "source_url": "https://www.zawya.com/en/special-coverage/corporate-earnings/gfh-total-income-for-2024-hits-676mln-net-profit-up-22-j6mfgvxm",
-  "extractor": "research-grounded/Explore (seed-2)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://www.zawya.com/en/special-coverage/corporate-earnings/gfh-posts-solid-2025-results-net-profit-surges-182-to-140mln-gw2cuok5",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T12:17:56+00:00",
   "reported": {
-    "revenue": 2481.79,
-    "revenue_prior": 1773.77,
-    "net_income": 435.2,
-    "net_income_prior": 377.73,
+    "revenue": 2642510650.0,
+    "revenue_prior": 2481949950.0,
+    "net_income": 514554475.0,
+    "net_income_prior": 435191250.0,
     "operating_cash_flow": null,
     "ebitda": null,
-    "net_margin": 0.1753,
-    "net_margin_prior": 0.213,
+    "net_margin": 0.1947,
+    "net_margin_prior": 0.1753,
     "current_ratio": 0.38,
     "total_debt": 25128.76,
     "fcf": null,
-    "dividend_per_share": 0.0537,
+    "dividend_per_share": 0.098423,
     "dividend_frequency": "semi-annual",
-    "payout_ratio": 0.6672,
+    "payout_ratio": 0.684,
     "years_paid": 25,
-    "shares_outstanding": 3720000000.0,
-    "total_equity": 3602500000.0,
-    "eps": 0.12
+    "shares_outstanding": 3619933000.0,
+    "total_equity": 3748777825.0,
+    "eps": 0.143962
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      1464400000.0,
-      1622000000.0,
-      1774600000.0,
-      2481900000.0
+      1622032750.0,
+      1774625950.0,
+      2481949950.0,
+      2642510650.0
     ],
     "net_income": [
-      309300000.0,
-      331400000.0,
-      377800000.0,
-      435200000.0
+      331443125.0,
+      377752150.0,
+      435191250.0,
+      514554475.0
     ],
     "operating_cash_flow": [
       null,

@@ -1,56 +1,56 @@
 {
   "symbol": "FERTIGLB",
-  "as_of": "2024-12-31",
+  "as_of": "FY2025",
   "currency": "USD",
-  "source": "Fertiglobe official press releases, annual reports, SEC Form 20-F filings, and Zawya financial news",
-  "source_url": "https://fertiglobe.com/fertiglobe-publishes-2024-annual-report/",
-  "extractor": "research-grounded/Explore (seed)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://www.marketscreener.com/news/fertiglobe-fy-profit-433-9-million-ce7e5adcd18df422",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T10:59:58+00:00",
   "reported": {
-    "revenue": 2009,
-    "net_income": 23.5,
-    "net_income_prior": 363,
-    "revenue_prior": 2416,
+    "revenue": 10383621500.0,
+    "net_income": 1593494750.0,
+    "net_income_prior": 587235750.0,
+    "revenue_prior": 7378787000.0,
     "ebitda": 648,
     "operating_cash_flow": null,
     "fcf": 84,
-    "dividend_per_share": 0.122,
+    "dividend_per_share": 0.116,
     "dividend_frequency": "annual",
-    "payout_ratio": null,
-    "net_margin": 1.17,
-    "net_margin_prior": 15.03,
+    "payout_ratio": 0.604,
+    "net_margin": 0.1535,
+    "net_margin_prior": 0.0796,
     "total_debt": 1700,
     "current_ratio": null,
     "years_paid": 2,
-    "shares_outstanding": 8301000000.0,
-    "total_equity": 5648305000.0,
-    "eps": 0.0735
+    "shares_outstanding": 8300000000.0,
+    "total_equity": 6609265500.0,
+    "eps": 0.192
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      12159497500.0,
-      18465330000.0,
-      8872820000.0,
-      7378042500.0
+      18472675000.0,
+      8873494500.0,
+      7378787000.0,
+      10383621500.0
     ],
     "net_income": [
-      2580663575.0,
       4590625000.0,
       1281335250.0,
-      587242750.0
+      587235750.0,
+      1593494750.0
     ],
     "operating_cash_flow": [
-      5229640000.0,
-      9098832500.0,
-      2929151000.0,
-      2231779750.0
+      null,
+      2928683000.0,
+      2231778250.0,
+      2696349500.0
     ],
     "source": "workflow-research"
   },

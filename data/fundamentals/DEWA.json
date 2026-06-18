@@ -1,57 +1,57 @@
 {
   "symbol": "DEWA",
-  "as_of": "2024-12-31",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "Dubai Electricity and Water Authority PJSC official announcements, DFM filings, BusinessWire press release, Finance Middle East reporting",
-  "source_url": "https://www.businesswire.com/news/home/20250210262973/en/Dubai-Electricity-and-Water-Authority-PJSC-Announces-Record-Annual-Revenue-of-AED-30.98-Billion-and-an-Unprecedented-EBITDA-of-AED-15.70-Billion-for-the-Year-2024",
-  "extractor": "research-grounded/Explore (seed)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://mediaoffice.ae/en/news/2026/february/10-02/dubai-electricity-and-water-authority-pjsc-announces-record-annual-revenue",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T10:59:58+00:00",
   "reported": {
-    "revenue": 30980000000,
-    "revenue_prior": 29200000000,
-    "net_income": 7240000000,
-    "net_income_prior": 7900000000,
-    "net_margin": 0.234,
-    "net_margin_prior": 0.271,
+    "revenue": 32842000000.0,
+    "revenue_prior": 30977000000.0,
+    "net_income": 8347000000.0,
+    "net_income_prior": 7013000000.0,
+    "net_margin": 0.2542,
+    "net_margin_prior": 0.2264,
     "ebitda": 15700000000,
     "operating_cash_flow": null,
     "fcf": null,
     "total_debt": null,
     "current_ratio": null,
     "dividend_per_share": 0.124,
-    "payout_ratio": 0.3869,
+    "payout_ratio": 0.729,
     "dividend_frequency": "semi-annual",
     "years_paid": 5,
     "cut_history_5y": null,
     "shares_outstanding": 50000000000.0,
-    "total_equity": 94988000000.0,
-    "eps": 0.14
+    "total_equity": 97770000000.0,
+    "eps": 0.17
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      23824000000.0,
       27336000000.0,
       29178000000.0,
-      30977000000.0
+      30977000000.0,
+      32842000000.0
     ],
     "net_income": [
-      6123000000.0,
       7723000000.0,
       7701000000.0,
-      7013000000.0
+      7013000000.0,
+      8347000000.0
     ],
     "operating_cash_flow": [
-      10020000000.0,
       14232000000.0,
       16518000000.0,
-      17435000000.0
+      17435000000.0,
+      21850000000.0
     ],
     "source": "workflow-research"
   },

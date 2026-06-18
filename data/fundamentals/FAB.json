@@ -1,21 +1,21 @@
 {
   "symbol": "FAB",
-  "as_of": "2024-12-31",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "First Abu Dhabi Bank (FAB) Official Press Release via Zawya",
-  "source_url": "https://www.zawya.com/en/press-release/companies-news/fab-delivers-strong-results-in-2024-with-profit-before-tax-of-aed-199-billion-up-13-year-on-year-fueled-by-15-revenue-growth-xw3sdx81",
-  "extractor": "research-grounded/Explore (seed)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://www.thenationalnews.com/business/banking/2026/01/28/uaes-biggest-bank-fab-posts-24-rise-in-2025-net-profit-on-revenue-boost/",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T10:59:58+00:00",
   "reported": {
-    "revenue": 31600000000,
-    "revenue_prior": 27800000000,
-    "net_income": 17100000000,
-    "net_income_prior": 16400000000,
-    "net_margin": 0.541,
-    "net_margin_prior": 0.59,
-    "dividend_per_share": 0.75,
-    "payout_ratio": 0.51,
+    "revenue": 36680000000.0,
+    "revenue_prior": 31600000000.0,
+    "net_income": 21110000000.0,
+    "net_income_prior": 17100000000.0,
+    "net_margin": 0.5755,
+    "net_margin_prior": 0.5411,
+    "dividend_per_share": 0.8,
+    "payout_ratio": 0.432,
     "years_paid": null,
     "current_ratio": null,
     "total_debt": null,
@@ -23,28 +23,28 @@
     "operating_cash_flow": null,
     "fcf": null,
     "cut_history_5y": null,
-    "shares_outstanding": 11048000000.0,
-    "total_equity": 130875000000.0,
-    "eps": 1.48
+    "shares_outstanding": 11050000000.0,
+    "total_equity": 133000000000.0,
+    "eps": 1.85
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      19766000000.0,
-      21421000000.0,
-      24676000000.0,
-      27701000000.0
+      23900000000.0,
+      27900000000.0,
+      31600000000.0,
+      36680000000.0
     ],
     "net_income": [
-      12531000000.0,
-      13411000000.0,
-      16405000000.0,
-      17055000000.0
+      13400000000.0,
+      16400000000.0,
+      17100000000.0,
+      21110000000.0
     ],
     "operating_cash_flow": [
       null,

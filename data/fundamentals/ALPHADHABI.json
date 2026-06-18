@@ -1,57 +1,57 @@
 {
   "symbol": "ALPHADHABI",
-  "as_of": "2025-12-31",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "Alpha Dhabi Holding official press releases, Investing.com, ADX financial filings",
+  "source": "FY2025 results (workflow-verified)",
   "source_url": "https://alphadhabi.com/news/alpha-dhabi-reports-record-results-with-highest-ever-full-year-revenue-of-aed-78-8-billion-and-strongest-ever-net-profit-of-aed-15-0-billion/",
-  "extractor": "research-grounded/Explore (seed-2)",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T12:17:56+00:00",
   "reported": {
-    "revenue": 78800,
-    "net_income": 15000,
-    "revenue_prior": 63400,
-    "net_income_prior": 13500,
+    "revenue": 78775000000.0,
+    "net_income": 8014000000.0,
+    "revenue_prior": 63396000000.0,
+    "net_income_prior": 8888000000.0,
     "operating_cash_flow": 9630.32,
     "ebitda": 17700,
     "fcf": null,
     "total_debt": 48140,
     "current_ratio": null,
-    "net_margin": 0.1903,
-    "net_margin_prior": 0.2129,
+    "net_margin": 0.1017,
+    "net_margin_prior": 0.1402,
     "dividend_per_share": 0.2,
-    "payout_ratio": 0.1333,
+    "payout_ratio": 0.253,
     "dividend_frequency": "Annual",
     "years_paid": 1,
     "cut_history_5y": null,
     "shares_outstanding": 10000000000.0,
-    "total_equity": 92328000000.0,
-    "eps": 0.88
+    "total_equity": 104042000000.0,
+    "eps": 0.79
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      18669000000.0,
       40050000000.0,
       45416000000.0,
-      63396000000.0
+      63396000000.0,
+      78775000000.0
     ],
     "net_income": [
-      3182000000.0,
       7342000000.0,
       10680000000.0,
-      8888000000.0
+      8888000000.0,
+      8014000000.0
     ],
     "operating_cash_flow": [
-      7814000000.0,
       13479000000.0,
       5956000000.0,
-      10301000000.0
+      10301000000.0,
+      9630000000.0
     ],
     "source": "workflow-research"
   },

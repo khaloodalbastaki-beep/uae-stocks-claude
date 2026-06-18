@@ -1,19 +1,19 @@
 {
   "symbol": "EMSTEEL",
-  "as_of": "2024-12-31",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "Emirates Steel Arkan official investor relations and 2024 Annual Report",
-  "source_url": "https://www.emsteel.com/investor-relations/reports-and-presentations/",
-  "extractor": "research-grounded/Explore (seed-2)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://www.emsteel.com/emsteel-reports-strong-fy-2025-performance-revenue-up-7-to-aed-8-9-billion-and-ebitda-up-34-to-aed-1-2-billion-year-on-year/",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T12:17:56+00:00",
   "reported": {
-    "revenue": 8337.3,
-    "revenue_prior": 8899.4,
-    "net_income": 392,
-    "net_income_prior": 601.9,
-    "net_margin": 0.047,
-    "net_margin_prior": 0.068,
+    "revenue": 8900000000.0,
+    "revenue_prior": 8337315000.0,
+    "net_income": 481000000.0,
+    "net_income_prior": 392392000.0,
+    "net_margin": 0.054,
+    "net_margin_prior": 0.0471,
     "ebitda": 892,
     "operating_cash_flow": null,
     "fcf": null,
@@ -25,33 +25,33 @@
     "years_paid": null,
     "cut_history_5y": null,
     "shares_outstanding": 6850000000.0,
-    "total_equity": 9540000000.0,
-    "eps": 0.06
+    "total_equity": 8720487000.0,
+    "eps": 0.07
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      3022000000.0,
-      9453000000.0,
-      8899000000.0,
-      8337000000.0
+      9500000000.0,
+      8899393000.0,
+      8337315000.0,
+      8900000000.0
     ],
     "net_income": [
-      -744630000.0,
-      510210000.0,
-      601920000.0,
-      392390000.0
+      508500000.0,
+      601916000.0,
+      392392000.0,
+      481000000.0
     ],
     "operating_cash_flow": [
-      823110000.0,
-      1470000000.0,
-      1446000000.0,
-      672560000.0
+      null,
+      1445653000.0,
+      672564000.0,
+      null
     ],
     "source": "workflow-research"
   },

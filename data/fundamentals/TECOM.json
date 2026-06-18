@@ -1,50 +1,50 @@
 {
   "symbol": "TECOM",
-  "as_of": "2024-12-31",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "TECOM Group official press releases and investor relations, DFM filings, Zawya, Emirates 247, Mubasher",
-  "source_url": "https://tecomgroup.ae/press-release/tecom-group-fy-2024-net-profit-grows-14-to-aed-1-2-billion-driven-by-record-revenue-and-strong-performance-across-all-business-segments",
-  "extractor": "research-grounded/Explore (seed-2)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://tecomgroup.ae/press-release/tecom-group-achieves-record-revenues-of-aed-2-9-billion-in-2025-as-recurring-net-profit-increases-by-20-the-fourth-consecutive-year-of-strong-growth-and-outstanding-performance",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T12:17:56+00:00",
   "reported": {
-    "revenue": 2400000000,
-    "net_income": 1200000000,
-    "revenue_prior": 2173000000,
-    "net_income_prior": 1078000000,
-    "net_margin": 0.5,
-    "net_margin_prior": 0.495,
+    "revenue": 2858000000.0,
+    "net_income": 2100000000.0,
+    "revenue_prior": 2400000000.0,
+    "net_income_prior": 1200000000.0,
+    "net_margin": 0.7348,
+    "net_margin_prior": 0.5,
     "ebitda": 1854000000,
     "operating_cash_flow": 1600000000,
     "total_debt": 1700000000,
     "current_ratio": null,
-    "dividend_per_share": 0.16,
-    "payout_ratio": 0.36,
+    "dividend_per_share": 0.18,
+    "payout_ratio": 0.429,
     "dividend_frequency": "Semi-annual",
     "years_paid": 4,
     "cut_history_5y": null,
     "shares_outstanding": 5000000000.0,
     "total_equity": 7850000000.0,
-    "eps": 0.25
+    "eps": 0.42
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      1766000000.0,
-      1973000000.0,
-      2173000000.0,
-      2402000000.0
+      1970000000.0,
+      2169000000.0,
+      2400000000.0,
+      2858000000.0
     ],
     "net_income": [
-      568840000.0,
       725620000.0,
       1078000000.0,
-      1228000000.0
+      1200000000.0,
+      2100000000.0
     ],
     "operating_cash_flow": [
       null,

@@ -1,55 +1,55 @@
 {
   "symbol": "EMAARDEV",
-  "as_of": "2024-12-31",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "Emaar Development PJSC official press releases, Integrated Annual Report 2024, tracenable.com income statement data, Zawya, DFM filings",
-  "source_url": "https://properties.emaar.com/en/press-release-listing/emaar-development-reports-2024-financial-results-at-annual-general-meeting/",
-  "extractor": "research-grounded/Explore (seed)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://stockanalysis.com/quote/dfm/EMAARDEV/financials/",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T10:59:58+00:00",
   "reported": {
-    "revenue": 19100000000,
-    "revenue_prior": 11900000000,
-    "net_income": 9690000000,
-    "net_income_prior": 8480000000,
+    "revenue": 27486000000.0,
+    "revenue_prior": 19147000000.0,
+    "net_income": 11316000000.0,
+    "net_income_prior": 7633000000.0,
     "ebitda": 9400000000,
     "operating_cash_flow": 10951000000,
     "total_debt": 3700000000,
-    "dividend_per_share": 0.68,
-    "payout_ratio": 35.63,
+    "dividend_per_share": 1.0,
+    "payout_ratio": 0.353,
     "years_paid": 1,
     "dividend_frequency": "Annual",
-    "net_margin": 50.7,
-    "net_margin_prior": 71.3,
+    "net_margin": 0.4117,
+    "net_margin_prior": 0.3987,
     "current_ratio": null,
     "shares_outstanding": 4000000000.0,
-    "total_equity": 31615000000.0,
-    "eps": 1.91
+    "total_equity": 41285000000.0,
+    "eps": 2.83
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      15602000000.0,
       11541000000.0,
       11921000000.0,
-      19147000000.0
+      19147000000.0,
+      27486000000.0
     ],
     "net_income": [
-      3244000000.0,
       3808000000.0,
       6629000000.0,
-      7633000000.0
+      7633000000.0,
+      11316000000.0
     ],
     "operating_cash_flow": [
-      4197000000.0,
       8616000000.0,
       9765000000.0,
-      10951000000.0
+      10951000000.0,
+      21050000000.0
     ],
     "source": "workflow-research"
   },

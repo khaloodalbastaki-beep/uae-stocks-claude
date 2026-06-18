@@ -20,11 +20,13 @@ narrate; free by default.
   Chromium scraper (`scraper/scrape.mjs`, Playwright) reading the ADX all-equities board +
   DFM marketwatch search; keyed to the registry. Yahoo/ADX-API are blocked, so the browser
   scrape is the working free path. Tagged `delayed`; per-symbol demo fallback.
-- **Fundamentals:** REAL reported FY2024 for **53/53** names (FULL coverage). Stored
-  in `data/fundamentals/<SYM>.json` (reported figures + source URL + as_of). The brain derives
-  Growth/Stability/Dividend deterministically from them (LLM only transcribes). UI shows a
-  "real fundamentals" badge + source per stock. (Universe is 53: the defunct ticker `Q`/Q Holding
-  was dropped 2026-06-19 — it rebranded to Modon Holding, already listed as `MODON`.)
+- **Fundamentals:** REAL reported figures for **53/53** names — rolled to **FY2025** (51/53; the
+  rest latest-available) on 2026-06-19 via the `uae-fy2025-refresh` workflow + `tools/merge_fy2025.py`.
+  Stored in `data/fundamentals/<SYM>.json` (reported + series + source URL + as_of). NOTE: after the
+  FY2025 roll, `reported` is now CONSISTENTLY absolute-AED (the old seed was mixed-unit). The brain
+  derives Growth/Stability/Dividend deterministically (LLM only transcribes); UI shows a "real
+  fundamentals" badge + source per stock. (Universe is 53: defunct `Q`/Q Holding dropped — rebranded
+  to Modon, listed as `MODON`.)
 - **News:** LIVE media per company. PRIMARY source is now **Google News RSS** (`brain/news.py`
   `_fetch_google`) — reliable, free, per-company, dated; GDELT (`_fetch_gdelt`) is the fallback
   (it was hard 429-rate-limiting, which left ~40/53 on mock — that's why coverage was poor). Now

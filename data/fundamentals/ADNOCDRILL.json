@@ -1,57 +1,57 @@
 {
   "symbol": "ADNOCDRILL",
-  "as_of": "FY2024",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "ADNOC Drilling official press release, Zawya, WAM, company investor relations",
-  "source_url": "https://www.zawya.com/en/press-release/companies-news/adnoc-drilling-delivers-record-growth-approves-788mln-2024-dividend-and-accelerates-ai-enabled-expansion-p0jwc905",
-  "extractor": "research-grounded/Explore (seed)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://www.thenationalnews.com/business/energy/2026/02/12/adnoc-drilling-delivers-record-2025-profit-as-revenue-surges-amid-expansion-push/",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T10:59:58+00:00",
   "reported": {
-    "revenue": 14700000000,
-    "revenue_prior": 11230000000,
-    "net_income": 4770000000,
-    "net_income_prior": 3795000000,
+    "revenue": 17995250000.0,
+    "revenue_prior": 14814865000.0,
+    "net_income": 5325125000.0,
+    "net_income_prior": 4788940000.0,
     "ebitda": 7387500000,
-    "dividend_per_share": 0.0181,
-    "payout_ratio": 0.606,
+    "dividend_per_share": 0.2296,
+    "payout_ratio": 0.687,
     "dividend_frequency": "annual",
     "years_paid": 4,
     "current_ratio": null,
     "operating_cash_flow": null,
     "fcf": null,
     "total_debt": null,
-    "net_margin": 0.325,
-    "net_margin_prior": 0.338,
+    "net_margin": 0.2959,
+    "net_margin_prior": 0.3233,
     "cut_history_5y": null,
-    "shares_outstanding": 15996000000.0,
-    "total_equity": 13992225000.0,
-    "eps": 0.3
+    "shares_outstanding": 16000000000.0,
+    "total_equity": 15215000000.0,
+    "eps": 0.334
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      8332802500.0,
-      9817642500.0,
-      11226908250.0,
-      14814865000.0
+      9805575000.0,
+      11237850000.0,
+      14814865000.0,
+      17995250000.0
     ],
     "net_income": [
-      2217863975.0,
-      2944647225.0,
-      3793692500.0,
-      4789940000.0
+      2938000000.0,
+      3801038000.0,
+      4788940000.0,
+      5325125000.0
     ],
     "operating_cash_flow": [
-      4330877500.0,
-      5596890000.0,
-      4976237500.0,
-      6074315000.0
+      null,
+      null,
+      null,
+      8189675000.0
     ],
     "source": "workflow-research"
   },

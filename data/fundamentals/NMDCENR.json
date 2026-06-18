@@ -1,21 +1,21 @@
 {
   "symbol": "NMDCENR",
-  "as_of": "2024-12-31",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "NMDC Energy official press releases, ADX filings, Zawya, DredgeWire",
-  "source_url": "https://nmdc-energy.com/en/media/press-releases/nmdc-energy-delivers-impressive-2024-financial-results-capping-off-historic-year/",
-  "extractor": "research-grounded/Explore (seed-2)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://nmdc-group.com/en/media/press-releases/nmdc-energy-reports-29-year-on-year-growth-in-revenues-to-reach-aed-18-7-billion-in-2025-board-proposes-a-14-increase-in-cash-dividends-to-aed-800-million/",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T12:17:56+00:00",
   "reported": {
-    "revenue": 14440,
-    "revenue_prior": 7930,
-    "net_income": 1406,
-    "net_income_prior": 780,
-    "net_margin": 0.0974,
-    "net_margin_prior": 0.0983,
-    "dividend_per_share": 0.14,
-    "payout_ratio": 0.498,
+    "revenue": 18700000000.0,
+    "revenue_prior": 14440000000.0,
+    "net_income": 1600000000.0,
+    "net_income_prior": 1406250000.0,
+    "net_margin": 0.0856,
+    "net_margin_prior": 0.0974,
+    "dividend_per_share": 0.16,
+    "payout_ratio": 0.5,
     "ebitda": null,
     "fcf": null,
     "operating_cash_flow": null,
@@ -24,33 +24,33 @@
     "years_paid": null,
     "cut_history_5y": null,
     "shares_outstanding": 5000000000.0,
-    "total_equity": 5219000000.0,
-    "eps": 0.28
+    "total_equity": 5219103000.0,
+    "eps": 0.32
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      3943000000.0,
       5382000000.0,
       7941000000.0,
-      14440000000.0
+      14440000000.0,
+      18700000000.0
     ],
     "net_income": [
-      131230000.0,
-      576660000.0,
-      779590000.0,
-      1404000000.0
+      577000000.0,
+      780424000.0,
+      1406250000.0,
+      1600000000.0
     ],
     "operating_cash_flow": [
-      440450000.0,
-      2082000000.0,
-      2224000000.0,
-      2836000000.0
+      null,
+      2223528000.0,
+      2836426000.0,
+      null
     ],
     "source": "workflow-research"
   },

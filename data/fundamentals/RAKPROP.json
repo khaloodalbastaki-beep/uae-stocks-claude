@@ -1,57 +1,57 @@
 {
   "symbol": "RAKPROP",
-  "as_of": "2024-12-31",
+  "as_of": "FY2025",
   "currency": "AED",
-  "source": "RAK Properties Official IR / ADX Filings / Investing.com Financial Data",
-  "source_url": "https://www.rakproperties.ae/news/rak-properties-achieves-strong-fy-2024-results-driving-transformational-growth-for-2025/",
-  "extractor": "research-grounded/Explore (seed-2)",
+  "source": "FY2025 results (workflow-verified)",
+  "source_url": "https://www.rakproperties.ae/wp-content/uploads/2026/02/RAKP-X-ADX-ANNUAL-REPORT-2025-EN.pdf",
+  "extractor": "workflow-research-fy2025",
   "confidence": "high",
   "retrieved_at": "2026-06-18T12:17:56+00:00",
   "reported": {
-    "revenue": 1837450000,
-    "revenue_prior": 1406320000,
-    "net_income": 404300000,
-    "net_income_prior": 280920000,
+    "revenue": 1837449000.0,
+    "revenue_prior": 1406318000.0,
+    "net_income": 404302000.0,
+    "net_income_prior": 280916000.0,
     "net_margin": 0.22,
-    "net_margin_prior": 0.201,
+    "net_margin_prior": 0.1998,
     "operating_cash_flow": 231210000,
     "total_debt": 1260000000,
     "ebitda": 514890000,
-    "dividend_per_share": 0,
-    "payout_ratio": 0,
+    "dividend_per_share": 0.0,
+    "payout_ratio": 0.0,
     "current_ratio": null,
     "fcf": null,
     "dividend_frequency": null,
     "cut_history_5y": null,
     "years_paid": null,
-    "shares_outstanding": 2540000000.0,
-    "total_equity": 5530000000.0,
-    "eps": 0.11
+    "shares_outstanding": 3000000000.0,
+    "total_equity": 5941970000.0,
+    "eps": 0.135
   },
   "series": {
     "years": [
-      2021,
       2022,
       2023,
-      2024
+      2024,
+      2025
     ],
     "revenue": [
-      515620000.0,
       408220000.0,
-      1005000000.0,
-      1406000000.0
+      1004890000.0,
+      1406318000.0,
+      1837449000.0
     ],
     "net_income": [
-      201470000.0,
       30790000.0,
       201820000.0,
-      280920000.0
+      280916000.0,
+      404302000.0
     ],
     "operating_cash_flow": [
-      41880000.0,
-      255910000.0,
-      436900000.0,
-      241340000.0
+      null,
+      null,
+      241342000.0,
+      231209000.0
     ],
     "source": "workflow-research"
   },
