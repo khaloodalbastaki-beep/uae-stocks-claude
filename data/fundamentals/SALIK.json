@@ -21,6 +21,37 @@
     "payout_ratio": 100,
     "years_paid": 1,
     "net_margin": 50.8,
-    "net_margin_prior": 51.7
-  }
+    "net_margin_prior": 51.7,
+    "shares_outstanding": 7500000000.0,
+    "total_equity": 1088000000.0,
+    "eps": 0.16
+  },
+  "series": {
+    "years": [
+      2021,
+      2022,
+      2023,
+      2024
+    ],
+    "revenue": [
+      1693000000.0,
+      1892000000.0,
+      2109000000.0,
+      2292000000.0
+    ],
+    "net_income": [
+      1381000000.0,
+      1326000000.0,
+      1098000000.0,
+      1165000000.0
+    ],
+    "operating_cash_flow": [
+      1234000000.0,
+      1516000000.0,
+      1454000000.0,
+      1463000000.0
+    ],
+    "source": "workflow-research"
+  },
+  "statements_extractor": "workflow-research"
 }

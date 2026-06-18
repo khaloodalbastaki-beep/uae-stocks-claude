@@ -17,12 +17,43 @@
     "ebitda": 1130,
     "current_ratio": null,
     "total_debt": null,
-    "dividend_per_share": null,
+    "dividend_per_share": 0.0,
     "payout_ratio": null,
     "fcf": null,
     "operating_cash_flow": null,
     "years_paid": null,
     "dividend_frequency": null,
-    "cut_history_5y": null
-  }
+    "cut_history_5y": null,
+    "shares_outstanding": 16347000000.0,
+    "total_equity": 50863000000.0,
+    "eps": 0.63
+  },
+  "series": {
+    "years": [
+      2021,
+      2022,
+      2023,
+      2024
+    ],
+    "revenue": [
+      369370000.0,
+      682410000.0,
+      882400000.0,
+      6511000000.0
+    ],
+    "net_income": [
+      164780000.0,
+      899670000.0,
+      461270000.0,
+      9423000000.0
+    ],
+    "operating_cash_flow": [
+      -362480000.0,
+      711480000.0,
+      -2800000.0,
+      3224000000.0
+    ],
+    "source": "workflow-research"
+  },
+  "statements_extractor": "workflow-research"
 }

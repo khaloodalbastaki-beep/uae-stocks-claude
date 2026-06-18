@@ -287,9 +287,23 @@ button { font-family: inherit; cursor: pointer; }
 .conf { font-size: 11px; text-transform: uppercase; letter-spacing: .3px; color: var(--text-faint); }
 
 /* bars chart */
-.barchart { display: flex; align-items: flex-end; gap: 8px; height: 120px; }
+.barchart { display: flex; align-items: flex-end; gap: 8px; height: 120px; margin: 20px 0 24px; }
 .barchart .b { flex: 1; background: linear-gradient(var(--accent), #2f81f755); border-radius: 5px 5px 0 0; position: relative; min-height: 3px; }
+.barchart .b.na { background: var(--surface-2); opacity: .5; }
 .barchart .b span { position: absolute; bottom: -18px; inset-inline: 0; text-align: center; font-size: 10px; color: var(--text-faint); }
+.barchart .b .bval { position: absolute; top: -16px; inset-inline: 0; text-align: center; font-size: 10px; font-weight: 700; color: var(--text); white-space: nowrap; }
+
+/* valuation card */
+.val-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 6px; }
+.val-fair { font-size: 26px; font-weight: 800; }
+.val-up { font-weight: 700; font-size: 15px; }
+.val-up.pos { color: var(--pos); } .val-up.neg { color: var(--neg); } .val-up.flat { color: var(--text-faint); }
+.val-rating { font-size: 12px; padding: 2px 9px; border-radius: 999px; border: 1px solid var(--border); }
+.val-rating.undervalued { color: var(--pos); border-color: var(--pos); }
+.val-rating.overvalued { color: var(--neg); border-color: var(--neg); }
+.val-methods { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.val-method { font-size: 12px; padding: 4px 9px; border-radius: 8px; background: var(--surface-2); }
+.val-method b { color: var(--text); }
 
 /* disclaimer / footer */
 .disclaimer { font-size: 11px; color: var(--text-faint); border: 1px dashed var(--border); border-radius: var(--radius-sm); padding: 10px 12px; margin-top: 10px; }

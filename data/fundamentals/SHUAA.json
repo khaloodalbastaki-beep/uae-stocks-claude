@@ -14,7 +14,7 @@
     "net_income_prior": -1155000000,
     "net_margin": -3.2494,
     "net_margin_prior": -9.5455,
-    "dividend_per_share": null,
+    "dividend_per_share": 0.0,
     "payout_ratio": null,
     "years_paid": 0,
     "cut_history_5y": null,
@@ -23,6 +23,37 @@
     "ebitda": null,
     "fcf": null,
     "total_debt": null,
-    "current_ratio": null
-  }
+    "current_ratio": null,
+    "shares_outstanding": 2535720000.0,
+    "total_equity": 34644000.0,
+    "eps": -0.12
+  },
+  "series": {
+    "years": [
+      2021,
+      2022,
+      2023,
+      2024
+    ],
+    "revenue": [
+      null,
+      null,
+      161418000.0,
+      88850000.0
+    ],
+    "net_income": [
+      24240000.0,
+      -135200000.0,
+      -906644000.0,
+      -299162000.0
+    ],
+    "operating_cash_flow": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "source": "workflow-research"
+  },
+  "statements_extractor": "workflow-research"
 }

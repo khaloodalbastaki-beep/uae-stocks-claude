@@ -273,6 +273,7 @@
           <div><div class="k">52w high</div><div class="v mono">${fmtPrice(qs.high_52w)}</div></div>
           <div><div class="k">52w low</div><div class="v mono">${fmtPrice(qs.low_52w)}</div></div>
           <div><div class="k">${t("yield_")}</div><div class="v mono">${fmtPct(qs.dividend_yield)}</div></div>
+          ${s.valuation && s.valuation.fair_value != null ? `<div><div class="k">${t("fair_value")}</div><div class="v mono">${fmtPrice(s.valuation.fair_value)} <span class="val-up ${s.valuation.upside_pct > 0.02 ? "pos" : s.valuation.upside_pct < -0.02 ? "neg" : "flat"}" style="font-size:12px">${s.valuation.upside_pct > 0 ? "+" : ""}${(s.valuation.upside_pct * 100).toFixed(0)}%</span></div></div>` : ""}
           <div><div class="k">Index</div><div class="v">${(o.index_membership || []).join(", ")}</div></div>
         </div></div>
       <div class="grid" style="grid-template-columns:1fr 1fr;gap:12px">
@@ -335,14 +336,55 @@
       </div>`).join("")}</div>`;
   }
 
+  function valuationCard(s) {
+    const v = s.valuation;
+    if (!v || v.fair_value == null) return "";
+    const up = v.upside_pct || 0;
+    const cls = up > 0.02 ? "pos" : up < -0.02 ? "neg" : "flat";
+    const sign = up > 0 ? "+" : "";
+    const a = v.assumptions || {};
+    const ml = v.method_labels || {};
+    const methods = Object.entries(v.methods || {})
+      .map(([k, val]) => `<span class="val-method"><b>${esc(ml[k] || k)}</b> · ${fmtPrice(val)}</span>`).join("");
+    const ratingKey = "rating_" + String(v.rating || "").replace(/ /g, "_");
+    const ratingCls = String(v.rating || "").replace(/ /g, "");
+    const pct = (x) => (x == null ? "—" : (x * 100).toFixed(1) + "%");
+    const assum = [
+      `r ${pct(a.discount_rate)}`, `g ${pct(a.growth)}`,
+      a.roe != null ? `ROE ${pct(a.roe)}` : null,
+      a.eps != null ? `EPS ${fmtAED(a.eps)}` : null,
+      a.bvps != null ? `BV/sh ${fmtAED(a.bvps)}` : null,
+    ].filter(Boolean).join(" · ");
+    return `<div class="panel">
+      <h3>${t("fair_value")}</h3>
+      <div class="val-head">
+        <span class="val-fair mono">${fmtPrice(v.fair_value)}</span>
+        <span class="muted">${t("vs_price")} <span class="mono">${fmtPrice(v.price)}</span></span>
+        <span class="val-up ${cls}">${sign}${(up * 100).toFixed(1)}%</span>
+        <span class="val-rating ${ratingCls}">${t(ratingKey)}</span>
+      </div>
+      <div class="val-methods">${methods}</div>
+      <div class="muted" style="margin-top:10px;font-size:12px">${t("assumptions")}: ${assum} · ${esc(v.confidence)} ${t("confidence").toLowerCase()}</div>
+      <div class="disclaimer" style="margin-top:10px">⚖️ ${t("val_disclaimer")}</div>
+    </div>`;
+  }
+
   function financialsTab(s) {
     const f = s.financials;
     const yrs = f.years.map(String);
-    return `<div class="panel"><h3>Revenue (${t("demo")})</h3>${Charts.bars(yrs, f.revenue, fmtBig)}</div>
-      <div class="panel"><h3>Net income</h3>${Charts.bars(yrs, f.net_income, fmtBig)}</div>
-      <div class="panel"><h3>Operating cash flow</h3>${Charts.bars(yrs, f.operating_cash_flow, fmtBig)}</div>
-      <div class="panel"><h3>Key ratios</h3><div class="kv">
-        <div><div class="k">Net margin</div><div class="v mono">${f.ratios.net_margin != null ? fmtPct(f.ratios.net_margin) : "—"}</div></div>
+    const real = f.data_quality === "real";
+    const tag = real ? "" : ` <span class="muted" style="font-size:12px">(${t("demo")})</span>`;
+    const isNum = (v) => typeof v === "number" && isFinite(v);
+    const hasOCF = (f.operating_cash_flow || []).some(isNum);
+    const note = real
+      ? `<div class="disclaimer" style="border-color:var(--ai);color:#56e0bd">📊 ${t("real_financials")}</div>`
+      : `<div class="disclaimer">📊 ${t("demo_financials")}</div>`;
+    return valuationCard(s) + note +
+      `<div class="panel"><h3>${t("revenue")}${tag}</h3>${Charts.bars(yrs, f.revenue, fmtBig)}</div>
+      <div class="panel"><h3>${t("net_income_")}${tag}</h3>${Charts.bars(yrs, f.net_income, fmtBig)}</div>` +
+      (hasOCF ? `<div class="panel"><h3>${t("ocf")}${tag}</h3>${Charts.bars(yrs, f.operating_cash_flow, fmtBig)}</div>` : "") +
+      `<div class="panel"><h3>${t("key_ratios")}</h3><div class="kv">
+        <div><div class="k">${t("net_margin")}</div><div class="v mono">${f.ratios.net_margin != null ? fmtPct(f.ratios.net_margin) : "—"}</div></div>
         <div><div class="k">Net debt / EBITDA</div><div class="v mono">${f.ratios.net_debt_to_ebitda}×</div></div>
         <div><div class="k">Current ratio</div><div class="v mono">${f.ratios.current_ratio}</div></div>
         <div><div class="k">Payout ratio</div><div class="v mono">${fmtPct(f.ratios.payout_ratio)}</div></div>

@@ -23,6 +23,37 @@
     "total_debt": null,
     "net_margin": 0.325,
     "net_margin_prior": 0.338,
-    "cut_history_5y": null
-  }
+    "cut_history_5y": null,
+    "shares_outstanding": 15996000000.0,
+    "total_equity": 13992225000.0,
+    "eps": 0.3
+  },
+  "series": {
+    "years": [
+      2021,
+      2022,
+      2023,
+      2024
+    ],
+    "revenue": [
+      8332802500.0,
+      9817642500.0,
+      11226908250.0,
+      14814865000.0
+    ],
+    "net_income": [
+      2217863975.0,
+      2944647225.0,
+      3793692500.0,
+      4789940000.0
+    ],
+    "operating_cash_flow": [
+      4330877500.0,
+      5596890000.0,
+      4976237500.0,
+      6074315000.0
+    ],
+    "source": "workflow-research"
+  },
+  "statements_extractor": "workflow-research"
 }

@@ -21,6 +21,37 @@
     "dividend_per_share": 0,
     "payout_ratio": 0,
     "years_paid": 0,
-    "fcf": null
-  }
+    "fcf": null,
+    "shares_outstanding": 5610000000.0,
+    "total_equity": 4100000000.0,
+    "eps": 0.09
+  },
+  "series": {
+    "years": [
+      2021,
+      2022,
+      2023,
+      2024
+    ],
+    "revenue": [
+      1334000000.0,
+      1552000000.0,
+      1781000000.0,
+      2213000000.0
+    ],
+    "net_income": [
+      350810000.0,
+      425470000.0,
+      570110000.0,
+      524070000.0
+    ],
+    "operating_cash_flow": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "source": "workflow-research"
+  },
+  "statements_extractor": "workflow-research"
 }

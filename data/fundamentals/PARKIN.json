@@ -23,6 +23,37 @@
     "dividend_frequency": "Semi-annual",
     "years_paid": 1,
     "payout_ratio": 104.76,
-    "cut_history_5y": null
-  }
+    "cut_history_5y": null,
+    "shares_outstanding": 3000000000.0,
+    "total_equity": 502810000.0,
+    "eps": 0.21
+  },
+  "series": {
+    "years": [
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "revenue": [
+      686960000.0,
+      779380000.0,
+      925170000.0,
+      1320000000.0
+    ],
+    "net_income": [
+      315600000.0,
+      394090000.0,
+      423490000.0,
+      625510000.0
+    ],
+    "operating_cash_flow": [
+      419380000.0,
+      454240000.0,
+      546080000.0,
+      733570000.0
+    ],
+    "source": "workflow-research"
+  },
+  "statements_extractor": "workflow-research"
 }

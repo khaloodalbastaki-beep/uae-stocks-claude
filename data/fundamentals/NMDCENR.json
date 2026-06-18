@@ -22,6 +22,37 @@
     "total_debt": null,
     "current_ratio": null,
     "years_paid": null,
-    "cut_history_5y": null
-  }
+    "cut_history_5y": null,
+    "shares_outstanding": 5000000000.0,
+    "total_equity": 5219000000.0,
+    "eps": 0.28
+  },
+  "series": {
+    "years": [
+      2021,
+      2022,
+      2023,
+      2024
+    ],
+    "revenue": [
+      3943000000.0,
+      5382000000.0,
+      7941000000.0,
+      14440000000.0
+    ],
+    "net_income": [
+      131230000.0,
+      576660000.0,
+      779590000.0,
+      1404000000.0
+    ],
+    "operating_cash_flow": [
+      440450000.0,
+      2082000000.0,
+      2224000000.0,
+      2836000000.0
+    ],
+    "source": "workflow-research"
+  },
+  "statements_extractor": "workflow-research"
 }

@@ -23,6 +23,37 @@
     "fcf": null,
     "years_paid": 1,
     "dividend_frequency": "annual",
-    "cut_history_5y": null
-  }
+    "cut_history_5y": null,
+    "shares_outstanding": 6995000000.0,
+    "total_equity": 9262045000.0,
+    "eps": 0.079
+  },
+  "series": {
+    "years": [
+      2021,
+      2022,
+      2023,
+      2024
+    ],
+    "revenue": [
+      1659970000.0,
+      1940000000.0,
+      1550000000.0,
+      1630000000.0
+    ],
+    "net_income": [
+      1160000000.0,
+      667000000.0,
+      586000000.0,
+      553000000.0
+    ],
+    "operating_cash_flow": [
+      1109095000.0,
+      826312500.0,
+      594945000.0,
+      1006265000.0
+    ],
+    "source": "workflow-research"
+  },
+  "statements_extractor": "workflow-research"
 }

@@ -22,6 +22,37 @@
     "payout_ratio": 0.8713,
     "years_paid": null,
     "cut_history_5y": null,
-    "dividend_frequency": "proposed annually with interim distributions"
-  }
+    "dividend_frequency": "proposed annually with interim distributions",
+    "shares_outstanding": 844380000.0,
+    "total_equity": 12625000000.0,
+    "eps": 3.55
+  },
+  "series": {
+    "years": [
+      2021,
+      2022,
+      2023,
+      2024
+    ],
+    "revenue": [
+      7889000000.0,
+      10685000000.0,
+      16708000000.0,
+      26264000000.0
+    ],
+    "net_income": [
+      1002000000.0,
+      1303000000.0,
+      2154000000.0,
+      2960000000.0
+    ],
+    "operating_cash_flow": [
+      1628000000.0,
+      2682000000.0,
+      2873000000.0,
+      3335000000.0
+    ],
+    "source": "workflow-research"
+  },
+  "statements_extractor": "workflow-research"
 }

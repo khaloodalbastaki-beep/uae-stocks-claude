@@ -31,6 +31,20 @@ narrate; free by default.
 - **AI Analysis:** stance + confidence + scores are DETERMINISTIC; the prose (reasons/risks/
   what-would-change) is written by the **nemotron** fleet agent → `data/ai/<SYM>.json`, shown
   as "narrated by nemotron".
+- **Financials (REAL):** 3–4y reported series (revenue / net income / operating cash flow) for
+  all 53, in `data/fundamentals/<SYM>.json["series"]` (absolute AED, gathered + skeptically
+  audited by a workflow). The Financials tab charts now render REAL value-labelled bars (no more
+  "Demo data") — `brain.pipeline._financial_trends` uses the series, falls back to demo only if
+  absent. NOTE: the seed `reported.revenue/net_income` are MIXED-UNIT (millions for some, absolute
+  for others) — scoring is scale-invariant so unaffected, but level math (valuation) must use the
+  `series` (absolute), never `reported`.
+- **Fair value (REAL, deterministic):** `brain/valuation.py` computes a per-share intrinsic value
+  for **52/53** (DDM + justified P/B-ROE + growth-tilted earnings multiple, blended by archetype;
+  perpetual-g capped ≥3.5pt below the discount rate; one-off-earnings normalised for the multiple;
+  outlier methods dropped; ≥2 methods required else None). Payload `valuation{fair_value, upside_pct,
+  rating, confidence, methods, assumptions}`. UI: a **Fair value card** on the Financials tab
+  (fair vs live price, upside, method breakdown, assumptions, "not advice") + a fair-value line on
+  Overview. Valuation inputs (shares_outstanding/total_equity/eps) live in `reported`.
 - **UX:** stock page has a ← Back button; navigation closes the search dropdown + scrolls top.
 
 ## The agent fleet (manager = Claude Code) — `agents/FLEET.md`
@@ -68,6 +82,10 @@ python3 -m brain.news --symbols EMAAR               # refresh one name's news
 python3 -m brain.analyst --symbols EMAAR            # re-narrate one name (nemotron)
 python3 agents/mizan/mizan.py --symbols EMAAR       # re-extract one name's fundamentals (gpt-oss web lane)
 ```
+Re-gather multi-year statements (Financials series + valuation inputs): run the
+`uae-financials-gather` Workflow (gather→verify, one agent per stock; absolute-AED schema), then
+`python3 tools/merge_statements.py <workflow_transcript_dir>` to enrich `data/fundamentals/`
+(adds `series` + shares_outstanding/total_equity/eps; never overwrites verified fields). Then rebuild.
 Preview: launch.json config `uae-stocks-claude` (port 8814, serves `web/`).
 
 ## Rules baked in (don't break)

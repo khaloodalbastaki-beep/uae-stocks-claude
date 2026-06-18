@@ -29,10 +29,16 @@
 
   function bars(labels, values, fmt) {
     if (!values || !values.length) return "";
-    const max = Math.max(...values.map(Math.abs)) || 1;
-    return `<div class="barchart">${values.map((v, i) =>
-      `<div class="b" style="height:${Math.max(3, (Math.abs(v) / max) * 100)}%" title="${labels[i]}: ${fmt ? fmt(v) : v}">
-        <span>${labels[i]}</span></div>`).join("")}</div>`;
+    const nums = values.filter((v) => typeof v === "number" && isFinite(v));
+    if (!nums.length) return `<div class="empty">—</div>`;
+    const max = Math.max(...nums.map(Math.abs)) || 1;
+    return `<div class="barchart">${values.map((v, i) => {
+      const ok = typeof v === "number" && isFinite(v);
+      const h = ok ? Math.max(3, (Math.abs(v) / max) * 100) : 0;
+      const lbl = ok ? (fmt ? fmt(v) : String(v)) : "—";
+      return `<div class="b${ok ? "" : " na"}" style="height:${h}%" title="${labels[i]}: ${lbl}">
+        <b class="bval">${lbl}</b><span>${labels[i]}</span></div>`;
+    }).join("")}</div>`;
   }
 
   function gauge(score, label) {

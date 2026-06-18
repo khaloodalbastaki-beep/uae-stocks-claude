@@ -21,6 +21,37 @@
     "dividend_frequency": "Annual",
     "net_margin": 50.7,
     "net_margin_prior": 71.3,
-    "current_ratio": null
-  }
+    "current_ratio": null,
+    "shares_outstanding": 4000000000.0,
+    "total_equity": 31615000000.0,
+    "eps": 1.91
+  },
+  "series": {
+    "years": [
+      2021,
+      2022,
+      2023,
+      2024
+    ],
+    "revenue": [
+      15602000000.0,
+      11541000000.0,
+      11921000000.0,
+      19147000000.0
+    ],
+    "net_income": [
+      3244000000.0,
+      3808000000.0,
+      6629000000.0,
+      7633000000.0
+    ],
+    "operating_cash_flow": [
+      4197000000.0,
+      8616000000.0,
+      9765000000.0,
+      10951000000.0
+    ],
+    "source": "workflow-research"
+  },
+  "statements_extractor": "workflow-research"
 }

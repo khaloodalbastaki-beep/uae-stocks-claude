@@ -22,6 +22,37 @@
     "total_debt": null,
     "current_ratio": null,
     "years_paid": 1,
-    "dividend_frequency": "annual"
-  }
+    "dividend_frequency": "annual",
+    "shares_outstanding": 831160000.0,
+    "total_equity": 2993000000.0,
+    "eps": 0.35
+  },
+  "series": {
+    "years": [
+      2021,
+      2022,
+      2023,
+      2024
+    ],
+    "revenue": [
+      3068000000.0,
+      4067000000.0,
+      4561000000.0,
+      4915000000.0
+    ],
+    "net_income": [
+      216040000.0,
+      246790000.0,
+      261010000.0,
+      291270000.0
+    ],
+    "operating_cash_flow": [
+      497850000.0,
+      296700000.0,
+      1018000000.0,
+      656020000.0
+    ],
+    "source": "workflow-research"
+  },
+  "statements_extractor": "workflow-research"
 }

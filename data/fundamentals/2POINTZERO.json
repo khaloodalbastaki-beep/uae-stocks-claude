@@ -20,9 +20,40 @@
     "current_ratio": null,
     "total_debt": null,
     "payout_ratio": null,
-    "dividend_per_share": null,
+    "dividend_per_share": 0.0,
     "dividend_frequency": null,
     "years_paid": null,
-    "cut_history_5y": null
-  }
+    "cut_history_5y": null,
+    "shares_outstanding": 11200000000.0,
+    "total_equity": 88370000000.0,
+    "eps": 0.25
+  },
+  "series": {
+    "years": [
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "revenue": [
+      1126000000.0,
+      1294000000.0,
+      1703000000.0,
+      7004000000.0
+    ],
+    "net_income": [
+      18425000000.0,
+      337800000.0,
+      -6000000.0,
+      3440000000.0
+    ],
+    "operating_cash_flow": [
+      857160000.0,
+      996620000.0,
+      1294000000.0,
+      2811000000.0
+    ],
+    "source": "workflow-research"
+  },
+  "statements_extractor": "workflow-research"
 }

@@ -27,6 +27,7 @@ from .adapters.mock import MockProvider
 from .adapters.exchanges import ExchangeProvider
 from .adapters.livescrape import LiveScrapeProvider
 from .adapters.fundamentals_store import FundamentalsStore
+from .valuation import fair_value
 from .adapters.news_store import NewsStore
 from .adapters.gdelt import GdeltProvider
 from .adapters.worldbank import WorldBankProvider
@@ -189,9 +190,36 @@ def _business_summary(sec: Security) -> tuple[str, str]:
     return en, ar
 
 
-def _financial_trends(quote, fundamentals) -> dict:
-    """Deterministic multi-year trend reconstruction from the demo quote + fundamentals.
-    Tagged demo. Gives the Financials tab real shapes to render."""
+def _financial_trends(quote, fundamentals, frec: dict | None = None) -> dict:
+    """Financials series for the Financials tab. Uses the REAL reported multi-year series
+    (`record["series"]`, written by the statement-gathering step) when present — tagged
+    'real'. Falls back to the deterministic demo reconstruction (tagged 'demo') only when no
+    real series exists, so the tab degrades honestly instead of fabricating numbers."""
+    series = (frec or {}).get("series") if frec else None
+    if series and series.get("years") and any(v not in (None, 0) for v in (series.get("revenue") or [])):
+        years = list(series["years"])
+        revenue = (series.get("revenue") or []) + [None] * (len(years) - len(series.get("revenue") or []))
+        net_income = (series.get("net_income") or []) + [None] * (len(years) - len(series.get("net_income") or []))
+        ocf = (series.get("operating_cash_flow") or []) + [None] * (len(years) - len(series.get("operating_cash_flow") or []))
+        nm = None
+        for rv, ni in zip(reversed(revenue), reversed(net_income)):
+            if isinstance(rv, (int, float)) and rv and isinstance(ni, (int, float)):
+                nm = round(ni / rv, 4); break
+        return {
+            "years": years,
+            "revenue": revenue[:len(years)],
+            "net_income": net_income[:len(years)],
+            "operating_cash_flow": ocf[:len(years)],
+            "ratios": {
+                "net_margin": nm,
+                "net_debt_to_ebitda": fundamentals.net_debt_to_ebitda,
+                "current_ratio": fundamentals.current_ratio,
+                "payout_ratio": fundamentals.payout_ratio,
+            },
+            "revenue_cagr_3y": fundamentals.revenue_cagr_3y,
+            "data_quality": "real",
+            "currency": (frec.get("currency") or "AED"),
+        }
     years = [(_now().year - i) for i in range(4, -1, -1)]  # last 5 years incl current
     mcap = quote.market_cap if quote and quote.market_cap else 1.0e10
     rev0 = mcap * 0.35  # crude revenue proxy
@@ -437,7 +465,9 @@ class Pipeline:
             "meetings": [m.to_dict() for m in meetings],
             "dividends": [d.to_dict() for d in dividends],
             "ownership": ownership.to_dict() if ownership else None,
-            "financials": _financial_trends(quote, fundamentals),
+            "financials": _financial_trends(quote, fundamentals, frec),
+            "valuation": (fair_value(frec, quote.price if quote else None, sec.archetype)
+                          if (fundamentals_real and quote) else None),
             "global_factors": _exposure_block(sec, commodities, sec_events),
             "ai_analysis": analysis,
             "generated_at": _iso(),
