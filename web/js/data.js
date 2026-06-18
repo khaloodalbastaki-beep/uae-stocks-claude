@@ -54,4 +54,21 @@
       return this.has(sym);
     },
   };
+
+  /* Portfolio: full buy/sell transaction log (localStorage; the ledger is the user's own
+     data — personal use, not the public-launch redistribution/advice path). Each tx:
+     { id, symbol, action: "buy"|"sell", date: "YYYY-MM-DD", qty, price }. */
+  const PORT_KEY = "uae_portfolio";
+  window.Portfolio = {
+    list() { try { return JSON.parse(localStorage.getItem(PORT_KEY) || "[]"); } catch (e) { return []; } },
+    symbols() { return [...new Set(this.list().map((t) => t.symbol))]; },
+    add(tx) {
+      const l = this.list();
+      tx.id = tx.id || (Date.now().toString(36) + Math.random().toString(36).slice(2, 6));
+      l.push(tx); this._save(l); return tx.id;
+    },
+    remove(id) { this._save(this.list().filter((t) => t.id !== id)); },
+    clear() { this._save([]); },
+    _save(l) { localStorage.setItem(PORT_KEY, JSON.stringify(l)); window.dispatchEvent(new CustomEvent("portchange")); },
+  };
 })();

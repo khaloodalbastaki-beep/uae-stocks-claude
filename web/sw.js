@@ -1,8 +1,11 @@
-/* Service worker — offline-first app shell (mirrors the agentec/hypertrophy PWAs).
-   Shell is cache-first; data is network-first with a cache fallback so the app opens
-   instantly and survives a flaky connection, but still pulls fresh JSON when online. */
-const SHELL = "uae-shell-v1";
-const DATA = "uae-data-v1";
+/* Service worker — offline-capable but UPDATE-FRIENDLY.
+   The shell is stale-while-revalidate: serve from cache instantly, then refetch in the
+   background so the next load is fresh (fixes the old cache-first-forever bug where users
+   were stuck on stale JS after a deploy). Data is network-first. The cache name carries a
+   per-build id (refresh.sh stamps __BUILD_ID__), so each deploy cleanly supersedes the last. */
+const VERSION = "__BUILD_ID__";
+const SHELL = "uae-shell-" + VERSION;
+const DATA = "uae-data-" + VERSION;
 const SHELL_ASSETS = [
   "./", "./index.html", "./css/app.css",
   "./js/i18n.js", "./js/data.js", "./js/charts.js", "./js/app.js",
@@ -22,6 +25,7 @@ self.addEventListener("fetch", (e) => {
   if (e.request.method !== "GET") return;
   const isData = url.pathname.includes("/data/") && url.pathname.endsWith(".json");
   if (isData) {
+    // network-first: always pull fresh JSON when online, fall back to cache offline
     e.respondWith(
       fetch(e.request).then((res) => {
         const copy = res.clone();
@@ -30,6 +34,15 @@ self.addEventListener("fetch", (e) => {
       }).catch(() => caches.match(e.request))
     );
   } else {
-    e.respondWith(caches.match(e.request).then((hit) => hit || fetch(e.request)));
+    // stale-while-revalidate: instant from cache, refresh cache in the background
+    e.respondWith(
+      caches.match(e.request).then((hit) => {
+        const fresh = fetch(e.request).then((res) => {
+          if (res && res.status === 200) caches.open(SHELL).then((c) => c.put(e.request, res.clone()));
+          return res;
+        }).catch(() => hit);
+        return hit || fresh;
+      })
+    );
   }
 });

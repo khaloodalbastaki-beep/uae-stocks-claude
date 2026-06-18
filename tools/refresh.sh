@@ -43,6 +43,9 @@ rm -rf web/data dist
 mkdir -p web/data && cp -R data/* web/data/
 rm -f web/data/symbols.json web/data/live_quotes.json   # keep internal scratch out of public site
 mkdir -p dist && cp -R web/* dist/
+# stamp a per-build cache id into the service worker so deploys supersede stale caches
+BUILD_ID="$(date -u +%Y%m%d%H%M%S)"
+if [ -f dist/sw.js ]; then sed -i '' "s/__BUILD_ID__/$BUILD_ID/g" dist/sw.js 2>/dev/null || sed -i "s/__BUILD_ID__/$BUILD_ID/g" dist/sw.js; fi
 
 if [ "$NO_DEPLOY" = "1" ]; then echo "[refresh] built; skipping deploy"; exit 0; fi
 

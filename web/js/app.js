@@ -78,7 +78,7 @@
   // ---------- nav ----------
   function renderNav() {
     const items = [
-      ["#/", "home"], ["#/markets/adx", "markets"], ["#/watchlist", "watchlist"],
+      ["#/", "home"], ["#/markets/adx", "markets"], ["#/portfolio", "portfolio"], ["#/watchlist", "watchlist"],
       ["#/alerts", "alerts"], ["#/screeners", "screeners"], ["#/global-factors", "global_factors"],
       ["#/ipos", "ipos"], ["#/admin", "admin"],
     ];
@@ -497,6 +497,139 @@
   const aiFootnote = () => `<div class="disclaimer">${t("ar_official")} ${t("not_advice")}</div>`;
 
   // ---------- WATCHLIST ----------
+  // ---------- PORTFOLIO (client-side ledger: buy/sell, dividends, ROI) ----------
+  function _sharesHeldAt(sortedTxs, dateStr) {
+    let s = 0;
+    for (const tnx of sortedTxs) if ((tnx.date || "") <= dateStr) s += (tnx.action === "sell" ? -1 : 1) * (Number(tnx.qty) || 0);
+    return Math.max(0, s);
+  }
+  function _computePosition(txs, price, dividends) {
+    const sorted = txs.slice().sort((a, b) => (a.date || "").localeCompare(b.date || ""));
+    let shares = 0, costRem = 0, invested = 0, realized = 0;
+    for (const tx of sorted) {
+      const q = Number(tx.qty) || 0, p = Number(tx.price) || 0;
+      if (tx.action === "sell") {
+        const avg = shares > 0 ? costRem / shares : 0, sq = Math.min(q, shares);
+        realized += (p - avg) * sq; costRem -= avg * sq; shares -= sq;
+      } else { invested += q * p; costRem += q * p; shares += q; }
+    }
+    const netShares = Math.max(0, shares);
+    const avgCost = netShares > 0 ? costRem / netShares : 0;
+    const mktValue = price != null ? netShares * price : null;
+    const unrealized = mktValue != null ? mktValue - costRem : null;
+    const firstBuy = sorted.find((t) => t.action === "buy");
+    const today = new Date().toISOString().slice(0, 10);
+    let divReceived = 0, divCount = 0, divUpcoming = 0;
+    (dividends || []).forEach((d) => {
+      const ex = d.ex_date; if (!ex) return;
+      const held = _sharesHeldAt(sorted, ex); if (held <= 0) return;
+      if (ex <= today) { if (!firstBuy || ex >= firstBuy.date) { divReceived += held * (Number(d.amount) || 0); divCount++; } }
+      else divUpcoming += held * (Number(d.amount) || 0);
+    });
+    const priceReturn = realized + (unrealized || 0), denom = invested || 1;
+    return { netShares, avgCost, costRem, invested, realized, unrealized, mktValue, divReceived, divCount,
+             divUpcoming, priceReturn, roiPrice: priceReturn / denom, roiDiv: divReceived / denom,
+             roiTotal: (priceReturn + divReceived) / denom };
+  }
+
+  async function viewPortfolio() {
+    app.innerHTML = skel();
+    const [meta, uni] = await Promise.all([DATA.meta(), DATA.universe()]);
+    const cardBySym = Object.fromEntries(uni.map((c) => [c.symbol, c]));
+    const txs = Portfolio.list();
+    const syms = Portfolio.symbols();
+    const stocks = {};
+    await Promise.all(syms.map(async (sym) => { try { stocks[sym] = await DATA.stock(sym); } catch (e) { stocks[sym] = null; } }));
+    const positions = syms.map((sym) => {
+      const card = cardBySym[sym], s = stocks[sym];
+      const price = card ? card.price : (s && s.quote ? s.quote.price : null);
+      return { sym, name: card ? nm(card) : sym, price, ..._computePosition(txs.filter((t) => t.symbol === sym), price, s ? s.dividends || [] : []) };
+    });
+    const tot = positions.reduce((a, p) => ({
+      invested: a.invested + p.invested, mkt: a.mkt + (p.mktValue || 0), div: a.div + p.divReceived,
+      price: a.price + p.priceReturn,
+    }), { invested: 0, mkt: 0, div: 0, price: 0 });
+    const d = tot.invested || 1, totalRet = tot.price + tot.div;
+    const sign = (v) => (v >= 0 ? "pos" : "neg");
+
+    const symOptions = uni.map((c) => `<option value="${c.symbol}">${esc(c.symbol)} — ${esc(nm(c))}</option>`).join("");
+    const form = `<div class="panel"><h3>${t("add_transaction")}</h3>
+      <div class="pf-form">
+        <input id="pf-sym" list="pf-syms" placeholder="${t("symbol")}" autocomplete="off"><datalist id="pf-syms">${symOptions}</datalist>
+        <select id="pf-action"><option value="buy">${t("buy")}</option><option value="sell">${t("sell")}</option></select>
+        <input id="pf-date" type="date" value="${new Date().toISOString().slice(0, 10)}">
+        <input id="pf-qty" type="number" min="0" step="any" placeholder="${t("shares")}">
+        <input id="pf-price" type="number" min="0" step="any" placeholder="${t("price_aed")}">
+        <button id="pf-add" class="btn-primary">${t("add")}</button>
+      </div>
+      <div class="muted" style="font-size:12px;margin-top:8px">${t("pf_note")}</div></div>`;
+
+    if (!positions.length) {
+      app.innerHTML = `<section class="section"><h2>${t("portfolio")}</h2>${form}
+        <div class="empty">${t("no_portfolio")}</div></section>`;
+      _bindPortfolio(); return;
+    }
+
+    const summary = `<div class="pf-stats">
+      <div class="pf-stat"><div class="k">${t("invested")}</div><div class="v mono">${fmtAED(tot.invested)}</div></div>
+      <div class="pf-stat"><div class="k">${t("current_value")}</div><div class="v mono">${fmtAED(tot.mkt)}</div></div>
+      <div class="pf-stat"><div class="k">${t("total_return")}</div><div class="v mono ${sign(totalRet)}">${fmtAED(totalRet)} <span style="font-size:13px">(${fmtPctSigned(totalRet / d)})</span></div></div>
+      <div class="pf-stat"><div class="k">${t("price_return")} ROI</div><div class="v mono ${sign(tot.price)}">${fmtPctSigned(tot.price / d)}</div></div>
+      <div class="pf-stat"><div class="k">${t("dividends_received")}</div><div class="v mono pos">${fmtAED(tot.div)} <span style="font-size:13px">(${fmtPctSigned(tot.div / d)})</span></div></div>
+    </div>`;
+
+    const rows = positions.sort((a, b) => (b.mktValue || 0) - (a.mktValue || 0)).map((p) => {
+      const txRows = txs.filter((t) => t.symbol === p.sym).sort((a, b) => (a.date || "").localeCompare(b.date || ""))
+        .map((tx) => `<div class="pf-tx">
+          <span class="tag ${tx.action}">${t(tx.action)}</span>
+          <span class="mono">${Number(tx.qty)} @ ${fmtPrice(tx.price)}</span>
+          <span class="muted">${fmtDate(tx.date)}</span>
+          <button class="pf-del" data-del="${tx.id}" title="${t("remove")}">✕</button></div>`).join("");
+      return `<details class="pf-pos">
+        <summary>
+          <a class="pf-symlink" href="#/stock/${p.sym}" onclick="event.stopPropagation()">${esc(p.sym)}</a>
+          <span class="muted pf-name">${esc(p.name)}</span>
+          <span class="mono">${p.netShares} sh</span>
+          <span class="mono">@${fmtPrice(p.avgCost)}→${fmtPrice(p.price)}</span>
+          <span class="mono ${sign(p.roiTotal)} pull-end">${fmtPctSigned(p.roiTotal)}</span>
+        </summary>
+        <div class="pf-detail">
+          <div class="kv">
+            <div><div class="k">${t("invested")}</div><div class="v mono">${fmtAED(p.invested)}</div></div>
+            <div><div class="k">${t("current_value")}</div><div class="v mono">${p.mktValue != null ? fmtAED(p.mktValue) : "—"}</div></div>
+            <div><div class="k">${t("price_return")} ROI</div><div class="v mono ${sign(p.roiPrice)}">${fmtPctSigned(p.roiPrice)}</div></div>
+            <div><div class="k">${t("dividends_received")}</div><div class="v mono pos">${fmtAED(p.divReceived)} (${p.divCount})</div></div>
+            <div><div class="k">${t("div_return")} ROI</div><div class="v mono pos">${fmtPctSigned(p.roiDiv)}</div></div>
+            <div><div class="k">${t("total_return")}</div><div class="v mono ${sign(p.roiTotal)}">${fmtPctSigned(p.roiTotal)}</div></div>
+          </div>
+          <div class="pf-txs">${txRows}</div>
+        </div></details>`;
+    }).join("");
+
+    app.innerHTML = `<section class="section"><h2>${t("portfolio")}</h2>
+      ${summary}${form}
+      <div class="panel"><h3>${t("positions")}</h3>${rows}</div>
+      <div style="margin-top:10px"><button id="pf-clear" class="btn-ghost">${t("clear_portfolio")}</button></div>
+      <div class="disclaimer">${t("pf_disclaimer")}</div></section>`;
+    _bindPortfolio();
+  }
+
+  function _bindPortfolio() {
+    const add = $("#pf-add");
+    if (add) add.addEventListener("click", () => {
+      const sym = ($("#pf-sym").value || "").trim().toUpperCase();
+      const qty = parseFloat($("#pf-qty").value), price = parseFloat($("#pf-price").value);
+      const date = $("#pf-date").value, action = $("#pf-action").value;
+      if (!sym || !(qty > 0) || !(price >= 0) || !date) { $("#pf-sym").focus(); return; }
+      Portfolio.add({ symbol: sym, action, date, qty, price });
+    });
+    document.querySelectorAll("[data-del]").forEach((b) => b.addEventListener("click", (e) => {
+      e.preventDefault(); Portfolio.remove(b.dataset.del);
+    }));
+    const clr = $("#pf-clear");
+    if (clr) clr.addEventListener("click", () => { if (confirm(t("clear_confirm"))) Portfolio.clear(); });
+  }
+
   async function viewWatchlist() {
     app.innerHTML = skel();
     const [meta, uni] = await Promise.all([DATA.meta(), DATA.universe()]);
@@ -691,6 +824,7 @@
     if (h.startsWith("#/markets/")) return viewMarkets(h.split("/")[2]);
     if (h === "#/markets") return viewMarkets("adx");
     if (h.startsWith("#/stock/")) return viewStock(decodeURIComponent(h.split("/")[2]));
+    if (h === "#/portfolio") return viewPortfolio();
     if (h === "#/watchlist") return viewWatchlist();
     if (h === "#/alerts") return viewAlerts();
     if (h === "#/screeners") return viewScreeners();
@@ -714,6 +848,7 @@
     if (savedTheme) document.documentElement.dataset.theme = savedTheme;
     window.addEventListener("hashchange", route);
     window.addEventListener("watchchange", () => { if (location.hash.includes("watchlist")) route(); });
+    window.addEventListener("portchange", () => { if (location.hash.includes("portfolio")) route(); });
     route();
   }
   boot();
