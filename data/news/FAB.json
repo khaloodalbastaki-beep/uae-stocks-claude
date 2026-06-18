@@ -1,0 +1,24 @@
+{
+  "symbol": "FAB",
+  "retrieved_at": "2026-06-18T13:36:09+00:00",
+  "query": "\"First Abu Dhabi Bank\" (shares OR profit OR results OR dividend OR earnings OR stock OR revenue OR PJSC)",
+  "source": "GDELT (live media)",
+  "items": [
+    {
+      "title": "Bahrain raises $1bln in 10 - year USD bond ; demand exceeds $3bln",
+      "url": "https://www.zawya.com/capital-markets/bonds/bahrain-raises-1bln-in-10-year-usd-bond-demand-exceeds-3bln-i8z6oxcz",
+      "domain": "zawya.com",
+      "published_at": "2026-06-05T00:00:00+00:00",
+      "lang": "English",
+      "source_type": "media"
+    },
+    {
+      "title": "First Abu Dhabi Bank inks strategic deal with Water . org , WaterEquity",
+      "url": "https://tradearabia.com:443/News/463335/-First-Abu-Dhabi-Bank-inks-strategic-deal-with-Water.org,-WaterEquity",
+      "domain": "tradearabia.com",
+      "published_at": "2026-06-04T13:45:00+00:00",
+      "lang": "English",
+      "source_type": "media"
+    }
+  ]
+}

@@ -27,6 +27,7 @@ from .adapters.mock import MockProvider
 from .adapters.exchanges import ExchangeProvider
 from .adapters.livescrape import LiveScrapeProvider
 from .adapters.fundamentals_store import FundamentalsStore
+from .adapters.news_store import NewsStore
 from .adapters.gdelt import GdeltProvider
 from .adapters.worldbank import WorldBankProvider
 
@@ -271,6 +272,8 @@ class Pipeline:
         self.worldbank = WorldBankProvider() if live else self.mock
         # real reported fundamentals (Mizan agent / verified filings) override the modeled ones
         self.fundamentals_store = FundamentalsStore(data_dir)
+        # live media news (brain.news / GDELT) for the News & Disclosures tab
+        self.news_store = NewsStore(data_dir)
 
     def run(self) -> dict:
         (self.data_dir / "stocks").mkdir(parents=True, exist_ok=True)
@@ -412,6 +415,7 @@ class Pipeline:
                 "top_risks": signals["long"]["risks"][:3],
             },
             "disclosures": [d.to_dict() for d in disclosures],
+            "news": self.news_store.items(sec.symbol),   # live GDELT media (empty -> UI uses mock disclosures)
             "meetings": [m.to_dict() for m in meetings],
             "dividends": [d.to_dict() for d in dividends],
             "ownership": ownership.to_dict() if ownership else None,

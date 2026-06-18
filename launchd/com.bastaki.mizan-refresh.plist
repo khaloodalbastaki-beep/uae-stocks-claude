@@ -12,6 +12,7 @@
     <string>/bin/bash</string>
     <string>/Users/khalidalbastaki/Projects/uae-stocks-claude/agents/mizan/refresh_cron.sh</string>
     <string>4</string>
+    <string>6</string>
   </array>
   <key>EnvironmentVariables</key>
   <dict>

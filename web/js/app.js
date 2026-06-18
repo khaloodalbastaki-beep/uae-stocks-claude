@@ -203,6 +203,7 @@
     ];
     app.innerHTML = `
       ${demoNotice(meta)}
+      <button class="icon-btn" style="margin-bottom:12px" onclick="(window.history.length>1)?history.back():(location.hash='#/markets/adx')">← Back</button>
       <div class="stock-head">
         <div class="stock-id">
           <h1>${esc(s.symbol)} <button class="star ${starred ? "on" : ""}" data-star="${s.symbol}" style="font-size:22px;background:none;border:none;color:${starred ? "var(--gold)" : "var(--text-faint)"}">${starred ? "★" : "☆"}</button></h1>
@@ -281,8 +282,23 @@
   }
 
   function newsTab(s) {
+    // LIVE media news (GDELT) when present — real, clickable, dated
+    const news = s.news || [];
+    if (news.length) {
+      const head = `<div class="disclaimer" style="border-color:var(--ai);color:#56e0bd">📰 <strong>Live news</strong> — real media coverage from GDELT (${news.length} recent items). Official exchange filings are a separate phase-2 feed; these are media, labelled as such.</div>`;
+      const rows = news.map((n) => `<div class="disc">
+        <div class="head">
+          ${srcBadge("media")}<span class="badge ai">live</span>
+          <span class="tag">${esc(n.domain || "")}</span>
+          <span class="muted pull-end">${fmtDate(n.published_at)}</span>
+        </div>
+        <div class="ttl">${n.url ? `<a href="${esc(n.url)}" target="_blank" rel="noopener">${esc(n.title)}</a>` : esc(n.title)}</div>
+        ${n.lang && n.lang !== "English" ? `<div class="muted" style="font-size:11px">source language: ${esc(n.lang)}</div>` : ""}
+      </div>`).join("");
+      return head + rows + aiFootnote();
+    }
     if (!s.disclosures.length) return `<div class="empty">${t("no_data")}</div>`;
-    return s.disclosures.map((d) => {
+    return `<div class="disclaimer">⚠️ Demo disclosures (no live media matched yet for this name — the live GDELT feed fills in on the next news cycle).</div>` + s.disclosures.map((d) => {
       const isAr = d.title_lang === "ar";
       return `<div class="disc">
         <div class="head">
@@ -565,6 +581,12 @@
   function route() {
     const h = location.hash || "#/";
     renderNav();
+    // close + clear the search dropdown on any navigation (so opening a stock doesn't
+    // feel like a new page with the search still hanging open)
+    const sb = $("#search-results"), si = $("#search");
+    if (sb) sb.hidden = true;
+    if (si) si.value = "";
+    window.scrollTo(0, 0);
     if (h === "#/" || h === "") return viewHome();
     if (h.startsWith("#/markets/")) return viewMarkets(h.split("/")[2]);
     if (h === "#/markets") return viewMarkets("adx");
