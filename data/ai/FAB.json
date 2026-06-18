@@ -1,0 +1,31 @@
+{
+  "symbol": "FAB",
+  "narrator": "nemotron",
+  "generated_at": "2026-06-18T16:42:46+00:00",
+  "short_term": {
+    "reasons": [
+      "Positive price momentum observed in the session",
+      "Above-average dividend score (73/100) provides near-term income support",
+      "Stability score (59/100) suggests no acute balance-sheet stress"
+    ],
+    "risks": [
+      "Recent disclosure tone skews cautious/negative",
+      "Weak growth signal (40/100) limits upside catalysts",
+      "Medium conviction on Neutral stance reflects mixed signals"
+    ],
+    "what_would_change_view": "A shift in management commentary to constructive or a pickup in loan-growth indicators would tilt the short-term view positive; further deterioration in disclosure tone would flip it negative."
+  },
+  "long_term": {
+    "reasons": [
+      "Dependable dividend characteristics supported by 73/100 dividend score",
+      "Reasonable stability profile (59/100) for a core banking franchise",
+      "Market-leading position in UAE provides structural funding advantage"
+    ],
+    "risks": [
+      "Persistently weak growth signal (40/100) challenges long-term value creation",
+      "Low conviction on Neutral stance reflects limited visibility on drivers",
+      "Regional credit-cycle exposure with limited diversification levers"
+    ],
+    "what_would_change_view": "Sustained loan-growth recovery above GDP or a credible new revenue stream would upgrade the long-term view; structural margin compression or asset-quality deterioration would downgrade it."
+  }
+}

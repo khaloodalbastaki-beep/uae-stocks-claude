@@ -1,0 +1,35 @@
+{
+  "symbol": "EMAAR",
+  "narrator": "nemotron",
+  "generated_at": "2026-06-18T16:41:59+00:00",
+  "short_term": {
+    "reasons": [
+      "Positive price momentum on the session suggests near-term buyer interest",
+      "A high-materiality disclosure (94/100) has entered the recent flow, drawing market attention",
+      "Dividend score of 72/100 provides some income support in the near term",
+      "Stability score of 59/100 indicates moderate resilience"
+    ],
+    "risks": [
+      "The high-materiality disclosure carries a cautious/negative tone",
+      "Growth score of 56/100 signals only moderate expansion prospects",
+      "Real estate sector cyclicality could amplify near-term sentiment swings",
+      "Limited catalysts beyond the disclosure to sustain momentum"
+    ],
+    "what_would_change_view": "A shift in disclosure tone to positive or confirmation of new project launches/sales momentum"
+  },
+  "long_term": {
+    "reasons": [
+      "Dependable dividend characteristics (72/100) offer long-term income appeal",
+      "Stability score of 59/100 suggests reasonable foundation for multi-year hold",
+      "Emaar's market position in Dubai provides structural demand tailwinds",
+      "Asset base and land bank support long-term value creation"
+    ],
+    "risks": [
+      "Execution risk on project delivery and sales pace",
+      "Macro conditions (interest rates, oil prices, global sentiment) remain key swing factors",
+      "Growth score of 56/100 indicates modest long-term expansion trajectory",
+      "Real estate cycle exposure could pressure valuations over longer horizons"
+    ],
+    "what_would_change_view": "Sustained improvement in project execution visibility combined with favorable macro backdrop (lower rates, stronger oil) or a step-change in dividend policy"
+  }
+}

@@ -5,5 +5,6 @@
 set -uo pipefail
 cd "$(cd "$(dirname "$0")/../.." && pwd)"
 PY=/opt/homebrew/bin/python3
-"$PY" agents/mizan/mizan.py --stale "${1:-4}" || true
-"$PY" -m brain.news --stale "${2:-6}" || true
+"$PY" agents/mizan/mizan.py --stale "${1:-4}" || true       # Mizan (gpt-oss): fundamentals
+"$PY" -m brain.news --stale "${2:-6}" || true                # news (GDELT): live media
+"$PY" -m brain.analyst --stale "${3:-4}" || true             # Analyst (nemotron): AI-tab prose

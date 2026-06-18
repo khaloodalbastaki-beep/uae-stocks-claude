@@ -412,7 +412,8 @@
       <div><strong>${t("risks")}</strong><ul>${data.risks.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
       <div class="muted" style="margin-top:6px"><strong>${t("change_view")}:</strong> ${esc(data.what_would_change_view)}</div>
     </div>`;
-    return `<div class="disclaimer">⚠️ ${t("not_advice")} — AI provider: <strong>${esc(a.provider)}</strong>, engine: ${esc(a._engine)}. House scores are computed deterministically; the AI only narrates.</div>
+    const narrator = a.narrator ? `narrated by <strong>${esc(a.narrator)}</strong> (fleet agent)` : `engine: ${esc(a._engine)}`;
+    return `<div class="disclaimer">⚠️ ${t("not_advice")} — stance &amp; confidence are computed deterministically by the engine; ${narrator} writes the prose only. House scores from code, never the LLM.</div>${a.narrator ? `<div class="flexrow" style="margin:6px 0"><span class="badge ai">${esc(a.narrator)}</span><span class="muted">prose</span></div>` : ""}
       <div class="ai-grid" style="margin-top:12px">
         ${col("short_term", a.short_term)}
         ${col("long_term", a.long_term)}

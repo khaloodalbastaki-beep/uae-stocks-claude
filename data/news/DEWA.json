@@ -1,7 +1,7 @@
 {
   "symbol": "DEWA",
-  "retrieved_at": "2026-06-18T13:30:27+00:00",
-  "query": "\"Dubai Electricity & Water Authority\" (Dubai OR UAE)",
+  "retrieved_at": "2026-06-18T13:53:17+00:00",
+  "query": "\"Dubai Electricity & Water Authority\" (shares OR profit OR results OR dividend OR earnings OR stock OR revenue OR PJSC)",
   "source": "GDELT (live media)",
   "items": [
     {
@@ -9,62 +9,6 @@
       "url": "https://www.zawya.com/en/business/energy/dewa-organises-second-agentic-ai-retreat-at-al-sheraa-bf65vkdz",
       "domain": "zawya.com",
       "published_at": "2026-06-12T21:30:00+00:00",
-      "lang": "English",
-      "source_type": "media"
-    },
-    {
-      "title": "DEWA organises second Agentic AI Retreat at Al Sheraa , world tallest , largest and smartest net positive government building",
-      "url": "https://gnnliberia.com/dewa-organises-second-agentic-ai-retreat-at-al-sheraa-worlds-tallest-largest-and-smartest-net-positive-government-building/",
-      "domain": "gnnliberia.com",
-      "published_at": "2026-06-12T15:00:00+00:00",
-      "lang": "English",
-      "source_type": "media"
-    },
-    {
-      "title": "Dubai clean energy production reaches 21 . 5 % of total capacity",
-      "url": "https://tradearabia.com:443/News/463341/Dubai",
-      "domain": "tradearabia.com",
-      "published_at": "2026-06-05T12:30:00+00:00",
-      "lang": "English",
-      "source_type": "media"
-    },
-    {
-      "title": "DEWA projects drive clean energy innovation , climate action - Emirates 24",
-      "url": "https://www.emirates247.com/business/dewas-projects-drive-clean-energy-innovation-climate-action/2284",
-      "domain": "emirates247.com",
-      "published_at": "2026-06-05T09:00:00+00:00",
-      "lang": "English",
-      "source_type": "media"
-    },
-    {
-      "title": "DEWA opens registration for WETEX 2026",
-      "url": "https://quicknews-africa.net/dewa-opens-registration-for-wetex-2026/",
-      "domain": "quicknews-africa.net",
-      "published_at": "2026-06-04T13:30:00+00:00",
-      "lang": "English",
-      "source_type": "media"
-    },
-    {
-      "title": "DEWA , Etihad Rail Explore Areas Of Collaboration # Dubai",
-      "url": "https://www.dubaicityguide.com/site/features/13059/dewa,-etihad-rail-explore-areas-of-collaboration",
-      "domain": "dubaicityguide.com",
-      "published_at": "2026-06-02T07:00:00+00:00",
-      "lang": "English",
-      "source_type": "media"
-    },
-    {
-      "title": "UAE : DEWA , Etihad Rail explore areas of collaboration",
-      "url": "https://www.gdnonline.com:443/Details/1396373",
-      "domain": "gdnonline.com",
-      "published_at": "2026-06-01T18:00:00+00:00",
-      "lang": "English",
-      "source_type": "media"
-    },
-    {
-      "title": "DEWA commissions 1 , 994 substations in 2025 , up over 30 %",
-      "url": "https://www.emirates247.com/business/dewa-commissions-1994-substations-in-2025-up-over-30/2124",
-      "domain": "emirates247.com",
-      "published_at": "2026-05-31T12:45:00+00:00",
       "lang": "English",
       "source_type": "media"
     }

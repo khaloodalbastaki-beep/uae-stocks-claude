@@ -378,6 +378,24 @@ class Pipeline:
 
         analysis = analyze_stock(sec, quote, scores, fundamentals, disclosures)
         signals = analysis["_signal"]
+        # overlay fleet-agent (nemotron) prose if the Analyst has narrated this name — keeps
+        # the deterministic stance/confidence, swaps in the agent's reasons/risks prose
+        aifile = self.data_dir / "ai" / f"{sec.symbol}.json"
+        if aifile.exists():
+            try:
+                ai_prose = json.loads(aifile.read_text())
+                for hz in ("short_term", "long_term"):
+                    p = ai_prose.get(hz, {})
+                    if p.get("reasons"):
+                        analysis[hz]["reasons"] = p["reasons"][:5]
+                    if p.get("risks"):
+                        analysis[hz]["risks"] = p["risks"][:5]
+                    if p.get("what_would_change_view"):
+                        analysis[hz]["what_would_change_view"] = p["what_would_change_view"]
+                analysis["narrator"] = ai_prose.get("narrator")
+                analysis["narrated_at"] = ai_prose.get("generated_at")
+            except Exception:
+                pass
 
         en_sum, ar_sum = _business_summary(sec)
         # per-stock exposure events use the demo provider (fast) — live GDELT is rate-limited

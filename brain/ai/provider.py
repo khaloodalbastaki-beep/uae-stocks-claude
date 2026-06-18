@@ -168,8 +168,49 @@ class OpenAIProvider(AIProvider):
             return None
 
 
+class CliAgentProvider(AIProvider):
+    """Delegates to one of Khalid's local fleet CLI agents (Hermes/Nous/ZenMux), e.g.
+    `nemotron chat -Q -q "<prompt>"`. Their stdout carries a `Warning:`/`session_id:`
+    preamble which we strip. Free, working lanes today: nemotron, freeagent, robin.
+    Selected via UAE_AI_PROVIDER=cli:<agent>."""
+    def __init__(self, agent: str, timeout: float = 90.0):
+        self.agent = agent
+        self.name = f"cli:{agent}"
+        self.timeout = timeout
+
+    def _run(self, prompt: str) -> str | None:
+        try:
+            res = subprocess.run([self.agent, "chat", "-Q", "-q", prompt],
+                                 capture_output=True, text=True, timeout=self.timeout)
+            if res.returncode != 0:
+                print(f"[ai:{self.name}] exit {res.returncode}: {res.stderr[:160]}")
+                return None
+            lines = [ln for ln in res.stdout.splitlines()
+                     if ln.strip() and not ln.startswith(("Warning:", "session_id:"))]
+            return "\n".join(lines).strip() or None
+        except FileNotFoundError:
+            print(f"[ai:{self.name}] agent not found")
+            return None
+        except subprocess.TimeoutExpired:
+            print(f"[ai:{self.name}] timed out")
+            return None
+        except Exception as e:  # noqa: BLE001
+            print(f"[ai:{self.name}] error {e}")
+            return None
+
+    def complete_text(self, system: str, user: str) -> str | None:
+        return self._run(f"{system}\n\n{user}")
+
+    def complete_json(self, system: str, user: str, schema: dict) -> dict | None:
+        out = self._run(f"{system}\n\nRespond with a SINGLE JSON object matching this schema "
+                        f"and nothing else:\n{json.dumps(schema)}\n\nINPUT:\n{user}\n\nJSON:")
+        return _extract_json(out) if out else None
+
+
 def get_provider() -> AIProvider:
     choice = os.environ.get("UAE_AI_PROVIDER", "stub").lower()
+    if choice.startswith("cli:"):
+        return CliAgentProvider(choice.split(":", 1)[1])
     if choice == "claude":
         return ClaudeCliProvider()
     if choice == "openai":
