@@ -1,0 +1,28 @@
+{
+  "symbol": "SHUAA",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "SHUAA Capital official annual report FY2024 and DFM filings",
+  "source_url": "https://www.shuaa.com/wp-content/uploads/2025/09/Annual-Report_2024_En.pdf",
+  "extractor": "research-grounded/Explore (seed-2)",
+  "confidence": "medium",
+  "retrieved_at": "2026-06-18T12:17:56+00:00",
+  "reported": {
+    "revenue": 89000000,
+    "revenue_prior": 121000000,
+    "net_income": -288600000,
+    "net_income_prior": -1155000000,
+    "net_margin": -3.2494,
+    "net_margin_prior": -9.5455,
+    "dividend_per_share": null,
+    "payout_ratio": null,
+    "years_paid": 0,
+    "cut_history_5y": null,
+    "dividend_frequency": null,
+    "operating_cash_flow": null,
+    "ebitda": null,
+    "fcf": null,
+    "total_debt": null,
+    "current_ratio": null
+  }
+}

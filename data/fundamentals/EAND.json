@@ -1,0 +1,28 @@
+{
+  "symbol": "EAND",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "e& (Emirates Telecommunications Group) Official Announcements, ADX Filings, Company Investor Relations",
+  "source_url": "https://www.eand.com/en/news/25-feb-2025-eand-delivers-record-revenue-and-net-profit-in-FY-2024.html",
+  "extractor": "research-grounded/Explore (seed-2)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T12:17:56+00:00",
+  "reported": {
+    "revenue": 59200000000,
+    "net_income": 10800000000,
+    "revenue_prior": 53800000000,
+    "net_income_prior": 10300000000,
+    "net_margin": 0.182,
+    "net_margin_prior": 0.191,
+    "ebitda": 26500000000,
+    "dividend_per_share": 0.83,
+    "payout_ratio": 0.521,
+    "years_paid": null,
+    "cut_history_5y": null,
+    "dividend_frequency": "annual",
+    "total_debt": null,
+    "current_ratio": null,
+    "operating_cash_flow": null,
+    "fcf": 6500000000
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "symbol": "GHITHA",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "Ghitha Holding PJSC Official Earnings Reports / Gulf News / WAM / Zawya",
+  "source_url": "https://gulfnews.com/business/markets/bhytnkq-ghitha-holding-revenue-reaches-aed497-billion-1.500026322",
+  "extractor": "research-grounded/Explore (seed-2)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T12:17:56+00:00",
+  "reported": {
+    "revenue": 4970000000,
+    "revenue_prior": 4560000000,
+    "net_income": 2560000000,
+    "net_income_prior": 30000000,
+    "net_margin": 0.515,
+    "net_margin_prior": 0.0066,
+    "ebitda": null,
+    "operating_cash_flow": null,
+    "fcf": null,
+    "total_debt": null,
+    "current_ratio": null,
+    "dividend_per_share": null,
+    "dividend_frequency": null,
+    "payout_ratio": null,
+    "years_paid": null,
+    "cut_history_5y": null
+  }
+}

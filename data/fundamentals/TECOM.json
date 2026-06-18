@@ -1,0 +1,27 @@
+{
+  "symbol": "TECOM",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "TECOM Group official press releases and investor relations, DFM filings, Zawya, Emirates 247, Mubasher",
+  "source_url": "https://tecomgroup.ae/press-release/tecom-group-fy-2024-net-profit-grows-14-to-aed-1-2-billion-driven-by-record-revenue-and-strong-performance-across-all-business-segments",
+  "extractor": "research-grounded/Explore (seed-2)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T12:17:56+00:00",
+  "reported": {
+    "revenue": 2400000000,
+    "net_income": 1200000000,
+    "revenue_prior": 2173000000,
+    "net_income_prior": 1078000000,
+    "net_margin": 0.5,
+    "net_margin_prior": 0.495,
+    "ebitda": 1854000000,
+    "operating_cash_flow": 1600000000,
+    "total_debt": 1700000000,
+    "current_ratio": null,
+    "dividend_per_share": 0.16,
+    "payout_ratio": 0.36,
+    "dividend_frequency": "Semi-annual",
+    "years_paid": 4,
+    "cut_history_5y": null
+  }
+}

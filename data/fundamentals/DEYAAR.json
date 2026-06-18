@@ -1,0 +1,27 @@
+{
+  "symbol": "DEYAAR",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "Deyaar Development PJSC Official Investor Relations, Integrated Annual Report 2024, DFM/ADX Filings, Consolidated Financial Statements 2024",
+  "source_url": "https://www.deyaar.ae/en/general_reports/integrated-annual-report-2024/",
+  "extractor": "research-grounded/Explore (seed-2)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T12:17:56+00:00",
+  "reported": {
+    "revenue": 1512800000,
+    "revenue_prior": 1254300000,
+    "net_income": 474022000,
+    "net_income_prior": 412800000,
+    "net_margin": 0.3134,
+    "net_margin_prior": 0.3289,
+    "operating_cash_flow": 579500000,
+    "ebitda": 471000000,
+    "total_debt": 475300000,
+    "current_ratio": null,
+    "dividend_per_share": 0.05,
+    "payout_ratio": 0.4617,
+    "years_paid": 2,
+    "cut_history_5y": null,
+    "dividend_frequency": "annual"
+  }
+}

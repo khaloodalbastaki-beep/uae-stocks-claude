@@ -1,0 +1,28 @@
+{
+  "symbol": "2POINTZERO",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "Two Point Zero Group (formerly Multiply Group PJSC) - Audited Annual Report FY2024 via ADX filings and Company IR",
+  "source_url": "https://2pointzero.com/investor-relations/results-and-presentation",
+  "extractor": "research-grounded/Explore (seed-2)",
+  "confidence": "medium",
+  "retrieved_at": "2026-06-18T12:17:56+00:00",
+  "reported": {
+    "revenue": 1703000000,
+    "revenue_prior": 1294000000,
+    "net_income": -5600000,
+    "net_income_prior": 337800000,
+    "ebitda": 1900000000,
+    "operating_cash_flow": 1200000000,
+    "fcf": null,
+    "net_margin": -0.0033,
+    "net_margin_prior": 0.2611,
+    "current_ratio": null,
+    "total_debt": null,
+    "payout_ratio": null,
+    "dividend_per_share": null,
+    "dividend_frequency": null,
+    "years_paid": null,
+    "cut_history_5y": null
+  }
+}

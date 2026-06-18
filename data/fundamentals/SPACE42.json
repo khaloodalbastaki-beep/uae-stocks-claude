@@ -1,0 +1,28 @@
+{
+  "symbol": "SPACE42",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "Space42 PLC Investor Relations, ADX Filings, WAM (UAE News Agency), TechAfrica News, Zawya, Gulf Business",
+  "source_url": "https://space42.ai/en/investor-relations/",
+  "extractor": "research-grounded/Explore (seed-2)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T12:17:56+00:00",
+  "reported": {
+    "revenue": 2312000000,
+    "net_income": 610000000,
+    "revenue_prior": 2855000000,
+    "net_income_prior": 639000000,
+    "net_margin": 0.264,
+    "net_margin_prior": 0.224,
+    "payout_ratio": null,
+    "dividend_per_share": null,
+    "dividend_frequency": null,
+    "ebitda": 1164000000,
+    "operating_cash_flow": null,
+    "fcf": null,
+    "total_debt": null,
+    "current_ratio": null,
+    "cut_history_5y": null,
+    "years_paid": null
+  }
+}

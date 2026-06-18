@@ -1,0 +1,26 @@
+{
+  "symbol": "PRESIGHT",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "Presight AI Holding PLC official press releases, annual reports, and investor relations materials; WAM (UAE News Agency); Zawya; Gulf News; StockAnalysis",
+  "source_url": "https://www.presight.ai/news/presight-delivers-record-breaking-financial-performance-for-fy-2024/",
+  "extractor": "research-grounded/Explore (seed-2)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T12:17:56+00:00",
+  "reported": {
+    "revenue": 2213000000,
+    "revenue_prior": 1780600000,
+    "net_income": 612800000,
+    "net_income_prior": 570600000,
+    "net_margin": 0.277,
+    "net_margin_prior": 0.32,
+    "ebitda": 635400000,
+    "operating_cash_flow": 1160000000,
+    "total_debt": 0,
+    "current_ratio": null,
+    "dividend_per_share": 0,
+    "payout_ratio": 0,
+    "years_paid": 0,
+    "fcf": null
+  }
+}

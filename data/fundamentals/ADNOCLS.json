@@ -1,0 +1,27 @@
+{
+  "symbol": "ADNOCLS",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "ADNOC L&S Official Press Release (Feb 12, 2025), ADX Filing, Zawya, Company Investor Relations",
+  "source_url": "https://adnocls.ae/en/news-and-media/press-releases/2025/q4-and-full-year-financial-results-2024",
+  "extractor": "research-grounded/Explore (seed-2)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T12:17:56+00:00",
+  "reported": {
+    "revenue": 13035,
+    "revenue_prior": 10118,
+    "net_income": 2777,
+    "net_income_prior": 2277,
+    "net_margin": 0.213,
+    "net_margin_prior": 0.225,
+    "ebitda": 4219,
+    "fcf": 679,
+    "operating_cash_flow": 3950,
+    "current_ratio": null,
+    "total_debt": null,
+    "dividend_per_share": 0.0678,
+    "payout_ratio": 0.361,
+    "dividend_frequency": "Annual",
+    "years_paid": 1
+  }
+}

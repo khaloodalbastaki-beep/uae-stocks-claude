@@ -1,0 +1,27 @@
+{
+  "symbol": "DTC",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "Dubai Taxi Company Integrated Annual Report 2024, DFM official releases, investor relations announcements",
+  "source_url": "https://www.dubaitaxi.ae/en/investor-relations/results-reports",
+  "extractor": "research-grounded/Explore (seed-2)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T12:17:56+00:00",
+  "reported": {
+    "revenue": 2200,
+    "revenue_prior": 1950,
+    "net_income": 331.3,
+    "net_income_prior": 345.3,
+    "ebitda": 584.4,
+    "operating_cash_flow": 589.8,
+    "total_debt": 1000,
+    "fcf": null,
+    "net_margin": 0.151,
+    "net_margin_prior": 0.177,
+    "dividend_per_share": 0.01126,
+    "dividend_frequency": "semi-annual",
+    "payout_ratio": 0.85,
+    "years_paid": 1,
+    "current_ratio": null
+  }
+}

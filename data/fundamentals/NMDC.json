@@ -1,0 +1,27 @@
+{
+  "symbol": "NMDC",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "NMDC Group PJSC official press releases, Investing.com financial statements, ADX filings",
+  "source_url": "https://www.nmdc-group.com/en/investor-relations/financial-information/financial-statements/",
+  "extractor": "research-grounded/Explore (seed-2)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T12:17:56+00:00",
+  "reported": {
+    "revenue": 26300,
+    "revenue_prior": 16700,
+    "net_income": 3100,
+    "net_income_prior": 2150,
+    "net_margin": 0.1179,
+    "net_margin_prior": 0.1287,
+    "ebitda": 4190,
+    "operating_cash_flow": 2754,
+    "total_debt": null,
+    "current_ratio": 1.78,
+    "dividend_per_share": 0.83,
+    "payout_ratio": 0.8713,
+    "years_paid": null,
+    "cut_history_5y": null,
+    "dividend_frequency": "proposed annually with interim distributions"
+  }
+}

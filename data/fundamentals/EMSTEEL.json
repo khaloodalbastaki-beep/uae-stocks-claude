@@ -1,0 +1,28 @@
+{
+  "symbol": "EMSTEEL",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "Emirates Steel Arkan official investor relations and 2024 Annual Report",
+  "source_url": "https://www.emsteel.com/investor-relations/reports-and-presentations/",
+  "extractor": "research-grounded/Explore (seed-2)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T12:17:56+00:00",
+  "reported": {
+    "revenue": 8337.3,
+    "revenue_prior": 8899.4,
+    "net_income": 392,
+    "net_income_prior": 601.9,
+    "net_margin": 0.047,
+    "net_margin_prior": 0.068,
+    "ebitda": 892,
+    "operating_cash_flow": null,
+    "fcf": null,
+    "total_debt": null,
+    "current_ratio": 2.86,
+    "dividend_per_share": null,
+    "payout_ratio": null,
+    "dividend_frequency": null,
+    "years_paid": null,
+    "cut_history_5y": null
+  }
+}

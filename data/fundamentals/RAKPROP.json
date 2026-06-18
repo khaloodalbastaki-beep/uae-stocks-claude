@@ -1,0 +1,28 @@
+{
+  "symbol": "RAKPROP",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "RAK Properties Official IR / ADX Filings / Investing.com Financial Data",
+  "source_url": "https://www.rakproperties.ae/news/rak-properties-achieves-strong-fy-2024-results-driving-transformational-growth-for-2025/",
+  "extractor": "research-grounded/Explore (seed-2)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T12:17:56+00:00",
+  "reported": {
+    "revenue": 1837450000,
+    "revenue_prior": 1406320000,
+    "net_income": 404300000,
+    "net_income_prior": 280920000,
+    "net_margin": 0.22,
+    "net_margin_prior": 0.201,
+    "operating_cash_flow": 231210000,
+    "total_debt": 1260000000,
+    "ebitda": 514890000,
+    "dividend_per_share": 0,
+    "payout_ratio": 0,
+    "current_ratio": null,
+    "fcf": null,
+    "dividend_frequency": null,
+    "cut_history_5y": null,
+    "years_paid": null
+  }
+}

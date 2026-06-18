@@ -1,0 +1,28 @@
+{
+  "symbol": "DANA",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "Dana Gas PJSC official IR reports, Zawya, investing.com, MarketScreener",
+  "source_url": "https://www.danagas.com/investors/reports/",
+  "extractor": "research-grounded/Explore (seed-2)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T12:17:56+00:00",
+  "reported": {
+    "revenue": 1630,
+    "revenue_prior": 1550,
+    "net_income": 553,
+    "net_income_prior": 586,
+    "net_margin": 0.34,
+    "net_margin_prior": 0.38,
+    "dividend_per_share": 0.0055,
+    "payout_ratio": 0.7,
+    "total_debt": 934,
+    "ebitda": 797,
+    "operating_cash_flow": 1200,
+    "current_ratio": null,
+    "fcf": null,
+    "years_paid": 1,
+    "dividend_frequency": "annual",
+    "cut_history_5y": null
+  }
+}

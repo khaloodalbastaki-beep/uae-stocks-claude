@@ -1,0 +1,28 @@
+{
+  "symbol": "BURJEEL",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "Zawya, Burjeel Holdings IR, ADX Filings, StockAnalysis",
+  "source_url": "https://www.zawya.com/en/capital-markets/equities/burjeel-holdings-records-105-higher-revenues-in-2024-dividends-unveiled-f8vazqze",
+  "extractor": "research-grounded/Explore (seed-2)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T12:17:56+00:00",
+  "reported": {
+    "revenue": 5010000000,
+    "revenue_prior": 4540000000,
+    "net_income": 347450000,
+    "net_income_prior": 540000000,
+    "net_margin": 0.0694,
+    "net_margin_prior": 0.119,
+    "dividend_per_share": 0.03,
+    "payout_ratio": 0.3263,
+    "current_ratio": 1.77,
+    "total_debt": 3110000000,
+    "ebitda": 941990000,
+    "operating_cash_flow": null,
+    "fcf": null,
+    "years_paid": null,
+    "cut_history_5y": null,
+    "dividend_frequency": "annual"
+  }
+}

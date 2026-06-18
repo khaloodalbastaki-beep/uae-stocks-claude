@@ -1,0 +1,28 @@
+{
+  "symbol": "DIN",
+  "as_of": "2026-06-18",
+  "currency": "AED",
+  "source": "Investing.com",
+  "source_url": "https://www.investing.com/equities/dubai-insurance",
+  "extractor": "research-grounded/Explore (seed-2)",
+  "confidence": "medium",
+  "retrieved_at": "2026-06-18T12:17:56+00:00",
+  "reported": {
+    "revenue": 1490000000,
+    "net_income": 214630000,
+    "revenue_prior": null,
+    "net_income_prior": null,
+    "dividend_per_share": 1,
+    "dividend_frequency": "annual",
+    "payout_ratio": null,
+    "years_paid": 5,
+    "cut_history_5y": 0.2336,
+    "net_margin": 0.144,
+    "net_margin_prior": null,
+    "ebitda": null,
+    "operating_cash_flow": null,
+    "fcf": null,
+    "total_debt": null,
+    "current_ratio": null
+  }
+}

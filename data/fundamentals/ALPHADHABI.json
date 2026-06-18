@@ -1,0 +1,28 @@
+{
+  "symbol": "ALPHADHABI",
+  "as_of": "2025-12-31",
+  "currency": "AED",
+  "source": "Alpha Dhabi Holding official press releases, Investing.com, ADX financial filings",
+  "source_url": "https://alphadhabi.com/news/alpha-dhabi-reports-record-results-with-highest-ever-full-year-revenue-of-aed-78-8-billion-and-strongest-ever-net-profit-of-aed-15-0-billion/",
+  "extractor": "research-grounded/Explore (seed-2)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T12:17:56+00:00",
+  "reported": {
+    "revenue": 78800,
+    "net_income": 15000,
+    "revenue_prior": 63400,
+    "net_income_prior": 13500,
+    "operating_cash_flow": 9630.32,
+    "ebitda": 17700,
+    "fcf": null,
+    "total_debt": 48140,
+    "current_ratio": null,
+    "net_margin": 0.1903,
+    "net_margin_prior": 0.2129,
+    "dividend_per_share": 0.2,
+    "payout_ratio": 0.1333,
+    "dividend_frequency": "Annual",
+    "years_paid": 1,
+    "cut_history_5y": null
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "symbol": "MODON",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "ADX Official Filings, Modon Investor Relations, Zawya, Investing.com",
+  "source_url": "https://www.zawya.com/en/special-coverage/corporate-earnings/modon-holding-reports-net-profit-of-25bln-in-2024-cjm2flk8",
+  "extractor": "research-grounded/Explore (seed-2)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T12:17:56+00:00",
+  "reported": {
+    "revenue": 6511.18,
+    "revenue_prior": 882.4,
+    "net_income": 9423.19,
+    "net_income_prior": 461.27,
+    "net_margin": 0.2576,
+    "net_margin_prior": 0.5224,
+    "ebitda": 1130,
+    "current_ratio": null,
+    "total_debt": null,
+    "dividend_per_share": null,
+    "payout_ratio": null,
+    "fcf": null,
+    "operating_cash_flow": null,
+    "years_paid": null,
+    "dividend_frequency": null,
+    "cut_history_5y": null
+  }
+}

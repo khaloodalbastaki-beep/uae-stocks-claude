@@ -1,0 +1,28 @@
+{
+  "symbol": "TALABAT",
+  "as_of": "2024-12-31",
+  "currency": "AED",
+  "source": "Talabat Investor Relations - Preliminary Results FY2024 and Integrated Annual Report 2024",
+  "source_url": "https://ir.talabat.com/wp-content/uploads/2025/02/20250213_talabat-Q4-FY-preliminary-financials-En.pdf",
+  "extractor": "research-grounded/Explore (seed-2)",
+  "confidence": "high",
+  "retrieved_at": "2026-06-18T12:17:56+00:00",
+  "reported": {
+    "revenue": 11017500000,
+    "revenue_prior": 8235195000,
+    "net_income": 1270885000,
+    "net_income_prior": 778170000,
+    "net_margin": 0.047,
+    "net_margin_prior": 0.035,
+    "ebitda": 1825252500,
+    "fcf": 1695115000,
+    "operating_cash_flow": null,
+    "current_ratio": null,
+    "total_debt": null,
+    "payout_ratio": 0.289,
+    "dividend_per_share": 0.79,
+    "dividend_frequency": "Semi-annual",
+    "years_paid": 1,
+    "cut_history_5y": null
+  }
+}
