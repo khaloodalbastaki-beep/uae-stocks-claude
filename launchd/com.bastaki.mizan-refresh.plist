@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Mizan fundamentals refresh — hourly, staleness-rotated. Refreshes the N stalest names
+     (default 4) whose last touch is >MIZAN_MIN_AGE_HOURS old (20h), skipping fresh ones.
+     Rotates the 54-name universe ~once/day, a few gpt-oss:120b calls/hour, SKIPS when
+     nothing's due. If Ollama's free GPU quota is hit, the call errors -> keeps the modeled
+     value, retries next hour. Updates data/fundamentals/; the 15-min price refresh deploys it. -->
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.bastaki.mizan-refresh</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/khalidalbastaki/Projects/uae-stocks-claude/agents/mizan/refresh_cron.sh</string>
+    <string>4</string>
+  </array>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key><string>/Users/khalidalbastaki/.local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    <key>MIZAN_MIN_AGE_HOURS</key><string>20</string>
+  </dict>
+  <key>StartInterval</key><integer>3600</integer>
+  <key>RunAtLoad</key><false/>
+  <key>StandardOutPath</key><string>/Users/khalidalbastaki/Projects/uae-stocks-claude/data/mizan.log</string>
+  <key>StandardErrorPath</key><string>/Users/khalidalbastaki/Projects/uae-stocks-claude/data/mizan.err.log</string>
+</dict>
+</plist>

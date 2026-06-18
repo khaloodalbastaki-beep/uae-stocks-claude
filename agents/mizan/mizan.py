@@ -157,10 +157,80 @@ def extract(symbol: str) -> dict | None:
 def run_symbols(symbols: list[str]) -> int:
     n = 0
     for s in symbols:
-        if extract(s.strip().upper()):
+        sym = s.strip().upper()
+        ok = extract(sym)
+        _record_attempt(sym)   # mark touched even on a miss, so we don't retry it next run
+        if ok:
             n += 1
     print(f"[mizan] done: {n}/{len(symbols)} real fundamentals written -> {DATA}")
     return n
+
+
+# ── staleness rotation: refresh only the oldest N, skip anything touched recently ──
+def _attempts_path() -> Path:
+    return DATA / ".attempts.json"
+
+
+def _load_attempts() -> dict:
+    p = _attempts_path()
+    if p.exists():
+        try:
+            return json.loads(p.read_text())
+        except Exception:
+            return {}
+    return {}
+
+
+def _record_attempt(symbol: str) -> None:
+    DATA.mkdir(parents=True, exist_ok=True)
+    a = _load_attempts()
+    a[symbol] = _iso()
+    _attempts_path().write_text(json.dumps(a))
+
+
+def _last_touched(symbol: str, attempts: dict) -> str | None:
+    """Most recent of: successful record's retrieved_at OR last attempt. None = never touched."""
+    times = []
+    rec = DATA / f"{symbol}.json"
+    if rec.exists():
+        try:
+            t = json.loads(rec.read_text()).get("retrieved_at")
+            if t:
+                times.append(t)
+        except Exception:
+            pass
+    if attempts.get(symbol):
+        times.append(attempts[symbol])
+    return max(times) if times else None
+
+
+def run_stale(n: int) -> int:
+    """Refresh the N stalest names whose last touch is older than MIZAN_MIN_AGE_HOURS
+    (default 20h) — or never touched. Skips the freshly-updated/attempted ones, so an
+    hourly schedule rotates through the universe without repeating the newest."""
+    from datetime import timedelta
+    min_age = float(os.environ.get("MIZAN_MIN_AGE_HOURS", "20"))
+    cutoff = datetime.now(UTC) - timedelta(hours=min_age)
+    attempts = _load_attempts()
+    cands = []  # (sort_key, symbol) — never-touched sort oldest (epoch 0)
+    for s in load_universe():
+        t = _last_touched(s.symbol, attempts)
+        if t is None:
+            cands.append(("", s.symbol))            # never touched → highest priority
+        else:
+            try:
+                dt = datetime.fromisoformat(t.replace("Z", "+00:00"))
+            except Exception:
+                dt = cutoff - timedelta(days=1)
+            if dt < cutoff:
+                cands.append((t, s.symbol))          # stale enough → eligible
+    cands.sort(key=lambda x: x[0])                   # oldest / never-touched first
+    batch = [sym for _, sym in cands[:max(1, n)]]
+    if not batch:
+        print(f"[mizan] nothing stale (all touched within {min_age:.0f}h) — skip")
+        return 0
+    print(f"[mizan] stale batch ({len(batch)} of {len(cands)} eligible): {', '.join(batch)}")
+    return run_symbols(batch)
 
 
 def run_bus() -> None:
@@ -189,10 +259,13 @@ def main() -> None:
     ap = argparse.ArgumentParser(description="Mizan — UAE fundamentals extraction agent")
     ap.add_argument("--symbols", type=str, help="comma-separated symbols")
     ap.add_argument("--all", action="store_true", help="whole registry")
+    ap.add_argument("--stale", type=int, metavar="N", help="refresh the N stalest names (skips recently-touched; for the hourly schedule)")
     ap.add_argument("--bus", action="store_true", help="process _Bus/inbox/mizan/ requests")
     args = ap.parse_args()
     if args.bus:
         run_bus()
+    elif args.stale is not None:
+        run_stale(args.stale)
     elif args.all:
         run_symbols([s.symbol for s in load_universe()])
     elif args.symbols:
