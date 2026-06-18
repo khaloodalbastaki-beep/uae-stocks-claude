@@ -17,16 +17,10 @@ figure and never change a stance.
 | **freeagent** | stepfun/step-3.7-flash:free | **News editor / backup analyst** | Classify a headline's sentiment + one-line "why it matters"; or stand in as Analyst (`ANALYST_AGENT=freeagent`). | on demand / standby | ✅ tested, ready |
 | **robin** | stepfun/step-3.7-flash:free | **Watcher / QA** | Khalid's existing fleet watcher; here: sanity-check a deployed build (counts, no-fabrication, staleness) and flag anomalies. | on demand | ✅ tested |
 
-## Assigned but BLOCKED on the ZenMux key
-
-Run `~/.hermes/scripts/set_zenmux_key.sh` on the Mac and paste the ZenMux API key (writes
-`ZENMUX_API_KEY` into the three profiles). Until then these exit without a key.
-
-| Agent | Model | Role assigned | Task (once unblocked) |
-|---|---|---|---|
-| **glm52** | z-ai/glm-5.2 | **Deep reviewer** | Adversarial second-opinion: read a stock's scores + analysis and flag where the deterministic read looks weak or the prose overreaches. `cli:glm52`. |
-| **kimi27** | moonshotai/kimi-k2.7-code | **Code/structured** | Generate/repair source adapters + do strict structured extraction (it's a code model) — e.g. parse a new IR page format into the `reported{}` schema. |
-| **step37** | stepfun/step-3.7-flash | **Fast classifier** | Bulk news/disclosure tagging (event_type, materiality) at speed. Note: the same model is free via Nous (`freeagent`), so this role runs on freeagent until the ZenMux key lands. |
+> The ZenMux agents (glm52 / kimi27 / step37) were removed 2026-06-19 — ZenMux denied
+> inference account-wide (403, paid-credits gate), which conflicts with the free-by-default
+> rule. The free Nous fleet below covers every role at $0; re-add ZenMux later only if a
+> paid lane is ever wanted. (Backup of the removed profiles: `~/.hermes/removed-zenmux-*.tar.gz`.)
 
 ## How the manager (Claude Code) follows up
 - **nemotron** runs hourly via `com.bastaki.mizan-refresh` (alongside Mizan fundamentals +
@@ -36,8 +30,7 @@ Run `~/.hermes/scripts/set_zenmux_key.sh` on the Mac and paste the ZenMux API ke
 - Re-narrate one name now: `python3 -m brain.analyst --symbols EMAAR`.
 - Bus dispatch (Hermes): drop a request in `_Bus/inbox/mizan/` (Mizan) — analyst/news are
   cron-driven; add a bus hook if on-demand dispatch is wanted.
-- When the ZenMux key is set, flip glm52/kimi27 on by setting their role env (e.g.
-  `ANALYST_AGENT=glm52` for a stronger narrator, or wire glm52 as a review pass).
+- Swap the narrator anytime with `ANALYST_AGENT=<agent>` (e.g. freeagent as a backup).
 
 ## Why these and not the `claude` CLI
 The local `claude` CLI lane returns 401 (not signed in for headless), so the fleet's free

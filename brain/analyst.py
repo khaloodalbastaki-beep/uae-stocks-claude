@@ -10,7 +10,7 @@ rate limits and never repeats a freshly-narrated name.
 
     python3 -m brain.analyst --stale 4      # for the hourly schedule
     python3 -m brain.analyst --symbols EMAAR
-Agent override: ANALYST_AGENT=nemotron|freeagent|glm52|…
+Agent override: ANALYST_AGENT=nemotron|freeagent|robin
 """
 from __future__ import annotations
 

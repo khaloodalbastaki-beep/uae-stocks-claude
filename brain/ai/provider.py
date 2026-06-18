@@ -169,9 +169,9 @@ class OpenAIProvider(AIProvider):
 
 
 class CliAgentProvider(AIProvider):
-    """Delegates to one of Khalid's local fleet CLI agents (Hermes/Nous/ZenMux), e.g.
+    """Delegates to one of Khalid's local free Nous CLI agents, e.g.
     `nemotron chat -Q -q "<prompt>"`. Their stdout carries a `Warning:`/`session_id:`
-    preamble which we strip. Free, working lanes today: nemotron, freeagent, robin.
+    preamble which we strip. Working lanes: nemotron, freeagent, robin.
     Selected via UAE_AI_PROVIDER=cli:<agent>."""
     def __init__(self, agent: str, timeout: float = 90.0):
         self.agent = agent
